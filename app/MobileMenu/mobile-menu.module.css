@@ -1,0 +1,99 @@
+.hamburgerMenuContainer {
+    position: relative;
+    z-index: 10020; /* Ensure it's above other content */
+}
+
+.hamburgerIcon {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 10003; /* Above other content */
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    pointer-events: all;
+}
+
+/* Hamburger lines */
+.hamburgerIcon .line {
+    width: 100%;
+    height: 2px;
+    background: var(--main-text);
+    border-radius: 1px;
+    transition: transform .3s ease, opacity .3s ease;
+    transform-origin: center;
+}
+.hamburgerIcon .line.open:nth-child(1) {
+    transform: rotate(45deg) translateY(15px);
+}
+.hamburgerIcon .line.open:nth-child(2) {
+    opacity: 0;
+}
+.hamburgerIcon .line.open:nth-child(3) {
+    transform: rotate(-45deg) translateY(-15px);
+}
+
+.sideOverlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    background: var(--background);
+    box-shadow: -2px 0 16px rgba(0,0,0,0.12);
+    z-index: 1001;
+    overflow-x: hidden;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+}
+
+.sideOverlay.open {
+    transform: translateX(0);
+}
+
+.closeIcon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.menuItemsContainer {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menuItems {
+    text-align: center;
+    font-size: 2.5rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.menuItems li {
+    margin-bottom: 5px;
+}
+
+.menuItems a {
+    text-decoration: none;
+    color: var(--main-text);
+    display: block;
+    padding: 5px;
+}
