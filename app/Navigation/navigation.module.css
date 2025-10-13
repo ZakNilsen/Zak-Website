@@ -1,0 +1,85 @@
+.topNav {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 2rem 3.5rem 1.5rem 3.5rem;
+	gap: 2.5rem;
+	background: transparent;
+	z-index: 10;
+}
+
+.navLink {
+	color: #e0e0e0;
+	font-size: 1.15rem;
+	font-weight: 500;
+	text-decoration: none;
+	position: relative;
+	padding: 0.45rem 1.5rem;
+	margin: 0 0.2rem;
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	letter-spacing: 0.04em;
+	overflow: visible;
+	z-index: 1;
+}
+
+.navLink::before {
+	content: "";
+	position: absolute;
+	top: -4px;
+	left: -8px;
+	right: -8px;
+	bottom: -4px;
+	z-index: -1;
+	border-radius: 999px;
+	padding: 0;
+	background: linear-gradient(90deg, #00c6ff, #0072ff, #00c6ff, #0072ff);
+	background-size: 200% 100%;
+	animation: borderMove 2.5s linear infinite;
+	border: 2.5px solid transparent;
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+	-webkit-mask:
+		linear-gradient(#fff 0 0) content-box, 
+		linear-gradient(#fff 0 0);
+	-webkit-mask-composite: xor;
+	mask-composite: exclude;
+}
+
+@keyframes borderMove {
+	0% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 200% 50%;
+	}
+}
+
+.navLink {
+	transition: color 0.2s, transform 0.2s;
+}
+
+.navLink:hover, .navLink:focus {
+	color: #fff;
+	background: linear-gradient(90deg, #ff512f, #e040fb, #a18cd1, #43cea2, #00c6ff, #0072ff);
+	background-size: 200% 100%;
+	background-position: 0% 50%;
+	transition: background 0.5s cubic-bezier(.4,0,.2,1), color 0.2s, transform 0.2s;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	transform: scale(1.08);
+}
+.navLink:hover::before, .navLink:focus::before {
+	background: linear-gradient(90deg, #ff512f, #e040fb, #a18cd1, #43cea2, #00c6ff, #0072ff);
+	background-size: 200% 100%;
+	background-position: 0% 50%;
+	transition: background 0.5s cubic-bezier(.4,0,.2,1);
+}
