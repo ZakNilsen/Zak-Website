@@ -1,9 +1,9 @@
 .navigationContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
 }
 
 .topNav {
@@ -59,7 +59,15 @@
   z-index: -1;
   border-radius: 999px;
   padding: 0;
-  background: linear-gradient(90deg, #00c6ff, #0072ff, #00c6ff, #0072ff);
+  background: repeating-linear-gradient(
+    90deg,
+    #00c6ff 0%,
+    #0072ff 20%,
+    #00c6ff 40%,
+    #0072ff 60%,
+    #00c6ff 80%,
+    #0072ff 100%
+  );
   background-size: 200% 100%;
   animation: borderMove 2.5s linear infinite;
   border: 2.5px solid transparent;
@@ -71,15 +79,16 @@
 }
 
 @keyframes borderMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 200% 50%;
-  }
+0% {
+  background-position: 0% 50%;
+}
+100% {
+  background-position: 200% 50%;
+}
 }
 
-.navLink:hover, .navLink:focus {
+.navLink:hover,
+.navLink:focus {
   color: #fff;
   background: linear-gradient(90deg, #ff512f, #e040fb, #a18cd1, #43cea2, #00c6ff, #0072ff);
   background-size: 200% 100%;
@@ -91,8 +100,17 @@
   transform: scale(1.08);
 }
 
-.navLink:hover::before, .navLink:focus::before {
-  background: linear-gradient(90deg, #ff512f, #e040fb, #a18cd1, #43cea2, #00c6ff, #0072ff);
+.navLink:hover::before,
+.navLink:focus::before {
+  background: repeating-linear-gradient(
+    90deg,
+    #ff512f 0%,
+    #e040fb 20%,
+    #a18cd1 40%,
+    #43cea2 60%,
+    #00c6ff 80%,
+    #ff512f 100%
+  );
   background-size: 200% 100%;
   background-position: 0% 50%;
   transition: background 0.5s cubic-bezier(.4,0,.2,1);
