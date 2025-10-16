@@ -17,6 +17,8 @@ const HamburgerMenu = () => {
       </button>
 
       <div className={`${styles.sideOverlay} ${isOpen ? styles.open : ''}`}>
+        <div className={styles.mobileOverlayStars} />
+        <div className={styles.twinkling} />
         <nav className={styles.menuItemsContainer}>
           <ul className={styles.menuItems}>
             <li>
