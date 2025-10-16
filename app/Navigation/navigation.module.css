@@ -1,28 +1,109 @@
+/* Logo and Name Styles */
+.logoName {
+  display: flex;
+  align-items: center;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 0.5rem;
+}
+
+/* Base logo and name */
+.logo {
+  font-size: 2.2rem;
+  color: #ff512f;
+  margin-right: 0.7rem;
+  font-weight: bold;
+}
+
+.siteName {
+  font-size: 1.75rem;
+  color: #e0e0e0;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  text-align: left;
+}
+
+/* Modifier for small logo/name (used in mobile) */
+.logoLink.small {
+  gap: 0.3rem;
+}
+.logo.small {
+  font-size: 1.3rem;
+  margin-right: 0.4rem;
+}
+.siteName.small {
+  font-size: 1.45rem;
+}
+
+.logoName {
+  display: flex;
+  align-items: center;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 0.25rem
+}
+
+.logoImage {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .navigationContainer {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
+  pointer-events: none;
   z-index: 100;
 }
 
-.topNav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
+.topBar {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  width: 100vw;
   padding: 2rem 3.5rem 1.5rem 3.5rem;
+  pointer-events: auto;
+}
+
+.mobileNavHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  padding: 1.1rem 1.2rem 0.7rem 1.2rem;
+  background: transparent;
+  z-index: 100;
+  pointer-events: auto;
+}
+
+.topNav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   gap: 2.5rem;
   background: transparent;
-  z-index: 10;
 }
 
 @media (max-width: 700px) {
   .topNav {
     display: none;
+  }
+
+  .navigationContainer {
+    z-index: 1;
   }
 }
 
@@ -40,7 +121,6 @@
   cursor: pointer;
   letter-spacing: 0.04em;
   overflow: visible;
-  z-index: 1;
   transition: color 0.3s cubic-bezier(.4,0,.2,1),
     background 0.5s cubic-bezier(.4,0,.2,1),
     -webkit-text-fill-color 0.5s cubic-bezier(.4,0,.2,1),
@@ -79,12 +159,12 @@
 }
 
 @keyframes borderMove {
-0% {
-  background-position: 0% 50%;
-}
-100% {
-  background-position: 200% 50%;
-}
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
 }
 
 .navLink:hover,

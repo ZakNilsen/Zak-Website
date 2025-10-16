@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import styles from "./mobile-menu.module.css";
-import Link from 'next/link'; // For Next.js navigation
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,16 +20,16 @@ const HamburgerMenu = () => {
         <nav className={styles.menuItemsContainer}>
           <ul className={styles.menuItems}>
             <li>
-              <Link href="/">Home</Link>
+              <a href="/">Home</a>
             </li>
             <li>
-              <Link href="/about">About</Link>
+              <a href="/about">About</a>
             </li>
             <li>
-              <Link href="/projects">Projects</Link>
+              <a href="/projects">Projects</a>
             </li>
             <li>
-              <Link href="/contact">Contact</Link>
+              <a href="/contact">Contact</a>
             </li>
           </ul>
         </nav>
