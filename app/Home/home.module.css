@@ -16,7 +16,8 @@
 }
 
 .welcomeText {
-	font-size: 5rem;
+  /* Use clamp for responsive scaling: min 1.8rem on very small screens, preferred scaling based on viewport, max 5rem on large screens */
+  font-size: clamp(2.25rem, 6vw, 5rem);
 	font-weight: 800;
 	color: #fff;
 	letter-spacing: 0.05em;
@@ -86,7 +87,7 @@
   will-change: transform, opacity;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: var(--mobile-screen-width, 768px)) {
   .star {
     animation: fall var(--fall-duration) var(--fall-delay) linear infinite;
   }

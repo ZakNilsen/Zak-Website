@@ -96,7 +96,7 @@
   background: transparent;
 }
 
-@media (max-width: 700px) {
+@media (max-width: var(--mobile-screen-width, 768px)) {
   .topNav {
     display: none;
   }
