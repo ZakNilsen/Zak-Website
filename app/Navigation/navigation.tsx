@@ -4,6 +4,10 @@ import styles from "./navigation.module.css";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
+interface NavigationProps {
+  isMobile?: boolean;
+}
+
 function LogoName({ size = "normal" }) {
   const small = size === "small" ? styles.small : "";
   return (
@@ -22,15 +26,7 @@ function LogoName({ size = "normal" }) {
 
 const HamburgerMenu = dynamic(() => import("../MobileMenu/mobileMenu"), { ssr: false });
 
-export default function Navigation() {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-      const checkMobile = () => setIsMobile(window.innerWidth <= 768);
-      checkMobile();
-      window.addEventListener("resize", checkMobile);
-      return () => window.removeEventListener("resize", checkMobile);
-    }, []);
+export default function Navigation({ isMobile = false }: NavigationProps) {
 
     return (
       <div className={styles.navigationContainer}>

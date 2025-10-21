@@ -121,13 +121,14 @@
 
 .mobileOverlayStars {
 	z-index: -2;
-	background: #000 url('https://i.imgur.com/YKY28eT.png') repeat top center;
+	background: #000 url('/images/star-background.png') repeat top center;
 }
 
 .twinkling {
-	z-index:-1;
-	background:transparent url('https://i.imgur.com/XYMF4ca.png') repeat top center;
-	animation: move-twink-back 200s linear infinite;
+  z-index: -1;
+  /* Use local asset in public/images/ - place twinkling-effect.png there */
+  background: transparent url('/images/twinkling-effect.png') repeat top center;
+  animation: move-twink-back 200s linear infinite;
 }
 
 @keyframes move-twink-back {
