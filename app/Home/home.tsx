@@ -8,7 +8,8 @@ interface HomeProps {
 }
 
 export default function Home({ isMobile = false }: HomeProps) {
-  const starCount = 50;
+  const starCount = isMobile ? 40 : 50;
+  const starClass = isMobile ? styles.mobileStars : styles.stars;
 
   /**
    * Deterministic random number generator
@@ -23,7 +24,7 @@ export default function Home({ isMobile = false }: HomeProps) {
 
   const stars = (() => {
     const rng = makeRNG(20220522); // fixed seed for consistent SSR + client
-    const speedMultiplier = isMobile ? 1.5 : 1;
+    const speedMultiplier = isMobile ? 1.25 : 1;
 
     return Array.from({ length: starCount }, (_, i) => {
       const tailLength = rng() * 2.5 + 5; // 5–7.5em
@@ -46,8 +47,10 @@ export default function Home({ isMobile = false }: HomeProps) {
   return (
     <div className={styles.homeContainer}>
       <Navigation isMobile={isMobile} />
-      <div className={styles.stars}>{stars}</div>
-      <div className={styles.forest} aria-hidden="true" />
+      <div className={starClass}>{stars}</div>
+      <div className={styles.forest} aria-hidden="true">
+        <img src="/images/forest-silhouette.png" alt="" />
+      </div>
       <div className={styles.centeredWelcome}>
         <h1 className={styles.welcomeText}>Welcome</h1>
       </div>
