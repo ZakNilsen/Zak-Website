@@ -103,9 +103,9 @@
      The wrapper is positioned at the bottom of the initial view so the image scrolls away
      with the section. While using width: 100% and height: auto to preserve aspect ratio. */
   position: absolute;
-  left: 0;
+  left: -3px;
   right: 0;
-  bottom: 0;
+  bottom: -4px; /* slight overlap to prevent gap due to anti-aliasing */
   display: flex;
   justify-content: center;
   pointer-events: none;

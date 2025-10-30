@@ -54,9 +54,6 @@ export default function Home({ isMobile = false }: HomeProps) {
       <div className={styles.centeredWelcome}>
         <h1 className={styles.welcomeText}>Welcome</h1>
       </div>
-      <div className={styles.initialInfo}>
-        <p>This is in progress- have to figure this out still</p>
-      </div>
     </div>
   );
 }
