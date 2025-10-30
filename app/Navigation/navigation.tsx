@@ -2,11 +2,8 @@
 
 import styles from "./navigation.module.css";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
-
-interface NavigationProps {
-  isMobile?: boolean;
-}
+import { AppProps } from "../appProps";
+import Link from 'next/link'
 
 function LogoName({ size = "normal" }) {
   const small = size === "small" ? styles.small : "";
@@ -26,7 +23,7 @@ function LogoName({ size = "normal" }) {
 
 const HamburgerMenu = dynamic(() => import("../MobileMenu/mobileMenu"), { ssr: false });
 
-export default function Navigation({ isMobile = false }: NavigationProps) {
+export default function Navigation({ isMobile = false }: AppProps) {
 
     return (
       <div className={styles.navigationContainer}>
@@ -36,10 +33,10 @@ export default function Navigation({ isMobile = false }: NavigationProps) {
               <LogoName />
             </div>
             <nav className={styles.topNav}>
-              <a href="/" className={styles.navLink}>Home</a>
-              <a href="/about" className={styles.navLink}>About</a>
-              <a href="/projects" className={styles.navLink}>Projects</a>
-              <a href="/contact" className={styles.navLink}>Contact</a>
+              <Link href="/" className={styles.navLink}>Home</Link>
+              <Link href="/about" className={styles.navLink}>About</Link>
+              <Link href="/projects" className={styles.navLink}>Projects</Link>
+              <Link href="/contact" className={styles.navLink}>Contact</Link>
             </nav>
           </div>
         )}

@@ -2,12 +2,9 @@
 
 import styles from "./home.module.css";
 import Navigation from "../Navigation/navigation";
+import { AppProps } from "../appProps";
 
-interface HomeProps {
-  isMobile?: boolean;
-}
-
-export default function Home({ isMobile = false }: HomeProps) {
+export default function Home({ isMobile = false }: AppProps) {
   const starCount = isMobile ? 40 : 50;
   const starClass = isMobile ? styles.mobileStars : styles.stars;
 
@@ -24,13 +21,13 @@ export default function Home({ isMobile = false }: HomeProps) {
 
   const stars = (() => {
     const rng = makeRNG(20220522); // fixed seed for consistent SSR + client
-    const speedMultiplier = isMobile ? 1.25 : 1;
+    const slowDownMultiplier = isMobile ? 1.25 : 1;
 
     return Array.from({ length: starCount }, (_, i) => {
       const tailLength = rng() * 2.5 + 5; // 5–7.5em
       const topOffset = rng() * 100; // 0–100vh
       const baseFallMs = rng() * 6000 + 6000; // 6000–12000ms
-      const fallMs = Math.round(baseFallMs * speedMultiplier);
+      const fallMs = Math.round(baseFallMs * slowDownMultiplier);
       const delayMs = rng() * 10000; // 0–10000ms
 
       const style = {
