@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Home from "./page";
+import Navigation from "./navigation/navigation";
+import { MobileProvider } from "./mobile/mobileContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,10 +19,7 @@ export const metadata: Metadata = {
   description: "Zak Nilsen's personal website",
 };
 
-export default function RootLayout({
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en">
       <head>
@@ -32,7 +30,12 @@ export default function RootLayout({
         <link rel="manifest" href="/app/site.webmanifest" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Home />
+        <MobileProvider>
+          <Navigation />
+
+          {/* Render current page component */}
+          <main>{children}</main>
+        </MobileProvider>
       </body>
     </html>
   );

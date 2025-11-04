@@ -1,16 +1,15 @@
 "use client";
 
 import styles from "./about.module.css";
-import Navigation from "../Navigation/navigation";
-import { AppProps } from "../appProps";
+import Navigation from "../navigation/navigation";
+import { useMobile } from "../mobile/mobileContext";
 
 
-export default function About({ isMobile = false }: AppProps) {
-
+export default function About() {
 
   return (
     <div className={styles.aboutContainer}>
-      <Navigation isMobile={isMobile} />
+      <Navigation />
       <div className={styles.content}>
         <h1>About Me</h1>
         <p>

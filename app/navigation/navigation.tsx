@@ -2,8 +2,8 @@
 
 import styles from "./navigation.module.css";
 import dynamic from "next/dynamic";
-import { AppProps } from "../appProps";
 import Link from 'next/link'
+import { useMobile } from "../mobile/mobileContext";
 
 function LogoName({ size = "normal" }) {
   const small = size === "small" ? styles.small : "";
@@ -21,9 +21,10 @@ function LogoName({ size = "normal" }) {
   );
 }
 
-const HamburgerMenu = dynamic(() => import("../MobileMenu/mobileMenu"), { ssr: false });
+const HamburgerMenu = dynamic(() => import("../mobile/mobileMenu"), { ssr: false });
 
-export default function Navigation({ isMobile = false }: AppProps) {
+export default function Navigation() {
+  const { isMobile } = useMobile();
 
     return (
       <div className={styles.navigationContainer}>

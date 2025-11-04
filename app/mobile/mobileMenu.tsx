@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from "./mobile-menu.module.css";
+import styles from "./mobileMenu.module.css";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);

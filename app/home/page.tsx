@@ -1,10 +1,11 @@
 "use client";
 
 import styles from "./home.module.css";
-import Navigation from "../Navigation/navigation";
-import { AppProps } from "../appProps";
+import { useMobile } from "../mobile/mobileContext";
 
-export default function Home({ isMobile = false }: AppProps) {
+export default function Home() {
+  const { isMobile } = useMobile();
+
   const starCount = isMobile ? 40 : 50;
   const starClass = isMobile ? styles.mobileStars : styles.stars;
 
@@ -43,7 +44,6 @@ export default function Home({ isMobile = false }: AppProps) {
 
   return (
     <div className={styles.homeContainer}>
-      <Navigation isMobile={isMobile} />
       <div className={starClass}>{stars}</div>
       <div className={styles.forest} aria-hidden="true">
         <img src="/images/forest-silhouette.png" alt="" />
