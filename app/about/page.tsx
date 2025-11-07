@@ -9,7 +9,6 @@ export default function About() {
 
   return (
     <div className={styles.aboutContainer}>
-      <Navigation />
       <div className={styles.content}>
         <h1>About Me</h1>
         <p>
