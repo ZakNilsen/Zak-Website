@@ -1,3 +1,244 @@
 .aboutContainer {
-  display: block;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #1a2332, #0f1419, #1a2332);
+  color: #e5e7eb;
+  padding: 6rem 1.5rem;
+}
+
+.aboutContent {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+/* Me Section */
+.meSection {
+  margin-bottom: 4rem;
+}
+
+.name {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+  font-size: 1.25rem;
+  line-height: 1.75;
+  color: #d1d5db;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #60a5fa;
+}
+
+/* About Text */
+.aboutText {
+  color: #d1d5db;
+  line-height: 1.75;
+}
+
+.aboutText p {
+  margin-bottom: 1rem;
+}
+
+/* Skills Grid */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.skillCategory {
+  background: rgba(30, 41, 59, 0.5);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #334155;
+}
+
+.skillCategoryTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #a78bfa;
+}
+
+.skillTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skillTag {
+  padding: 0.5rem 0.75rem;
+  background: #334155;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+}
+
+/* Experience */
+.experienceItem {
+  border-left: 4px solid #60a5fa;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.experienceItem:last-child {
+  border-color: #a78bfa;
+}
+
+.experienceHeader {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.jobTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.jobDate {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.company {
+  color: #a78bfa;
+  margin-bottom: 0.75rem;
+}
+
+.jobDescription {
+  list-style: disc;
+  padding-left: 1.25rem;
+  color: #d1d5db;
+}
+
+.jobDescription li {
+  margin-bottom: 0.5rem;
+}
+
+/* Education */
+.educationBox {
+  background: rgba(30, 41, 59, 0.5);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #334155;
+}
+
+.degree {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.school {
+  color: #a78bfa;
+  margin-bottom: 0.75rem;
+}
+
+.gradDate {
+  color: #9ca3af;
+  margin-bottom: 1rem;
+}
+
+.coursework {
+  margin-top: 1rem;
+}
+
+.courseworkLabel {
+  color: #d1d5db;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.courseList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.course {
+  padding: 0.5rem 0.75rem;
+  background: #334155;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  color: #d1d5db;
+}
+
+/* Contact Section */
+.contactSection {
+  text-align: center;
+}
+
+.contactText {
+  color: #d1d5db;
+  margin-bottom: 1.5rem;
+}
+
+.contactButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.contactButton {
+  padding: 0.75rem 1.5rem;
+  background: #2563eb;
+  border-radius: 0.5rem;
+  transition: background 0.3s;
+  text-decoration: none;
+  color: #e5e7eb;
+}
+
+.contactButton:hover {
+  background: #1d4ed8;
+}
+
+.contactButton:not(:first-child) {
+  background: #334155;
+}
+
+.contactButton:not(:first-child):hover {
+  background: #475569;
+}
+
+/* Responsive Mobile Adjustments */
+@media (max-width: 768px) {
+  .name {
+    font-size: 2rem;
+  }
+
+  .tagline {
+    font-size: 1.125rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .skillsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .experienceHeader {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

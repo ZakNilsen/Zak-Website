@@ -135,7 +135,7 @@
   pointer-events: auto;
 }
 
-@media screen and (max-width: var(--mobile-screen-width, 768px)) {
+@media screen and (max-width: 768px) {
   /* On small screens, remove the rotated transform and increase travel distance
      so stars start off-screen and are spread vertically as expected. */
   .stars {
@@ -144,7 +144,7 @@
 
   .star {
     /* start further off-screen on mobile to account for different layout/rotation */
-    --speed-multiplier: 1.25;
+    --speed-multiplier: 1.05;
     animation: fall calc(var(--fall-duration) * var(--speed-multiplier)) var(--fall-delay) linear infinite,
                tail-fade calc(var(--tail-fade-duration) * var(--speed-multiplier)) var(--fall-delay) ease-out infinite;
   }

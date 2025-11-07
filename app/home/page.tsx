@@ -46,7 +46,7 @@ export default function Home() {
     <div className={styles.homeContainer}>
       <div className={starClass}>{stars}</div>
       <div className={styles.forest} aria-hidden="true">
-        <img src="/images/forest-silhouette.png" alt="" />
+        <img src="/images/forest-silhouette.png" alt="" aria-hidden="true" />
       </div>
       <div className={styles.centeredWelcome}>
         <h1 className={styles.welcomeText}>Welcome</h1>

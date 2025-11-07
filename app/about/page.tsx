@@ -1,22 +1,168 @@
-"use client";
-
 import styles from "./about.module.css";
-import Navigation from "../navigation/navigation";
-import { useMobile } from "../mobile/mobileContext";
-
 
 export default function About() {
-
   return (
     <div className={styles.aboutContainer}>
-      <div className={styles.content}>
-        <h1>About Me</h1>
-        <p>
-          Hello! I'm Zak Nilsen, a passionate software developer with a love for creating innovative solutions. With experience in various programming languages and frameworks, I enjoy building applications that make a difference.
-        </p>
-        <p>
-          When I'm not coding, I like to explore the outdoors, read sci-fi novels, and experiment with new technologies. Feel free to check out my projects and get in touch!
-        </p>
+      <div className={styles.aboutContent}>
+
+        <section className={styles.meSection}>
+          <h1 className={styles.name}>Hi, I'm Zakary Nilsen</h1>
+          <p className={styles.tagline}>
+            Full Stack Developer passionate about building innovative web applications
+            and solving complex problems with clean, efficient code.
+          </p>
+        </section>
+
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>About Me</h2>
+          <div className={styles.aboutText}>
+            <p>
+              I'm a Computer Science graduate from the University of St. Thomas with hands-on
+              experience as a Full Stack Developer. Currently, I work at ClearCompany where I
+              contribute to building and maintaining enterprise-level HR software solutions.
+            </p>
+            <p>
+              My journey in software development has taken me through various technologies and
+              challenges—from implementing AI-powered features using OpenAI's API to developing
+              robust backend systems with AWS services. I thrive in collaborative environments
+              where I can learn new technologies quickly and deliver high-quality solutions.
+            </p>
+            <p>
+              When I'm not coding, I enjoy exploring new technologies, contributing to open-source
+              projects, and continuously improving my skills across the full stack.
+            </p>
+          </div>
+        </section>
+
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Technical Skills</h2>
+          <div className={styles.skillsGrid}>
+            <div className={styles.skillCategory}>
+              <h3 className={styles.skillCategoryTitle}>Frontend</h3>
+              <div className={styles.skillTags}>
+                <span className={styles.skillTag}>React</span>
+                <span className={styles.skillTag}>TypeScript</span>
+                <span className={styles.skillTag}>JavaScript</span>
+                <span className={styles.skillTag}>Angular</span>
+                <span className={styles.skillTag}>HTML/CSS</span>
+                <span className={styles.skillTag}>Figma</span>
+              </div>
+            </div>
+
+            <div className={styles.skillCategory}>
+              <h3 className={styles.skillCategoryTitle}>Backend</h3>
+              <div className={styles.skillTags}>
+                <span className={styles.skillTag}>C#/.NET</span>
+                <span className={styles.skillTag}>Node.js</span>
+                <span className={styles.skillTag}>Java</span>
+                <span className={styles.skillTag}>ColdFusion</span>
+                <span className={styles.skillTag}>SQL</span>
+                <span className={styles.skillTag}>Python</span>
+              </div>
+            </div>
+
+            <div className={styles.skillCategory}>
+              <h3 className={styles.skillCategoryTitle}>Cloud & Tools</h3>
+              <div className={styles.skillTags}>
+                <span className={styles.skillTag}>AWS</span>
+                <span className={styles.skillTag}>GitHub</span>
+                <span className={styles.skillTag}>RESTful APIs</span>
+                <span className={styles.skillTag}>Docker</span>
+              </div>
+            </div>
+
+            <div className={styles.skillCategory}>
+              <h3 className={styles.skillCategoryTitle}>Specialties</h3>
+              <div className={styles.skillTags}>
+                <span className={styles.skillTag}>Full Stack Development</span>
+                <span className={styles.skillTag}>API Development</span>
+                <span className={styles.skillTag}>AI Integration</span>
+                <span className={styles.skillTag}>Database Design</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Experience</h2>
+
+          <div className={styles.experienceItem}>
+            <div className={styles.experienceHeader}>
+              <h3 className={styles.jobTitle}>Software Engineer (Full Stack)</h3>
+              <span className={styles.jobDate}>June 2024 - Present</span>
+            </div>
+            <p className={styles.company}>ClearCompany</p>
+            <ul className={styles.jobDescription}>
+              <li>Developed features using React, TypeScript, C#, and .NET across multiple product teams</li>
+              <li>Led frontend development for ClearInsights, a high-priority reporting product with ThoughtSpot AI integration</li>
+              <li>Built scalable backend endpoints and ensured pixel-perfect UI implementation from Figma designs</li>
+            </ul>
+          </div>
+
+          <div className={styles.experienceItem}>
+            <div className={styles.experienceHeader}>
+              <h3 className={styles.jobTitle}>Full Stack Developer</h3>
+              <span className={styles.jobDate}>July 2022 - June 2024</span>
+            </div>
+            <p className={styles.company}>Brainier Solutions</p>
+            <ul className={styles.jobDescription}>
+              <li>Implemented AI-generated learning content using OpenAI's ChatGPT API and AWS Transcribe</li>
+              <li>Developed video transcription module with AWS Transcribe for automated subtitle generation</li>
+              <li>Strengthened email security by implementing DKIM authentication through AWS SES</li>
+            </ul>
+          </div>
+        </section>
+
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Education</h2>
+          <div className={styles.educationBox}>
+            <h3 className={styles.degree}>Bachelor of Science in Computer Science</h3>
+            <p className={styles.school}>University of St. Thomas, St. Paul, MN</p>
+            <p className={styles.gradDate}>Graduated: May 2022</p>
+            <div className={styles.coursework}>
+              <p className={styles.courseworkLabel}>Relevant Coursework:</p>
+              <div className={styles.courseList}>
+                <span className={styles.course}>Web Development</span>
+                <span className={styles.course}>OOP</span>
+                <span className={styles.course}>Algorithms</span>
+                <span className={styles.course}>Data Structures</span>
+                <span className={styles.course}>Information Security</span>
+                <span className={styles.course}>Database Design</span>
+                <span className={styles.course}>Computer Graphics</span>
+                <span className={styles.course}>Deep Learning</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.contactSection}>
+          <h2 className={styles.sectionTitle}>Let's Connect</h2>
+          <p className={styles.contactText}>
+            I'm always interested in hearing about new opportunities and collaborations.
+          </p>
+          <div className={styles.contactButtons}>
+            <a href="mailto:zakarynilsen@gmail.com" className={styles.contactButton}>
+              Email Me
+            </a>
+            <a
+              href="https://linkedin.com/in/zakary-nilsen"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.contactButton}
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/ZakNilsen"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.contactButton}
+            >
+              GitHub
+            </a>
+          </div>
+        </section>
+
       </div>
     </div>
   );
