@@ -8,8 +8,8 @@ export default function About() {
         <section className={styles.meSection}>
           <h1 className={styles.name}>Hi, I'm Zakary Nilsen</h1>
           <p className={styles.tagline}>
-            Full Stack Developer passionate about building innovative web applications
-            and solving complex problems with clean, efficient code.
+            Full Stack Developer who loves exploring &mdash; in code, in nature, and
+            anywhere curiosity leads.
           </p>
         </section>
 
@@ -17,19 +17,26 @@ export default function About() {
           <h2 className={styles.sectionTitle}>About Me</h2>
           <div className={styles.aboutText}>
             <p>
-              I'm a Computer Science graduate from the University of St. Thomas with hands-on
-              experience as a Full Stack Developer. Currently, I work at ClearCompany where I
-              contribute to building and maintaining enterprise-level HR software solutions.
+              I've always been drawn to the way technology lets us explore &mdash;
+              whether it's building something new in code or looking up at the
+              night sky and wondering what's out there.
             </p>
             <p>
-              My journey in software development has taken me through various technologies and
-              challenges—from implementing AI-powered features using OpenAI's API to developing
-              robust backend systems with AWS services. I thrive in collaborative environments
-              where I can learn new technologies quickly and deliver high-quality solutions.
+              I studied Computer Science at the University of St. Thomas and now work at
+              ClearCompany, helping develop software that supports people and teams in
+              their everyday work. It's been an incredible place to learn how complex
+              systems come together &mdash; and how small ideas can grow into something meaningful.
             </p>
             <p>
-              When I'm not coding, I enjoy exploring new technologies, contributing to open-source
-              projects, and continuously improving my skills across the full stack.
+              Outside of coding, I spend as much time as I can outdoors
+               &mdash; hiking, camping, and stargazing whenever the weather cooperates.
+               I've always had a soft spot for space and astronomy, and someday
+               I'd love to contribute to that field, maybe even build tools that help us
+               understand the universe a little better.
+            </p>
+            <p>
+              For me, development isn't just problem-solving &mdash; it's exploration.
+              Each project is a small journey into the unknown.
             </p>
           </div>
         </section>
@@ -162,7 +169,6 @@ export default function About() {
             </a>
           </div>
         </section>
-
       </div>
     </div>
   );
