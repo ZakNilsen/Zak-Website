@@ -1,8 +1,36 @@
+"use client";
 import styles from "./about.module.css";
+import { makeRNG } from "../utility/utility";
 
 export default function About() {
+
+  const stars = (() => {
+    const rng = makeRNG(20010418); // fixed seed for consistent SSR + client
+    const starCount = 100;
+
+    return Array.from({ length: starCount }, (_, i) => {
+      const left = rng() * 100; // 0-100%
+      const top = rng() * 100; // 0-100%
+      const sizeRand = rng();
+      const size = sizeRand < 0.7 ? 1 : sizeRand < 0.9 ? 2 : 3; // mostly 1px, some 2px, rare 3px
+      const animDelay = rng() * 8; // 0-8s
+      const animDuration = 3 + rng() * 5; // 3-8s
+
+      const style = {
+        "--star-left": `${left}%`,
+        "--star-top": `${top}%`,
+        "--star-size": `${size}px`,
+        "--anim-delay": `${animDelay}s`,
+        "--anim-duration": `${animDuration}s`,
+      } as React.CSSProperties;
+
+      return <div key={i} className={styles.star} style={style}></div>;
+    });
+  })();
+
   return (
     <div className={styles.aboutContainer}>
+      <div className={styles.stars}>{stars}</div>
       <div className={styles.aboutContent}>
 
         <section className={styles.meSection}>

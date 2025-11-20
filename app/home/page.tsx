@@ -2,23 +2,13 @@
 
 import styles from "./home.module.css";
 import { useMobile } from "../mobile/mobileContext";
+import { makeRNG } from "../utility/utility";
 
 export default function Home() {
   const { isMobile } = useMobile();
 
   const starCount = isMobile ? 40 : 50;
   const starClass = isMobile ? styles.mobileStars : styles.stars;
-
-  /**
-   * Deterministic random number generator
-   * Ensures SSR and client generate identical values
-   */
-  function makeRNG(seed: number) {
-    return function random() {
-      seed = (seed * 1664525 + 1013904223) % 4294967296;
-      return seed / 4294967296;
-    };
-  }
 
   const stars = (() => {
     const rng = makeRNG(20220522); // fixed seed for consistent SSR + client
