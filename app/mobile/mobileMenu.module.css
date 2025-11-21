@@ -1,13 +1,13 @@
 .hamburgerMenuContainer {
   position: relative;
-  z-index: 2;
+  z-index: 1002;
 }
 
 .hamburgerIcon {
   position: fixed;
   top: 2rem;
   right: 2rem;
-  z-index: 3;
+  z-index: 1003;
   width: 32px;
   height: 32px;
   background: transparent;
@@ -47,7 +47,7 @@
   width: 100vw;
   background: var(--background);
   box-shadow: -2px 0 16px rgba(0,0,0,0.12);
-  z-index: 1;
+  z-index: 1001;
   overflow-x: hidden;
   transform: translateX(100%);
   transition: transform 0.35s cubic-bezier(.4,0,.2,1);
