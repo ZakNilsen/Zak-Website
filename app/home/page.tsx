@@ -1,5 +1,3 @@
-"use client";
-
 import styles from "./home.module.css";
 import { useMobile } from "../mobile/mobileContext";
 import { makeRNG } from "../utility/utility";
