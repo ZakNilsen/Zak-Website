@@ -187,7 +187,7 @@ export default function About() {
             </div>
             <p className={styles.company}>Brainier Solutions</p>
             <ul className={styles.jobDescription}>
-              <li>Implemented AI-generated learning content using OpenAI's ChatGPT API and AWS Transcribe</li>
+              <li>Integrated AWS Transcribe to automate video subtitle generation and extract searchable video metadata</li>
               <li>Developed video transcription module with AWS Transcribe for automated subtitle generation</li>
               <li>Strengthened email security by implementing DKIM authentication through AWS SES</li>
             </ul>
