@@ -4,34 +4,11 @@ import { makeRNG } from "../utility/utility";
 import { useState, useEffect, useRef } from "react";
 
 export default function Projects() {
-  const stars = (() => {
-    const rng = makeRNG(20220522);
-    const starCount = 100;
 
-    return Array.from({ length: starCount }, (_, i) => {
-      const left = rng() * 100;
-      const top = rng() * 100;
-      const sizeRand = rng();
-      const size = sizeRand < 0.7 ? 1 : sizeRand < 0.9 ? 2 : 3;
-      const animDelay = rng() * 8;
-      const animDuration = 3 + rng() * 5;
-
-      const style = {
-        "--star-left": `${left}%`,
-        "--star-top": `${top}%`,
-        "--star-size": `${size}px`,
-        "--anim-delay": `${animDelay}s`,
-        "--anim-duration": `${animDuration}s`,
-      } as React.CSSProperties;
-
-      return <div key={i} className={styles.star} style={style}></div>;
-    });
-  })();
-
-  // Fireflies
+  // Fireflies - increased count for forest atmosphere
   const fireflies = (() => {
-    const rng = makeRNG(20000101);
-    const fireflyCount = 15;
+    const rng = makeRNG(20230101);
+    const fireflyCount = 25;
 
     return Array.from({ length: fireflyCount }, (_, i) => {
       const startX = rng() * 100;
@@ -94,18 +71,6 @@ export default function Projects() {
     return () => clearInterval(interval);
   }, []);
 
-  // Parallax effect for mountains
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   // Placeholder project data
   const placeholderProjects = [
     {
@@ -130,7 +95,6 @@ export default function Projects() {
 
   return (
     <div className={styles.projectsContainer}>
-      <div className={styles.stars}>{stars}</div>
       <div className={styles.fireflies}>{fireflies}</div>
 
       {/* Comet trail */}
@@ -149,6 +113,11 @@ export default function Projects() {
       <div className={styles.moon} data-phase={moonPhase}>
         <div className={styles.moonSurface}></div>
       </div>
+
+      {/* Forest Silhouettes */}
+      <div className={styles.forestBack}></div>
+      <div className={styles.forestMid}></div>
+      <div className={styles.forestFront}></div>
 
       <div className={styles.projectsContent}>
 
@@ -196,20 +165,6 @@ export default function Projects() {
         </section>
 
       </div>
-
-      {/* Parallax Mountains */}
-      <div
-        className={styles.mountainLayer3}
-        style={{ transform: `translateY(${scrollY * 0.1}px)` }}
-      />
-      <div
-        className={styles.mountainLayer2}
-        style={{ transform: `translateY(${scrollY * 0.2}px)` }}
-      />
-      <div
-        className={styles.mountainLayer1}
-        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
-      />
     </div>
   );
 }
