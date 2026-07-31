@@ -1,7 +1,8 @@
 "use client";
 import styles from "./projects.module.css";
 import { makeRNG } from "../utility/utility";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+import CometCursor from "./../animations/cometCursor";
 
 export default function Projects() {
 
@@ -28,36 +29,6 @@ export default function Projects() {
       return <div key={i} className={styles.firefly} style={style}></div>;
     });
   })();
-
-  // Comet trail cursor effect
-  const [cometTrail, setCometTrail] = useState<Array<{id: number, x: number, y: number}>>([]);
-  const cometIdRef = useRef(0);
-  const lastCometTime = useRef(0);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const now = Date.now();
-      // Throttle comet creation to every 50ms
-      if (now - lastCometTime.current < 50) return;
-      lastCometTime.current = now;
-
-      const newComet = {
-        id: cometIdRef.current++,
-        x: e.clientX,
-        y: e.clientY,
-      };
-
-      setCometTrail(prev => [...prev, newComet]);
-
-      // Remove comet after animation
-      setTimeout(() => {
-        setCometTrail(prev => prev.filter(c => c.id !== newComet.id));
-      }, 800);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   // Moon phase (cycles through 8 phases)
   const [moonPhase, setMoonPhase] = useState(0);
@@ -97,27 +68,18 @@ export default function Projects() {
     <div className={styles.projectsContainer}>
       <div className={styles.fireflies}>{fireflies}</div>
 
-      {/* Comet trail */}
-      {cometTrail.map(comet => (
-        <div
-          key={comet.id}
-          className={styles.comet}
-          style={{
-            left: `${comet.x}px`,
-            top: `${comet.y}px`,
-          }}
-        />
-      ))}
+      {/* Cosmic cursor trail */}
+      <CometCursor />
 
       {/* Moon */}
       <div className={styles.moon} data-phase={moonPhase}>
         <div className={styles.moonSurface}></div>
       </div>
 
-      {/* Forest Silhouettes */}
-      <div className={styles.forestBack}></div>
-      <div className={styles.forestMid}></div>
-      <div className={styles.forestFront}></div>
+      {/* Mountain silhouettes */}
+      <div className={styles.mountainBack}></div>
+      <div className={styles.mountainMid}></div>
+      <div className={styles.mountainFront}></div>
 
       <div className={styles.projectsContent}>
 

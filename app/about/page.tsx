@@ -2,6 +2,7 @@
 import styles from "./about.module.css";
 import { makeRNG } from "../utility/utility";
 import { useState, useRef } from "react";
+import FireFlyDustCursor from "../animations/fireFlyDustCursor";
 
 export default function About() {
   const stars = (() => {
@@ -78,6 +79,9 @@ export default function About() {
     <div className={styles.aboutContainer}>
       <div className={styles.stars}>{stars}</div>
       <div className={styles.aboutContent}>
+
+        {/* Cosmic cursor trail */}
+        <FireFlyDustCursor />
 
         <section className={styles.meSection}>
           <h1 className={styles.name}>Hi, I'm Zakary Nilsen</h1>
