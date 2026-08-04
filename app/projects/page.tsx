@@ -1,7 +1,6 @@
 "use client";
 import styles from "./projects.module.css";
 import { makeRNG } from "../utility/utility";
-import { useState, useEffect } from "react";
 import CometCursor from "./../animations/cometCursor";
 
 export default function Projects() {
@@ -29,18 +28,6 @@ export default function Projects() {
       return <div key={i} className={styles.firefly} style={style}></div>;
     });
   })();
-
-  // Moon phase (cycles through 8 phases)
-  const [moonPhase, setMoonPhase] = useState(0);
-
-  useEffect(() => {
-    // Change moon phase every 10 seconds
-    const interval = setInterval(() => {
-      setMoonPhase(prev => (prev + 1) % 8);
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   // Placeholder project data
   const placeholderProjects = [
@@ -71,9 +58,10 @@ export default function Projects() {
       {/* Cosmic cursor trail */}
       <CometCursor />
 
-      {/* Moon */}
-      <div className={styles.moon} data-phase={moonPhase}>
+      {/* Moon - animates via css */}
+      <div className={styles.moon}>
         <div className={styles.moonSurface}></div>
+        <div className={styles.moonShadow}></div>
       </div>
 
       {/* Mountain silhouettes */}

@@ -78,13 +78,12 @@
   right: 8%;
   width: 80px;
   height: 80px;
-  background: radial-gradient(circle at 30% 30%, #f0e68c, #d4af37);
   border-radius: 50%;
-  box-shadow:
-    0 0 30px rgba(255, 255, 200, 0.4),
-    inset -10px -10px 20px rgba(0, 0, 0, 0.2);
+  /* clips the sliding shadow overlay to a circle */
+  overflow: hidden;
+  background: radial-gradient(circle at 30% 30%, #f0e68c, #d4af37);
+  box-shadow: 0 0 30px rgba(255, 255, 200, 0.4);
   z-index: 2;
-  transition: all 2s ease-in-out;
 }
 
 .moonSurface {
@@ -100,15 +99,47 @@
     radial-gradient(circle at 50% 70%, transparent 6px, rgba(0, 0, 0, 0.1) 7px, transparent 8px);
 }
 
-/* Moon phases using data attribute */
-.moon[data-phase="0"] { opacity: 1; } /* Full */
-.moon[data-phase="1"] { opacity: 0.9; box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.4); } /* Waning Gibbous */
-.moon[data-phase="2"] { opacity: 0.8; box-shadow: inset 20px 0 30px rgba(0, 0, 0, 0.6); } /* Last Quarter */
-.moon[data-phase="3"] { opacity: 0.6; box-shadow: inset 30px 0 40px rgba(0, 0, 0, 0.8); } /* Waning Crescent */
-.moon[data-phase="4"] { opacity: 0.3; } /* New Moon */
-.moon[data-phase="5"] { opacity: 0.6; box-shadow: inset -30px 0 40px rgba(0, 0, 0, 0.8); } /* Waxing Crescent */
-.moon[data-phase="6"] { opacity: 0.8; box-shadow: inset -20px 0 30px rgba(0, 0, 0, 0.6); } /* First Quarter */
-.moon[data-phase="7"] { opacity: 0.9; box-shadow: inset -10px 0 20px rgba(0, 0, 0, 0.4); } /* Waxing Gibbous */
+/*
+  Moon phase: a dark circle the same size as the moon slides across it on
+  a loop via `transform`, which animates smoothly and cheaply (unlike
+  box-shadow). `mix-blend-mode: multiply` lets it darken the moon's own
+  gradient naturally rather than sitting on top as a flat color patch.
+  translateX(-100%) = fully off to the left  -> full moon
+  translateX(0%)     = centered, fully covering -> new moon
+  translateX(100%)   = fully off to the right -> full moon again (loops
+                        seamlessly since this matches the 0% keyframe state)
+*/
+.moonShadow {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  background: #05070d;
+  mix-blend-mode: multiply;
+  /* softens the terminator edge so it reads as a natural gradient instead
+     of a hard, aliased circle boundary */
+  filter: blur(3px);
+  animation: moonPhaseCycle 45s linear infinite;
+  /* keeps this on its own GPU layer for the whole animation instead of
+     the browser repeatedly promoting/demoting it, which is what causes
+     stutter on an animated clipped shape like this */
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+@keyframes moonPhaseCycle {
+  0% {
+    transform: translateX(-100%) translateZ(0);
+  }
+  50% {
+    transform: translateX(0%) translateZ(0);
+  }
+  100% {
+    transform: translateX(100%) translateZ(0);
+  }
+}
 
 /* Mountain silhouettes */
 .mountainBack,
