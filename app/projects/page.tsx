@@ -108,7 +108,7 @@ export default function Projects() {
             </svg>
             <h2 className={styles.comingSoonTitle}>More Projects Launching Soon</h2>
             <p className={styles.comingSoonText}>
-              I'm currently working on some exciting projects that showcase my passion for
+              I&apos;m currently working on some exciting projects that showcase my passion for
               development and exploration. Stay tuned for updates!
             </p>
           </div>

@@ -1,6 +1,10 @@
+"use client";
+
 import styles from "./home.module.css";
+import Image from "next/image";
 import { useMobile } from "../mobile/mobileContext";
 import { makeRNG } from "../utility/utility";
+import { PageTransition } from "../transition/TransitionProvider";
 
 export default function Home() {
   const { isMobile } = useMobile();
@@ -32,9 +36,17 @@ export default function Home() {
 
   return (
     <div className={styles.homeContainer}>
+      <PageTransition preset="slideLeft" />
       <div className={starClass}>{stars}</div>
       <div className={styles.forest} aria-hidden="true">
-        <img src="/images/forest-silhouette.png" alt="" aria-hidden="true" />
+        <Image
+          src="/images/forest-silhouette.png"
+          alt=""
+          aria-hidden="true"
+          width={1600}
+          height={900}
+          className={styles.forestImage}
+        />
       </div>
       <div className={styles.centeredWelcome}>
         <h1 className={styles.welcomeText}>Welcome</h1>

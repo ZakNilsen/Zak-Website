@@ -68,7 +68,7 @@ export default function CometCursor() {
     sctx.fillStyle = grad;
     sctx.fillRect(0, 0, SPRITE_SIZE, SPRITE_SIZE);
 
-    let trail: Point[] = [];
+    const trail: Point[] = [];
     let particles: Particle[] = [];
     let raf = 0;
 

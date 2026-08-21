@@ -1,0 +1,65 @@
+.layer {
+  position: relative;
+}
+
+.pageLayer {
+  position: absolute;
+  inset: 0;
+}
+
+/* Fade */
+.fadeEnter {
+  animation: fadeIn var(--duration, 400ms) ease forwards;
+}
+
+.fadeExit {
+  animation: fadeOut var(--duration, 400ms) ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-6px); }
+}
+
+/* Slide left */
+.slideLeftEnter {
+  animation: slideLeftIn var(--duration, 400ms) cubic-bezier(.2,.9,.3,1) forwards;
+}
+
+.slideLeftExit {
+  animation: slideLeftOut var(--duration, 400ms) cubic-bezier(.2,.9,.3,1) forwards;
+}
+
+@keyframes slideLeftIn {
+  from { opacity: 0; transform: translateX(8%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideLeftOut {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(-8%); }
+}
+
+/* Slide right */
+.slideRightEnter {
+  animation: slideRightIn var(--duration, 400ms) cubic-bezier(.2,.9,.3,1) forwards;
+}
+
+.slideRightExit {
+  animation: slideRightOut var(--duration, 400ms) cubic-bezier(.2,.9,.3,1) forwards;
+}
+
+@keyframes slideRightIn {
+  from { opacity: 0; transform: translateX(-8%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRightOut {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(8%); }
+}

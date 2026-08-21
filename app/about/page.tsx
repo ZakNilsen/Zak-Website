@@ -84,7 +84,7 @@ export default function About() {
         <FireFlyDustCursor />
 
         <section className={styles.meSection}>
-          <h1 className={styles.name}>Hi, I'm Zakary Nilsen</h1>
+          <h1 className={styles.name}>Hi, I&apos;m Zakary Nilsen</h1>
           <p className={styles.tagline}>
             Full Stack Developer who loves exploring &mdash; in code, in nature, and
             anywhere curiosity leads.
@@ -95,25 +95,25 @@ export default function About() {
           <h2 className={styles.sectionTitle}>About Me</h2>
           <div className={styles.aboutText}>
             <p>
-              I've always been drawn to the way technology lets us explore &mdash;
-              whether it's building something new in code or looking up at the
-              night sky and wondering what's out there.
+              I&apos;ve always been drawn to the way technology lets us explore &mdash;
+              whether it&apos;s building something new in code or looking up at the
+              night sky and wondering what&apos;s out there.
             </p>
             <p>
               I studied Computer Science at the University of St. Thomas and now work at
               ClearCompany, helping develop software that supports people and teams in
-              their everyday work. It's been an incredible place to learn how complex
+              their everyday work. It&apos;s been an incredible place to learn how complex
               systems come together &mdash; and how small ideas can grow into something meaningful.
             </p>
             <p>
               Outside of coding, I spend as much time as I can outdoors
                &mdash; hiking, camping, and stargazing whenever the weather cooperates.
-               I've always had a soft spot for space and astronomy, and someday
-               I'd love to contribute to that field, maybe even build tools that help us
+               I&apos;ve always had a soft spot for space and astronomy, and someday
+               I&apos;d love to contribute to that field, maybe even build tools that help us
                understand the universe a little better.
             </p>
             <p>
-              For me, development isn't just problem-solving &mdash; it's exploration.
+              For me, development isn&apos;t just problem-solving &mdash; it&apos;s exploration.
               Each project is a small journey into the unknown.
             </p>
           </div>
@@ -221,9 +221,9 @@ export default function About() {
         </section>
 
         <section className={styles.contactSection}>
-          <h2 className={styles.sectionTitle}>Let's Connect</h2>
+          <h2 className={styles.sectionTitle}>Let&apos;s Connect</h2>
           <p className={styles.contactText}>
-            I'm always interested in hearing about new opportunities and collaborations.
+            I&apos;m always interested in hearing about new opportunities and collaborations.
           </p>
           <div className={styles.contactButtons}>
             <a

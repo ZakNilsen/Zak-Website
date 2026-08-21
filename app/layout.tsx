@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Geist, Geist_Mono } from "next/font/google";
 import Navigation from "./navigation/navigation";
 import { MobileProvider } from "./mobile/mobileContext";
+import TransitionProvider from "./transition/TransitionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,10 +32,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <MobileProvider>
-          <Navigation />
+          <TransitionProvider>
+            <Navigation />
 
-          {/* Render current page component */}
-          <main>{children}</main>
+            {/* Render current page component */}
+            <main>{children}</main>
+          </TransitionProvider>
         </MobileProvider>
       </body>
     </html>

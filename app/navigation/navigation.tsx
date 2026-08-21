@@ -2,23 +2,26 @@
 
 import styles from "./navigation.module.css";
 import dynamic from "next/dynamic";
-import Link from 'next/link'
+import Image from "next/image";
+import Link from "next/link";
 import { useMobile } from "../mobile/mobileContext";
 import { useState, useEffect } from "react";
 
 function LogoName({ size = "normal", className = "" }) {
   const small = size === "small" ? styles.small : "";
   return (
-    <a href="/" className={`${styles.logoLink} ${small} ${className}`}>
-      <img
+    <Link href="/" className={`${styles.logoLink} ${small} ${className}`}>
+      <Image
         src="/icons/space-logo.png"
         alt="Logo"
+        width={48}
+        height={48}
         className={`${styles.logoImage} ${small}`}
       />
       <span className={`${styles.siteName} ${small}`}>
         Zak<br />Nilsen
       </span>
-    </a>
+    </Link>
   );
 }
 
