@@ -1,0 +1,19 @@
+# EditorConfig helps maintain consistent coding styles
+root = true
+
+# Default for everything
+[*]
+indent_style = space
+indent_size = 4
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Override for TypeScript React files
+[*.tsx]
+indent_size = 2
+
+# Override for CSS files
+[*.css]
+indent_size = 2
