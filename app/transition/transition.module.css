@@ -1,10 +1,24 @@
 .layer {
   position: relative;
+  width: 100%;
+  min-height: 100vh;
 }
 
 .pageLayer {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.pageLayerExiting {
   position: absolute;
   inset: 0;
+  pointer-events: none;
+}
+
+.pageLayerCurrent {
+  position: relative;
+  z-index: 1;
 }
 
 /* Fade */

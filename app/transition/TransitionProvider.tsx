@@ -1,18 +1,33 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useRef, useState, useCallback } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { usePathname } from "next/navigation";
 import styles from "./transition.module.css";
 
 type Preset = { enterClass: string; exitClass: string; duration: number };
 
-const presets: Record<string, Preset> = {
+const presets = {
   fade: { enterClass: styles.fadeEnter, exitClass: styles.fadeExit, duration: 400 },
   slideLeft: { enterClass: styles.slideLeftEnter, exitClass: styles.slideLeftExit, duration: 450 },
   slideRight: { enterClass: styles.slideRightEnter, exitClass: styles.slideRightExit, duration: 450 },
-};
+} satisfies Record<string, Preset>;
 
-type TransitionSpec = { preset?: string } | null;
+// Deriving the preset name type from `presets` itself means adding a new
+// preset above automatically makes it a valid option everywhere else —
+// no separate list to keep in sync, and typos get caught at compile time.
+type PresetName = keyof typeof presets;
+type TransitionSpec = { preset?: PresetName } | null;
+
+function resolvePreset(spec: TransitionSpec): Preset {
+  return (spec?.preset && presets[spec.preset]) || presets.fade;
+}
 
 type ContextValue = {
   register: (spec: TransitionSpec) => void;
@@ -28,85 +43,80 @@ export function useRegisterTransition() {
 
 export default function TransitionProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const [current, setCurrent] = useState<React.ReactNode>(children);
   const [exiting, setExiting] = useState<React.ReactNode | null>(null);
   const [spec, setSpec] = useState<TransitionSpec>(null);
-  const timeoutRef = useRef<number | null>(null);
 
-  // Update current when children change (initial and on navigation)
-  useEffect(() => {
-    setCurrent(children);
-  }, [children]);
-
-  // detect pathname change to trigger exit animation
+  // Tracks the previously rendered children/pathname so that when the
+  // route changes, we can freeze the outgoing page's content into
+  // `exiting` for its exit animation, without needing a separate
+  // "current" state that just mirrors `children` a render behind.
+  const prevChildrenRef = useRef(children);
   const prevPathRef = useRef(pathname);
+  const exitTimeoutRef = useRef<number | null>(null);
+
   useEffect(() => {
-    if (prevPathRef.current && pathname !== prevPathRef.current) {
-      // start exit: capture current into exiting, then show new current
-      setExiting(current);
-      // allow next render to set current from children (already handled by children effect)
+    if (prevPathRef.current !== pathname) {
+      setExiting(prevChildrenRef.current);
 
-      const p = spec?.preset && presets[spec.preset] ? presets[spec.preset] : presets.fade;
-      const duration = p.duration;
+      const { duration } = resolvePreset(spec);
+      if (exitTimeoutRef.current) window.clearTimeout(exitTimeoutRef.current);
+      exitTimeoutRef.current = window.setTimeout(() => setExiting(null), duration + 40);
 
-      if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
-      timeoutRef.current = window.setTimeout(() => {
-        setExiting(null);
-      }, duration + 40);
+      prevPathRef.current = pathname;
     }
-    prevPathRef.current = pathname;
+    prevChildrenRef.current = children;
+    // Intentionally only reacting to pathname changes — `spec` and
+    // `children` are read for their latest values, not watched for changes.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
+  }, [pathname, children]);
 
   useEffect(() => {
     return () => {
-      if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+      if (exitTimeoutRef.current) window.clearTimeout(exitTimeoutRef.current);
     };
   }, []);
 
   const register = useCallback((s: TransitionSpec) => {
-    setSpec((prev) => {
-      const prevPreset = prev?.preset ?? null;
-      const nextPreset = s?.preset ?? null;
-      if (prevPreset === nextPreset) return prev;
-      return s;
-    });
+    setSpec((prev) => (prev?.preset ?? null) === (s?.preset ?? null) ? prev : s);
   }, []);
 
-  // determine classes for entering and exiting
-  const activePreset = spec?.preset && presets[spec.preset] ? presets[spec.preset] : presets.fade;
+  const activePreset = resolvePreset(spec);
+  const durationVar = { "--duration": `${activePreset.duration}ms` } as React.CSSProperties;
 
   return (
     <TransitionContext.Provider value={{ register }}>
-      <div className={styles.layer} style={{ position: "relative" }}>
-        {/* Exiting layer sits below the entering layer so the entering content can overlay during enter animation */}
-        {exiting ? (
+      <div className={styles.layer}>
+        {/* Exiting layer sits beneath the new content so the entering
+            page can overlay during the transition without collapsing layout. */}
+        {exiting && (
           <div
             key="exiting"
-            className={`${styles.pageLayer} ${activePreset.exitClass}`}
-            style={{ "--duration": `${activePreset.duration}ms` } as React.CSSProperties}
+            className={`${styles.pageLayer} ${styles.pageLayerExiting} ${activePreset.exitClass}`}
+            style={durationVar}
           >
             {exiting}
           </div>
-        ) : null}
+        )}
 
         <div
           key={`current-${pathname}`}
-          className={`${styles.pageLayer} ${activePreset.enterClass}`}
-          style={{ "--duration": `${activePreset.duration}ms` } as React.CSSProperties}
+          className={`${styles.pageLayer} ${styles.pageLayerCurrent} ${activePreset.enterClass}`}
+          style={durationVar}
         >
-          {current}
+          {children}
         </div>
       </div>
     </TransitionContext.Provider>
   );
 }
 
-export function PageTransition({ preset }: { preset?: string }) {
+export function PageTransition({ preset }: { preset?: PresetName }) {
   const register = useRegisterTransition();
+
   useEffect(() => {
     register(preset ? { preset } : null);
   }, [preset, register]);
+
   return null;
 }
 
