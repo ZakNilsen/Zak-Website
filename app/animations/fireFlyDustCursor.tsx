@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 /**
  * FireflyDustCursor
@@ -33,8 +34,12 @@ const MOTE_COUNT = COLORS.length;
 
 export default function FireflyDustCursor() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
+    if (!mounted) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -57,6 +62,11 @@ export default function FireflyDustCursor() {
     sctx.fillRect(0, 0, SPRITE_SIZE, SPRITE_SIZE);
 
     const target = { x: -9999, y: -9999 };
+    // Keep last known pointer positions in both client and page coordinates
+    let lastClientX = -9999;
+    let lastClientY = -9999;
+    let lastPageX = -9999;
+    let lastPageY = -9999;
     let hasMouse = false;
 
     const motes: Mote[] = Array.from({ length: MOTE_COUNT }, (_, i) => ({
@@ -84,15 +94,25 @@ export default function FireflyDustCursor() {
     };
 
     const handleMove = (e: MouseEvent) => {
-      target.x = e.clientX;
-      target.y = e.clientY;
+      lastClientX = e.clientX;
+      lastClientY = e.clientY;
+      lastPageX = (e as MouseEvent & { pageX: number }).pageX ?? (window.scrollX + e.clientX);
+      lastPageY = (e as MouseEvent & { pageY: number }).pageY ?? (window.scrollY + e.clientY);
+
+      target.x = lastClientX;
+      target.y = lastClientY;
       hasMouse = true;
     };
     const handleTouch = (e: TouchEvent) => {
       const t = e.touches[0];
       if (t) {
-        target.x = t.clientX;
-        target.y = t.clientY;
+        lastClientX = t.clientX;
+        lastClientY = t.clientY;
+        lastPageX = t.pageX ?? (window.scrollX + t.clientX);
+        lastPageY = t.pageY ?? (window.scrollY + t.clientY);
+
+        target.x = lastClientX;
+        target.y = lastClientY;
         hasMouse = true;
       }
     };
@@ -145,11 +165,23 @@ export default function FireflyDustCursor() {
       raf = requestAnimationFrame(render);
     };
 
+    // When the page scrolls, recompute the pointer's client coordinates
+    // from the last known page coordinates so the motes visually stay
+    // attached to the cursor even when no `mousemove` events fire.
+    const handleScroll = () => {
+      if (lastPageX === -9999 && lastPageY === -9999) return;
+      lastClientX = lastPageX - window.scrollX;
+      lastClientY = lastPageY - window.scrollY;
+      target.x = lastClientX;
+      target.y = lastClientY;
+    };
+
     resize();
     window.addEventListener("resize", resize);
     window.addEventListener("mousemove", handleMove);
     window.addEventListener("touchmove", handleTouch, { passive: true });
     window.addEventListener("mouseleave", handleLeave);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     raf = requestAnimationFrame(render);
 
     return () => {
@@ -157,11 +189,12 @@ export default function FireflyDustCursor() {
       window.removeEventListener("mousemove", handleMove);
       window.removeEventListener("touchmove", handleTouch);
       window.removeEventListener("mouseleave", handleLeave);
+      window.removeEventListener("scroll", handleScroll);
       cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [mounted]);
 
-  return (
+  const canvasElement = (
     <canvas
       ref={canvasRef}
       style={{
@@ -174,4 +207,8 @@ export default function FireflyDustCursor() {
       }}
     />
   );
+
+  if (!mounted) return null;
+
+  return createPortal(canvasElement, document.body);
 }

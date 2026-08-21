@@ -24,7 +24,7 @@ const presets = {
   flipY: { enterClass: styles.flipYEnter, exitClass: styles.flipYExit, duration: 550 },
   // The page layers themselves just fade for this one — the actual "warp"
   // visual comes from the HyperspaceCanvas overlay rendered on top of them.
-  hyperspace: { enterClass: styles.fadeEnter, exitClass: styles.fadeExit, duration: 900 },
+  hyperspace: { enterClass: styles.fadeEnter, exitClass: styles.fadeExit, duration: 5000 },
 } satisfies Record<string, Preset>;
 
 type PresetName = keyof typeof presets;

@@ -29,7 +29,7 @@ export default function HyperspaceCanvas() {
     const MAX_DEPTH = 1000;
     const ACCELERATION = 0.08;
     const STAR_SIZE = 1.5;
-    const DURATION = 900;
+    const DURATION = 5000; // Duration of the hyperspace effect in milliseconds
 
     let startTime = performance.now();
 
@@ -79,15 +79,17 @@ export default function HyperspaceCanvas() {
 
       const progress = Math.min(elapsed / DURATION, 1);
 
-      const ease = 1 - Math.pow(1 - progress, 3);
-      const speed = ease * ACCELERATION * 40;
+      const acceleration = Math.min(progress / 0.35, 1);
+      const deceleration = Math.min((1 - progress) / 0.25, 1);
+
+      const speed = acceleration * deceleration * ACCELERATION * 40;
 
       let opacity = 1;
 
       if (progress < 0.1) {
         opacity = progress / 0.1;
-      } else if (progress > 0.8) {
-        opacity = (1 - progress) / 0.2;
+      } else if (progress > 0.78) {
+        opacity = (1 - progress) / 0.22;
       }
 
       ctx.globalAlpha = opacity;

@@ -41,7 +41,7 @@ export default function Home() {
       <div className={styles.forest} aria-hidden="true">
         <Image
           src="/images/forest-silhouette.png"
-          alt=""
+          alt="Forest silhouette"
           aria-hidden="true"
           width={1600}
           height={900}

@@ -316,21 +316,20 @@
   pointer-events: none;
   overflow: hidden;
   background: #000;
-  animation: hyperspaceFade
-    var(--duration, 900ms)
-    ease-in-out forwards;
+
+  animation: hyperspaceFade var(--duration, 2500ms) ease-in-out forwards;
 }
 
-@keyframes hyperspaceOverlay {
+@keyframes hyperspaceFade {
   0% {
     opacity: 0;
   }
 
-  10% {
+  12% {
     opacity: 1;
   }
 
-  80% {
+  78% {
     opacity: 1;
   }
 
