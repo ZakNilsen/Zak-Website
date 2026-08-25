@@ -11,6 +11,7 @@ import React, {
 import { usePathname } from "next/navigation";
 import styles from "./transition.module.css";
 import HyperspaceCanvas from "./HyperspaceCanvas";
+import { useMobile } from "../mobile/mobileContext";
 
 type Preset = { enterClass: string; exitClass: string; duration: number };
 
@@ -74,6 +75,7 @@ export function useRegisterTransition() {
 
 export default function TransitionProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const { isMobile } = useMobile();
   const [exiting, setExiting] = useState<React.ReactNode | null>(null);
   const [spec, setSpec] = useState<TransitionSpec>(null);
   // The preset actually used for the transition currently in flight. Chosen
@@ -112,6 +114,16 @@ export default function TransitionProvider({ children }: { children: React.React
   const register = useCallback((s: TransitionSpec) => {
     setSpec((prev) => ((prev?.preset ?? null) === (s?.preset ?? null) ? prev : s));
   }, []);
+
+  // If on mobile, disable visual page transitions but still provide a
+  // no-op `register` so components calling `useRegisterTransition` don't throw.
+  if (isMobile) {
+    return (
+      <TransitionContext.Provider value={{ register: () => {} }}>
+        {children}
+      </TransitionContext.Provider>
+    );
+  }
 
   const activePreset = resolvePreset(activePresetName);
   const durationVar = { "--duration": `${activePreset.duration}ms` } as React.CSSProperties;

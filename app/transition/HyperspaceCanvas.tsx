@@ -73,21 +73,40 @@ export default function HyperspaceCanvas() {
       star.prevY = height / 2;
     };
 
+    // How much of the duration the initial "snap to warp speed" burst
+    // takes. Kept as one constant since both the speed curve and the
+    // canvas opacity fade-in are timed off it — that's what makes the
+    // flash and the speed punch land together.
+    const BURST_WINDOW = 0.15;
+
     const animate = () => {
       const now = performance.now();
       const elapsed = now - startTime;
 
       const progress = Math.min(elapsed / DURATION, 1);
 
-      const acceleration = Math.min(progress / 0.35, 1);
-      const deceleration = Math.min((1 - progress) / 0.25, 1);
+      // Speed curve: a hard, near-instant snap to top speed (the "jump to
+      // lightspeed" moment), then a continuous wind-down for the rest of
+      // the effect — an abrupt punch into warp, followed by one long,
+      // steady decay rather than a plateau-then-brake shape.
+      const burst = Math.min(progress / BURST_WINDOW, 1);
+      const burstEase = 1 - Math.pow(1 - burst, 5); // easeOutQuint — hard snap
 
-      const speed = acceleration * deceleration * ACCELERATION * 40;
+      const windDown =
+        progress < BURST_WINDOW
+          ? 1
+          : Math.pow(1 - (progress - BURST_WINDOW) / (1 - BURST_WINDOW), 1.6);
 
+      const speed = burstEase * windDown * ACCELERATION * 70;
+
+      // Canvas opacity fades in over the same window as the speed burst,
+      // so the flash reaches full brightness right as the streaks hit
+      // their peak snap, instead of the flash arriving early and the
+      // speed catching up after.
       let opacity = 1;
 
-      if (progress < 0.1) {
-        opacity = progress / 0.1;
+      if (progress < BURST_WINDOW) {
+        opacity = progress / BURST_WINDOW;
       } else if (progress > 0.78) {
         opacity = (1 - progress) / 0.22;
       }
