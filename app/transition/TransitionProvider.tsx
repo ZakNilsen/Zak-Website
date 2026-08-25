@@ -13,6 +13,7 @@ import styles from "./transition.module.css";
 import HyperspaceCanvas from "./HyperspaceCanvas";
 import WormholeCanvas from "./WormholeCanvas";
 import FireflySwarmCanvas from "./FireflySwarmCanvas";
+import AuroraCurtainCanvas from "./AuroraCurtainCanvas";
 import { useMobile } from "../mobile/mobileContext";
 
 type Preset = { enterClass: string; exitClass: string; duration: number };
@@ -31,6 +32,7 @@ const presets = {
   hyperspace: { enterClass: styles.fadeEnter, exitClass: styles.fadeExit, duration: 5000 },
   wormhole: { enterClass: styles.fadeEnter, exitClass: styles.fadeExit, duration: 2400 },
   fireflySwarm: { enterClass: styles.fadeEnter, exitClass: styles.fadeExit, duration: 2200 },
+  auroraCurtain: { enterClass: styles.fadeEnter, exitClass: styles.fadeExit, duration: 2000 },
 } satisfies Record<string, Preset>;
 
 type PresetName = keyof typeof presets;
@@ -38,17 +40,20 @@ type TransitionSpec = { preset?: PresetName } | null;
 
 // Maps a preset to the component that draws its overlay and the CSS class
 // that positions/fades that overlay. Add a new canvas-driven transition by
-// adding one entry here (plus a `presets` entry and a pool listing)
+// adding one entry here (plus a `presets` entry and a pool listing) —
+// no new branch needed in the JSX below.
 const OVERLAY_COMPONENTS: Partial<Record<PresetName, React.ComponentType>> = {
   hyperspace: HyperspaceCanvas,
   wormhole: WormholeCanvas,
   fireflySwarm: FireflySwarmCanvas,
+  auroraCurtain: AuroraCurtainCanvas,
 };
 
 const OVERLAY_CLASSES: Partial<Record<PresetName, string>> = {
   hyperspace: styles.hyperspaceOverlay,
   wormhole: styles.wormholeOverlay,
   fireflySwarm: styles.fireflySwarmOverlay,
+  auroraCurtain: styles.auroraCurtainOverlay,
 };
 
 const STANDARD_POOL: PresetName[] = [
@@ -64,6 +69,7 @@ const SPECIAL_POOL: PresetName[] = [
   "hyperspace",
   "wormhole",
   "fireflySwarm",
+  "auroraCurtain",
 ];
 
 function pickRandomPreset(): PresetName {

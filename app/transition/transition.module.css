@@ -253,3 +253,26 @@
   85% { opacity: 1; }
   100% { opacity: 0; }
 }
+
+/* =========================================================
+   AURORA CURTAIN
+   Pages fade underneath; AuroraCurtainCanvas draws the sweeping
+   ribbon bands. Transparent background so the ribbons layer over
+   the fading page rather than obscuring it outright.
+   ========================================================= */
+
+.auroraCurtainOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  overflow: hidden;
+  animation: auroraCurtainFade var(--duration, 2000ms) ease-in-out forwards;
+}
+
+@keyframes auroraCurtainFade {
+  0% { opacity: 0; }
+  12% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { opacity: 0; }
+}
