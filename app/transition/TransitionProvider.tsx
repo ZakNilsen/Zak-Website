@@ -11,6 +11,8 @@ import React, {
 import { usePathname } from "next/navigation";
 import styles from "./transition.module.css";
 import HyperspaceCanvas from "./HyperspaceCanvas";
+import WormholeCanvas from "./WormholeCanvas";
+import FireflySwarmCanvas from "./FireflySwarmCanvas";
 import { useMobile } from "../mobile/mobileContext";
 
 type Preset = { enterClass: string; exitClass: string; duration: number };
@@ -23,27 +25,45 @@ const presets = {
   zoom: { enterClass: styles.zoomEnter, exitClass: styles.zoomExit, duration: 500 },
   flipX: { enterClass: styles.flipXEnter, exitClass: styles.flipXExit, duration: 550 },
   flipY: { enterClass: styles.flipYEnter, exitClass: styles.flipYExit, duration: 550 },
-  // The page layers themselves just fade for this one — the actual "warp"
-  // visual comes from the HyperspaceCanvas overlay rendered on top of them.
+  // These three just fade at the page-layer level — the actual visual
+  // comes from a canvas overlay rendered on top of them (see
+  // OVERLAY_COMPONENTS below).
   hyperspace: { enterClass: styles.fadeEnter, exitClass: styles.fadeExit, duration: 5000 },
+  wormhole: { enterClass: styles.fadeEnter, exitClass: styles.fadeExit, duration: 2400 },
+  fireflySwarm: { enterClass: styles.fadeEnter, exitClass: styles.fadeExit, duration: 2200 },
 } satisfies Record<string, Preset>;
 
 type PresetName = keyof typeof presets;
 type TransitionSpec = { preset?: PresetName } | null;
 
+// Maps a preset to the component that draws its overlay and the CSS class
+// that positions/fades that overlay. Add a new canvas-driven transition by
+// adding one entry here (plus a `presets` entry and a pool listing)
+const OVERLAY_COMPONENTS: Partial<Record<PresetName, React.ComponentType>> = {
+  hyperspace: HyperspaceCanvas,
+  wormhole: WormholeCanvas,
+  fireflySwarm: FireflySwarmCanvas,
+};
+
+const OVERLAY_CLASSES: Partial<Record<PresetName, string>> = {
+  hyperspace: styles.hyperspaceOverlay,
+  wormhole: styles.wormholeOverlay,
+  fireflySwarm: styles.fireflySwarmOverlay,
+};
+
 const STANDARD_POOL: PresetName[] = [
-  "fade",
-  "fade",
   "slideLeft",
   "slideRight",
   "slideUp",
   "zoom",
+  "flipX",
+  "flipY",
 ];
 
 const SPECIAL_POOL: PresetName[] = [
-  "flipX",
-  "flipY",
   "hyperspace",
+  "wormhole",
+  "fireflySwarm",
 ];
 
 function pickRandomPreset(): PresetName {
@@ -128,6 +148,9 @@ export default function TransitionProvider({ children }: { children: React.React
   const activePreset = resolvePreset(activePresetName);
   const durationVar = { "--duration": `${activePreset.duration}ms` } as React.CSSProperties;
 
+  const OverlayComponent = OVERLAY_COMPONENTS[activePresetName];
+  const overlayClass = OVERLAY_CLASSES[activePresetName];
+
   return (
     <TransitionContext.Provider value={{ register }}>
       <div className={styles.layer} style={{ position: "relative" }}>
@@ -151,11 +174,11 @@ export default function TransitionProvider({ children }: { children: React.React
           {children}
         </div>
 
-        {/* Hyperspace's actual warp visual — layered above both page
-            layers, only mounted while this transition is in flight */}
-        {exiting && activePresetName === "hyperspace" && (
-          <div className={styles.hyperspaceOverlay} style={durationVar}>
-            <HyperspaceCanvas />
+        {/* The special-preset visual — layered above both page layers,
+            only mounted while that transition is in flight */}
+        {exiting && OverlayComponent && overlayClass && (
+          <div className={overlayClass} style={durationVar}>
+            <OverlayComponent />
           </div>
         )}
       </div>

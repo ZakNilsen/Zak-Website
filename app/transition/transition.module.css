@@ -11,10 +11,6 @@
   will-change: opacity, transform;
 }
 
-/*
- * The old page stays behind the incoming page.
- * This allows both animations to play simultaneously.
- */
 .pageLayerExiting {
   position: absolute;
   inset: 0;
@@ -40,183 +36,101 @@
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px) scale(1.02);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(8px) scale(1.02); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @keyframes fadeOut {
-  from {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-
-  to {
-    opacity: 0;
-    transform: translateY(-8px) scale(0.98);
-  }
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(-8px) scale(0.98); }
 }
 
 /* =========================================================
    SLIDE LEFT
-   New page enters from the right.
    ========================================================= */
 
 .slideLeftEnter {
-  animation: slideLeftIn var(--duration, 450ms)
-    cubic-bezier(.2, .9, .3, 1) forwards;
+  animation: slideLeftIn var(--duration, 450ms) cubic-bezier(.2, .9, .3, 1) forwards;
 }
 
 .slideLeftExit {
-  animation: slideLeftOut var(--duration, 450ms)
-    cubic-bezier(.2, .9, .3, 1) forwards;
+  animation: slideLeftOut var(--duration, 450ms) cubic-bezier(.2, .9, .3, 1) forwards;
 }
 
 @keyframes slideLeftIn {
-  from {
-    opacity: 0;
-    transform: translateX(10%);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(10%); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes slideLeftOut {
-  from {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  to {
-    opacity: 0;
-    transform: translateX(-10%);
-  }
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(-10%); }
 }
 
 /* =========================================================
    SLIDE RIGHT
-   New page enters from the left.
    ========================================================= */
 
 .slideRightEnter {
-  animation: slideRightIn var(--duration, 450ms)
-    cubic-bezier(.2, .9, .3, 1) forwards;
+  animation: slideRightIn var(--duration, 450ms) cubic-bezier(.2, .9, .3, 1) forwards;
 }
 
 .slideRightExit {
-  animation: slideRightOut var(--duration, 450ms)
-    cubic-bezier(.2, .9, .3, 1) forwards;
+  animation: slideRightOut var(--duration, 450ms) cubic-bezier(.2, .9, .3, 1) forwards;
 }
 
 @keyframes slideRightIn {
-  from {
-    opacity: 0;
-    transform: translateX(-10%);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-10%); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes slideRightOut {
-  from {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  to {
-    opacity: 0;
-    transform: translateX(10%);
-  }
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(10%); }
 }
 
 /* =========================================================
    SLIDE UP
-   New page rises upward into place.
    ========================================================= */
 
 .slideUpEnter {
-  animation: slideUpIn var(--duration, 450ms)
-    cubic-bezier(.2, .9, .3, 1) forwards;
+  animation: slideUpIn var(--duration, 450ms) cubic-bezier(.2, .9, .3, 1) forwards;
 }
 
 .slideUpExit {
-  animation: slideUpOut var(--duration, 450ms)
-    cubic-bezier(.2, .9, .3, 1) forwards;
+  animation: slideUpOut var(--duration, 450ms) cubic-bezier(.2, .9, .3, 1) forwards;
 }
 
 @keyframes slideUpIn {
-  from {
-    opacity: 0;
-    transform: translateY(10%);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10%); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideUpOut {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  to {
-    opacity: 0;
-    transform: translateY(-10%);
-  }
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-10%); }
 }
 
 /* =========================================================
    ZOOM
-   The incoming page starts farther away and comes toward you.
    ========================================================= */
 
 .zoomEnter {
-  animation: zoomIn var(--duration, 500ms)
-    cubic-bezier(.16, 1, .3, 1) forwards;
+  animation: zoomIn var(--duration, 500ms) cubic-bezier(.16, 1, .3, 1) forwards;
 }
 
 .zoomExit {
-  animation: zoomOut var(--duration, 500ms)
-    cubic-bezier(.16, 1, .3, 1) forwards;
+  animation: zoomOut var(--duration, 500ms) cubic-bezier(.16, 1, .3, 1) forwards;
 }
 
 @keyframes zoomIn {
-  from {
-    opacity: 0;
-    transform: scale(0.82);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.82); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes zoomOut {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  to {
-    opacity: 0;
-    transform: scale(1.12);
-  }
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(1.12); }
 }
 
 /* =========================================================
@@ -226,39 +140,23 @@
 .flipXEnter {
   transform-style: preserve-3d;
   backface-visibility: hidden;
-  animation: flipXIn var(--duration, 550ms)
-    cubic-bezier(.2, .8, .2, 1) forwards;
+  animation: flipXIn var(--duration, 550ms) cubic-bezier(.2, .8, .2, 1) forwards;
 }
 
 .flipXExit {
   transform-style: preserve-3d;
   backface-visibility: hidden;
-  animation: flipXOut var(--duration, 550ms)
-    cubic-bezier(.2, .8, .2, 1) forwards;
+  animation: flipXOut var(--duration, 550ms) cubic-bezier(.2, .8, .2, 1) forwards;
 }
 
 @keyframes flipXIn {
-  from {
-    opacity: 0;
-    transform: perspective(1200px) rotateX(-90deg);
-  }
-
-  to {
-    opacity: 1;
-    transform: perspective(1200px) rotateX(0);
-  }
+  from { opacity: 0; transform: perspective(1200px) rotateX(-90deg); }
+  to { opacity: 1; transform: perspective(1200px) rotateX(0); }
 }
 
 @keyframes flipXOut {
-  from {
-    opacity: 1;
-    transform: perspective(1200px) rotateX(0);
-  }
-
-  to {
-    opacity: 0;
-    transform: perspective(1200px) rotateX(90deg);
-  }
+  from { opacity: 1; transform: perspective(1200px) rotateX(0); }
+  to { opacity: 0; transform: perspective(1200px) rotateX(90deg); }
 }
 
 /* =========================================================
@@ -268,45 +166,28 @@
 .flipYEnter {
   transform-style: preserve-3d;
   backface-visibility: hidden;
-  animation: flipYIn var(--duration, 550ms)
-    cubic-bezier(.2, .8, .2, 1) forwards;
+  animation: flipYIn var(--duration, 550ms) cubic-bezier(.2, .8, .2, 1) forwards;
 }
 
 .flipYExit {
   transform-style: preserve-3d;
   backface-visibility: hidden;
-  animation: flipYOut var(--duration, 550ms)
-    cubic-bezier(.2, .8, .2, 1) forwards;
+  animation: flipYOut var(--duration, 550ms) cubic-bezier(.2, .8, .2, 1) forwards;
 }
 
 @keyframes flipYIn {
-  from {
-    opacity: 0;
-    transform: perspective(1200px) rotateY(-90deg);
-  }
-
-  to {
-    opacity: 1;
-    transform: perspective(1200px) rotateY(0);
-  }
+  from { opacity: 0; transform: perspective(1200px) rotateY(-90deg); }
+  to { opacity: 1; transform: perspective(1200px) rotateY(0); }
 }
 
 @keyframes flipYOut {
-  from {
-    opacity: 1;
-    transform: perspective(1200px) rotateY(0);
-  }
-
-  to {
-    opacity: 0;
-    transform: perspective(1200px) rotateY(90deg);
-  }
+  from { opacity: 1; transform: perspective(1200px) rotateY(0); }
+  to { opacity: 0; transform: perspective(1200px) rotateY(90deg); }
 }
 
 /* =========================================================
    HYPERSPACE
-   The pages themselves fade while the canvas provides
-   the actual warp effect.
+   Pages fade underneath; HyperspaceCanvas provides the warp streaks.
    ========================================================= */
 
 .hyperspaceOverlay {
@@ -316,13 +197,59 @@
   pointer-events: none;
   overflow: hidden;
   background: #000;
-
-  animation: hyperspaceFade var(--duration, 2500ms) ease-in-out forwards;
+  animation: hyperspaceFade var(--duration, 5000ms) ease-in-out forwards;
 }
 
 @keyframes hyperspaceFade {
   0% { opacity: 0; }
   15% { opacity: 1; }
   78% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* =========================================================
+   WORMHOLE
+   Pages fade underneath; WormholeCanvas provides the inward spiral +
+   collapse flash. Background stays transparent (rather than solid black
+   like hyperspace) since the effect fades to a bright flash, not to black.
+   ========================================================= */
+
+.wormholeOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  overflow: hidden;
+  background: #050310;
+  animation: wormholeFade var(--duration, 2400ms) ease-in-out forwards;
+}
+
+@keyframes wormholeFade {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* =========================================================
+   FIREFLY SWARM
+   Pages fade underneath; FireflySwarmCanvas handles everything else.
+   Transparent background — the swarm itself is what builds visual density,
+   not a solid backdrop.
+   ========================================================= */
+
+.fireflySwarmOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  overflow: hidden;
+  animation: fireflySwarmFade var(--duration, 2200ms) ease-in-out forwards;
+}
+
+@keyframes fireflySwarmFade {
+  0% { opacity: 0; }
+  12% { opacity: 1; }
+  85% { opacity: 1; }
   100% { opacity: 0; }
 }
