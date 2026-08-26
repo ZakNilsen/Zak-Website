@@ -2,7 +2,7 @@
 import styles from "./about.module.css";
 import { makeRNG } from "../utility/utility";
 import { useState, useRef } from "react";
-import FireFlyDustCursor from "../animations/fireFlyDustCursor";
+import FireFlyDustCursor from "../animations/cursor/fireFlyDustCursor";
 
 export default function About() {
   const stars = (() => {

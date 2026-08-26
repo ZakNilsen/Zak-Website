@@ -1,7 +1,15 @@
 "use client";
+
+import React, { useState } from "react";
+import ConstellationOverlay, {
+  CONSTELLATION_LIFESPAN,
+} from "../animations/moonSecrets/ConstellationOverlay";
+import MeteorShower, {
+  METEOR_SHOWER_LIFESPAN,
+} from "../animations/moonSecrets/MeteorShower";
 import styles from "./projects.module.css";
 import { makeRNG } from "../utility/utility";
-import CometCursor from "./../animations/cometCursor";
+import CometCursor from "../animations/cursor/cometCursor";
 
 export default function Projects() {
 
@@ -28,6 +36,48 @@ export default function Projects() {
       return <div key={i} className={styles.firefly} style={style}></div>;
     });
   })();
+
+  // Moon click state and constellation/meteor shower management
+  const [moonClicks, setMoonClicks] = useState(0);
+  const [constellations, setConstellations] = useState<{ id: number }[]>([]);
+  const [meteorShower, setMeteorShower] = useState(false);
+
+  const handleMoonClick = () => {
+    const nextClicks = moonClicks + 1;
+
+    /*
+    * Every 7th click triggers the meteor shower.
+    */
+    if (nextClicks >= 7) {
+      setMeteorShower(true);
+      setMoonClicks(0);
+      setConstellations([]);
+
+      window.setTimeout(() => {
+        setMeteorShower(false);
+      }, METEOR_SHOWER_LIFESPAN);
+
+      return;
+    }
+
+    setMoonClicks(nextClicks);
+
+    const id = Date.now();
+
+    setConstellations((current) => [
+      ...current,
+      { id },
+    ]);
+
+    /*
+    * Remove the constellation after its animation finishes.
+    */
+    window.setTimeout(() => {
+      setConstellations((current) =>
+        current.filter((item) => item.id !== id)
+      );
+    }, CONSTELLATION_LIFESPAN);
+  };
 
   // Placeholder project data
   const placeholderProjects = [
@@ -59,10 +109,22 @@ export default function Projects() {
       <CometCursor />
 
       {/* Moon - animates via css */}
-      <div className={styles.moon}>
+      <div
+        className={styles.moon}
+        onClick={handleMoonClick}
+        role="button"
+        tabIndex={0}
+        aria-label="Moon"
+      >
         <div className={styles.moonSurface}></div>
         <div className={styles.moonShadow}></div>
       </div>
+
+      {constellations.map(({ id }) => (
+        <ConstellationOverlay key={id} />
+      ))}
+
+{meteorShower && <MeteorShower />}
 
       {/* Mountain silhouettes */}
       <div className={styles.mountainBack}></div>
