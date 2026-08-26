@@ -103,9 +103,13 @@ const PATTERNS: Pattern[] = [
   },
 ];
 
-const LIFESPAN = 4200;
+const LIFESPAN = 2400;
 
-export default function ConstellationOverlay() {
+export default function ConstellationOverlay({
+  animate = true,
+}: {
+  animate?: boolean;
+}) {
   const { pattern, leftPct, topPct, rotation, scale } = useMemo(() => {
     return {
       pattern: PATTERNS[Math.floor(Math.random() * PATTERNS.length)],
@@ -133,7 +137,9 @@ export default function ConstellationOverlay() {
       aria-hidden="true"
     >
       <svg
-        className={styles.constellationSvg}
+        className={`${styles.constellationSvg} ${
+          !animate ? styles.constellationStatic : ""
+        }`}
         viewBox="0 0 40 35"
         preserveAspectRatio="xMidYMid meet"
       >
