@@ -111,12 +111,25 @@ export default function ConstellationOverlay({
   animate?: boolean;
 }) {
   const { pattern, leftPct, topPct, rotation, scale } = useMemo(() => {
+    const positionRoll = Math.random();
+
+    let leftPct: number;
+
+    if (positionRoll < 0.45) {
+      // 45% — left side
+      leftPct = 2 + Math.random() * 22;
+    } else if (positionRoll < 0.9) {
+      // 45% — right side
+      leftPct = 63 + Math.random() * 22;
+    } else {
+      // 10% — occasionally allow one through the middle
+      leftPct = 30 + Math.random() * 30;
+    }
+
     return {
       pattern: PATTERNS[Math.floor(Math.random() * PATTERNS.length)],
-      leftPct: 5 + Math.random() * 65,
+      leftPct,
       topPct: 5 + Math.random() * 55,
-
-      // Tiny variations make each constellation feel less artificial.
       rotation: -12 + Math.random() * 24,
       scale: 0.8 + Math.random() * 0.5,
     };
