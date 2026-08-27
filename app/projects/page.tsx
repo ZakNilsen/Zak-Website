@@ -10,6 +10,7 @@ import MeteorShower, {
 import styles from "./projects.module.css";
 import { makeRNG } from "../utility/utility";
 import CometCursor from "../animations/cursor/cometCursor";
+import { PageTransition } from "../transition/TransitionProvider";
 
 const MAX_CONSTELLATIONS = 5;
 const METEOR_TRIGGER_CLICKS = 7;
@@ -224,6 +225,7 @@ export default function Projects() {
 
   return (
     <div className={styles.projectsContainer}>
+      <PageTransition exclude={["slideLeft"]} />
       <div className={styles.fireflies}>{fireflies}</div>
 
       {/* Cosmic cursor trail */}

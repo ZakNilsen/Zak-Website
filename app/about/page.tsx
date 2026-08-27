@@ -3,6 +3,7 @@ import styles from "./about.module.css";
 import { makeRNG } from "../utility/utility";
 import { useState, useRef } from "react";
 import FireFlyDustCursor from "../animations/cursor/fireFlyDustCursor";
+import { PageTransition } from "../transition/TransitionProvider";
 
 export default function About() {
   const stars = (() => {
@@ -77,6 +78,8 @@ export default function About() {
 
   return (
     <div className={styles.aboutContainer}>
+      <PageTransition />
+
       <div className={styles.stars}>{stars}</div>
       <div className={styles.aboutContent}>
 

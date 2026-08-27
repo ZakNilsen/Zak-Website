@@ -36,7 +36,7 @@ export default function Home() {
 
   return (
     <div className={styles.homeContainer}>
-      <PageTransition />
+      <PageTransition exclude={["slideRight"]} />
       <div className={starClass}>{stars}</div>
       <div className={styles.forest} aria-hidden="true">
         <Image

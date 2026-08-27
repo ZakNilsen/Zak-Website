@@ -36,7 +36,7 @@ const presets = {
 } satisfies Record<string, Preset>;
 
 type PresetName = keyof typeof presets;
-type TransitionSpec = { preset?: PresetName } | null;
+type TransitionSpec = { preset?: PresetName; exclude?: PresetName[] } | null;
 
 // Maps a preset to the component that draws its overlay and the CSS class
 // that positions/fades that overlay. Add a new canvas-driven transition by
@@ -72,15 +72,17 @@ const SPECIAL_POOL: PresetName[] = [
   "auroraCurtain",
 ];
 
-function pickRandomPreset(): PresetName {
+function pickRandomPreset(exclude: PresetName[] = []): PresetName {
   const specialChance = 0.2;
+  const excluded = new Set(exclude);
 
-  const pool =
-    Math.random() < specialChance
-      ? SPECIAL_POOL
-      : STANDARD_POOL;
+  const pool = (Math.random() < specialChance ? SPECIAL_POOL : STANDARD_POOL)
+    .filter((preset) => !excluded.has(preset));
 
-  return pool[Math.floor(Math.random() * pool.length)];
+  const fallbackPool = (Math.random() < specialChance ? SPECIAL_POOL : STANDARD_POOL);
+  const chosenPool = pool.length > 0 ? pool : fallbackPool;
+
+  return chosenPool[Math.floor(Math.random() * chosenPool.length)];
 }
 
 function resolvePreset(name: PresetName): Preset {
@@ -115,7 +117,7 @@ export default function TransitionProvider({ children }: { children: React.React
 
   useEffect(() => {
     if (prevPathRef.current !== pathname) {
-      const chosen = spec?.preset ?? pickRandomPreset();
+      const chosen = spec?.preset ?? pickRandomPreset(spec?.exclude ?? []);
       setActivePresetName(chosen);
       setExiting(prevChildrenRef.current);
 
@@ -138,7 +140,11 @@ export default function TransitionProvider({ children }: { children: React.React
   }, []);
 
   const register = useCallback((s: TransitionSpec) => {
-    setSpec((prev) => ((prev?.preset ?? null) === (s?.preset ?? null) ? prev : s));
+    setSpec((prev) => {
+      const prevKey = JSON.stringify({ preset: prev?.preset ?? null, exclude: prev?.exclude ?? [] });
+      const nextKey = JSON.stringify({ preset: s?.preset ?? null, exclude: s?.exclude ?? [] });
+      return prevKey === nextKey ? prev : s;
+    });
   }, []);
 
   // If on mobile, disable visual page transitions but still provide a
@@ -192,12 +198,18 @@ export default function TransitionProvider({ children }: { children: React.React
   );
 }
 
-export function PageTransition({ preset }: { preset?: PresetName }) {
+export function PageTransition({
+  preset,
+  exclude,
+}: {
+  preset?: PresetName;
+  exclude?: PresetName[];
+}) {
   const register = useRegisterTransition();
 
   useEffect(() => {
-    register(preset ? { preset } : null);
-  }, [preset, register]);
+    register(preset ? { preset, exclude } : exclude?.length ? { exclude } : null);
+  }, [preset, exclude, register]);
 
   return null;
 }
