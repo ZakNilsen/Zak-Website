@@ -14,6 +14,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+  position: relative;
+  z-index: 2;
 }
 
 .welcomeText {
@@ -26,6 +28,88 @@
 	margin: 0;
 	user-select: none;
 	animation: fadeIn 2s cubic-bezier(.4,0,.2,1);
+  cursor: pointer;
+  transition: text-shadow 0.4s ease, transform 0.15s ease;
+}
+
+.welcomeText:active {
+  transform: scale(0.96);
+}
+
+.burst {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sparkle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #fff, #9be8ff);
+  box-shadow: 0 0 6px 2px rgba(155,232,255,0.8);
+  transform: rotate(var(--angle)) translate(0, 0);
+  animation: sparkleBurst 0.9s ease-out forwards;
+}
+
+@keyframes sparkleBurst {
+  0%   { transform: rotate(var(--angle)) translate(0, 0); opacity: 1; }
+  100% { transform: rotate(var(--angle)) translate(80px, 0); opacity: 0; }
+}
+
+.welcomeWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.fireflies {
+  position: absolute;
+  inset: -70px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.welcomeWrapper:hover .fireflies {
+  opacity: 1;
+}
+
+.welcomeWrapper:hover .welcomeText {
+  text-shadow: 0 4px 32px rgba(0,0,0,0.3), 0 0 40px rgba(140,255,190,0.35);
+}
+
+.firefly {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #eaff9c;
+  box-shadow: 0 0 8px 2px rgba(234,255,156,0.9), 0 0 18px 5px rgba(234,255,156,0.4);
+  animation: fireflyDrift 4.5s ease-in-out infinite, fireflyBlink 2.2s ease-in-out infinite;
+}
+
+.firefly:nth-child(1) { top: 10%; left: 5%;  animation-delay: 0s, 0.2s; }
+.firefly:nth-child(2) { top: 70%; left: 12%; animation-delay: 0.6s, 0.8s; }
+.firefly:nth-child(3) { top: 20%; left: 90%; animation-delay: 1.1s, 0.3s; }
+.firefly:nth-child(4) { top: 80%; left: 85%; animation-delay: 1.6s, 1.1s; }
+.firefly:nth-child(5) { top: 45%; left: -2%;  animation-delay: 2.1s, 0.5s; }
+.firefly:nth-child(6) { top: 50%; left: 98%; animation-delay: 0.3s, 1.4s; }
+.firefly:nth-child(7) { top: 5%;  left: 50%; animation-delay: 1.8s, 0.9s; }
+.firefly:nth-child(8) { top: 90%; left: 45%; animation-delay: 0.9s, 1.7s; }
+
+@keyframes fireflyDrift {
+  0%, 100% { transform: translate(0, 0); }
+  25%      { transform: translate(12px, -16px); }
+  50%      { transform: translate(-10px, -6px); }
+  75%      { transform: translate(8px, 12px); }
+}
+
+@keyframes fireflyBlink {
+  0%, 100% { opacity: 0.15; }
+  50%      { opacity: 1; }
 }
 
 @keyframes fadeIn {
@@ -41,6 +125,7 @@
   width: 100%;
   height: 120%;
   transform: rotate(-45deg);
+  pointer-events: none;
 }
 
 .mobileStars {
@@ -48,6 +133,7 @@
   top: 0;
   left: 0;
   transform: rotate(-45deg);
+  pointer-events: none;
 }
 
 .star {

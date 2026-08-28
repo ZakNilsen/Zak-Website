@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState } from "react";
 import styles from "./home.module.css";
 import Image from "next/image";
 import { useMobile } from "../mobile/mobileContext";
@@ -34,6 +35,16 @@ export default function Home() {
     });
   })();
 
+  const [bursts, setBursts] = useState<{ id: number }[]>([]);
+
+  const handleWelcomeClick = () => {
+    const id = Date.now();
+    setBursts((b) => [...b, { id }]);
+    setTimeout(() => {
+      setBursts((b) => b.filter((burst) => burst.id !== id));
+    }, 900);
+  };
+
   return (
     <div className={styles.homeContainer}>
       <PageTransition exclude={["slideRight"]} />
@@ -49,7 +60,29 @@ export default function Home() {
         />
       </div>
       <div className={styles.centeredWelcome}>
-        <h1 className={styles.welcomeText}>Welcome</h1>
+        <div className={styles.welcomeWrapper}>
+          <h1 className={styles.welcomeText} onClick={handleWelcomeClick}>
+            Welcome
+          </h1>
+
+          <div className={styles.fireflies} aria-hidden="true">
+            {Array.from({ length: 8 }, (_, i) => (
+              <div key={i} className={styles.firefly} />
+            ))}
+          </div>
+
+          {bursts.map((burst) => (
+            <div key={burst.id} className={styles.burst} aria-hidden="true">
+              {Array.from({ length: 12 }, (_, i) => (
+                <div
+                  key={i}
+                  className={styles.sparkle}
+                  style={{ "--angle": `${i * 30}deg` } as React.CSSProperties}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
