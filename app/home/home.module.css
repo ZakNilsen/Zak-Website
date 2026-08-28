@@ -42,22 +42,38 @@
   pointer-events: none;
 }
 
-.sparkle {
+.leaf {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: linear-gradient(45deg, #fff, #9be8ff);
-  box-shadow: 0 0 6px 2px rgba(155,232,255,0.8);
-  transform: rotate(var(--angle)) translate(0, 0);
-  animation: sparkleBurst 0.9s ease-out forwards;
+  top: var(--origin-y, 50%);
+  left: var(--origin-x, 50%);
+  width: 8px;
+  height: 10px;
+  background: var(--leaf-color, #7a9a52);
+  border-radius: 0% 100% 0% 100%;
+  opacity: 0;
+  animation: leafFall 1.6s ease-in forwards;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
 }
 
-@keyframes sparkleBurst {
-  0%   { transform: rotate(var(--angle)) translate(0, 0); opacity: 1; }
-  100% { transform: rotate(var(--angle)) translate(80px, 0); opacity: 0; }
+@keyframes leafFall {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  15% {
+    transform: translate(var(--dx-1), var(--dy-1)) rotate(var(--rot-1));
+    opacity: 1;
+  }
+  40% {
+    transform: translate(var(--dx-2), var(--dy-2)) rotate(var(--rot-2));
+  }
+  70% {
+    transform: translate(var(--dx-3), var(--dy-3)) rotate(var(--rot-3));
+  }
+  100% {
+    transform: translate(var(--dx-4), var(--dy-4)) rotate(var(--rot-4));
+    opacity: 0;
+  }
 }
 
 .welcomeWrapper {
