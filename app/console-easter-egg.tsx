@@ -40,6 +40,10 @@ export default function ConsoleEasterEgg() {
       "%c(hint: the sky remembers how many times you've reached for it)",
       "color: #7ee8fa; font-size: 10px; font-style: italic;"
     );
+    console.log(
+      "%cNot everything on this site is on the map. ↑ ↑ ↓ ↓ ← → ← → B A",
+      "color: #7ee8fa; font-size: 10px; font-style: italic;"
+    );
   }, []);
 
   return null;

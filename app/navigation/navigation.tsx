@@ -4,6 +4,7 @@ import styles from "./navigation.module.css";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useMobile } from "../mobile/mobileContext";
 import { useState, useEffect } from "react";
 
@@ -29,7 +30,13 @@ const HamburgerMenu = dynamic(() => import("../mobile/mobileMenu"), { ssr: false
 
 export default function Navigation() {
   const { isMobile } = useMobile();
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
+  const isSecretPage = pathname === "/secret";
+
+  if (isSecretPage) {
+    return null;
+  }
 
   useEffect(() => {
     // Only set up the listener if we are on a mobile device

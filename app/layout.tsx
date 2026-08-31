@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navigation from "./navigation/navigation";
-import { MobileProvider } from "./mobile/mobileContext";
-import TransitionProvider from "./transition/TransitionProvider";
-import ConsoleEasterEgg from "./console-easter-egg";
+import AppShell from "./AppShell";
 
 export const metadata: Metadata = {
   title: "Zak's Website",
@@ -21,15 +18,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <link rel="manifest" href="/app/site.webmanifest" />
       </head>
       <body>
-        <ConsoleEasterEgg />
-        <MobileProvider>
-          <TransitionProvider>
-            <Navigation />
-
-            {/* Render current page component */}
-            <main>{children}</main>
-          </TransitionProvider>
-        </MobileProvider>
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );

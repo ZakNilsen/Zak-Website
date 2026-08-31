@@ -65,12 +65,14 @@ export default function Projects() {
    * Clean everything up if the page/component is removed.
    */
   useEffect(() => {
+    const timers = constellationTimers.current;
+
     return () => {
-      constellationTimers.current.forEach((timer) => {
+      timers.forEach((timer) => {
         window.clearTimeout(timer);
       });
 
-      constellationTimers.current.clear();
+      timers.clear();
 
       if (meteorTimer.current !== null) {
         window.clearTimeout(meteorTimer.current);
