@@ -1,19 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Geist, Geist_Mono } from "next/font/google";
 import Navigation from "./navigation/navigation";
 import { MobileProvider } from "./mobile/mobileContext";
 import TransitionProvider from "./transition/TransitionProvider";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import ConsoleEasterEgg from "./console-easter-egg";
 
 export const metadata: Metadata = {
   title: "Zak's Website",
@@ -30,7 +20,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
         <link rel="manifest" href="/app/site.webmanifest" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body>
+        <ConsoleEasterEgg />
         <MobileProvider>
           <TransitionProvider>
             <Navigation />
