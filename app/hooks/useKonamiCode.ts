@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const KONAMI_CODE = [
   "ArrowUp",
@@ -18,6 +18,11 @@ const KONAMI_CODE = [
 export default function useKonamiCode() {
   const [isActivated, setIsActivated] = useState(false);
   const inputRef = useRef<string[]>([]);
+
+  const resetActivated = useCallback(() => {
+    setIsActivated(false);
+    inputRef.current = [];
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -46,5 +51,5 @@ export default function useKonamiCode() {
     };
   }, []);
 
-  return isActivated;
+  return { isActivated, resetActivated };
 }
