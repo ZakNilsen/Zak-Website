@@ -17,7 +17,7 @@ import * as THREE from "three";
 
 import { motion } from "framer-motion";
 
-interface SecretCampfireSceneProps {
+interface SecretStarryNightSceneProps {
   onClose: () => void;
 }
 
@@ -1264,9 +1264,9 @@ function CameraRig() {
 /* Main Scene                                                                 */
 /* ========================================================================= */
 
-export default function SecretCampfireScene({
+export default function SecretStarryNightScene({
   onClose,
-}: SecretCampfireSceneProps) {
+}: SecretStarryNightSceneProps) {
   const [showText, setShowText] =
     useState(false);
 

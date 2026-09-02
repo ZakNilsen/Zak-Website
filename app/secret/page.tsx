@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const SecretCampfireScene = dynamic(() => import("./SecretCampFireScene"), {
+const SecretStarryNightScene = dynamic(() => import("./SecretStarryNightScene"), {
   ssr: false,
 });
 
@@ -34,7 +34,7 @@ export default function SecretPage() {
         background: "black",
       }}
     >
-      <SecretCampfireScene onClose={handleClose} />
+      <SecretStarryNightScene onClose={handleClose} />
     </div>
   );
 }
