@@ -1202,25 +1202,85 @@ export default function SecretStarryNightScene({ onClose }: SecretStarryNightSce
       </Canvas>
 
       {/* Cinematic vignette */}
-      <div className="cosmic-vignette" />
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 2,
+          pointerEvents: "none",
+          background:
+            "radial-gradient(ellipse at center, transparent 35%, rgba(1,3,8,0.12) 55%, rgba(1,3,8,0.58) 82%, rgba(0,1,4,0.9) 100%)",
+        }}
+      />
 
       {/* Slight atmospheric overlay */}
-      <div className="cosmic-atmosphere" />
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 3,
+          pointerEvents: "none",
+          background:
+            "linear-gradient(to bottom, rgba(2,5,14,0.05) 0%, transparent 48%, rgba(2,7,12,0.12) 70%, rgba(0,3,7,0.32) 100%)",
+        }}
+      />
 
       {/* Text */}
       <motion.div
-        className="cosmic-message"
+        style={{
+          position: "absolute",
+          zIndex: 5,
+          bottom: "3.25rem",
+          left: 0,
+          right: 0,
+          margin: "0 auto",
+          width: "min(90vw, 620px)",
+          textAlign: "center",
+          pointerEvents: "none",
+          textShadow: "0 2px 18px rgba(0,0,0,0.95), 0 0 40px rgba(0,0,0,0.7)",
+        }}
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: showText ? 1 : 0, y: showText ? 0 : 18 }}
         transition={{ duration: 2, ease: "easeOut" }}
       >
-        <span className="cosmic-kicker">THE NIGHT SKY REMEMBERS</span>
-        <h2>
+        <span
+          style={{
+            display: "block",
+            marginBottom: "0.8rem",
+            color: "rgba(180,201,228,0.65)",
+            fontFamily: 'Georgia, "Times New Roman", serif',
+            fontSize: "0.68rem",
+            letterSpacing: "0.28em",
+            fontWeight: 400,
+          }}
+        >
+          THE NIGHT SKY REMEMBERS
+        </span>
+        <h2
+          style={{
+            margin: "0 0 0.9rem",
+            color: "#e8edf5",
+            fontFamily: 'Georgia, "Times New Roman", serif',
+            fontSize: "clamp(1.7rem, 4vw, 3rem)",
+            fontWeight: 300,
+            lineHeight: 1.18,
+            letterSpacing: "0.015em",
+          }}
+        >
           Somewhere beyond
           <br />
           the trees.
         </h2>
-        <p>
+        <p
+          style={{
+            margin: 0,
+            color: "rgba(164,183,208,0.7)",
+            fontFamily: 'Georgia, "Times New Roman", serif',
+            fontSize: "0.78rem",
+            lineHeight: 1.8,
+            letterSpacing: "0.05em",
+          }}
+        >
           Look up.
           <br />
           You might catch something.
