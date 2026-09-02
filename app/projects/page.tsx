@@ -11,11 +11,15 @@ import styles from "./projects.module.css";
 import { makeRNG } from "../utility/utility";
 import CometCursor from "../animations/cursor/cometCursor";
 import { PageTransition } from "../transition/TransitionProvider";
+import { useVisitedPages } from "../utility/visitedPageTracker";
 
 const MAX_CONSTELLATIONS = 5;
 const METEOR_TRIGGER_CLICKS = 7;
 
 export default function Projects() {
+  const { markVisited } = useVisitedPages();
+  useEffect(() => markVisited("projects"), []);
+
   // Fireflies - increased count for forest atmosphere
   const fireflies = (() => {
     const rng = makeRNG(20230101);

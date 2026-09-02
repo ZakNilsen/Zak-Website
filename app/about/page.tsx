@@ -1,11 +1,15 @@
 "use client";
 import styles from "./about.module.css";
 import { makeRNG } from "../utility/utility";
-import { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import FireFlyDustCursor from "../animations/cursor/fireFlyDustCursor";
 import { PageTransition } from "../transition/TransitionProvider";
+import { useVisitedPages } from "../utility/visitedPageTracker";
 
 export default function About() {
+  const { markVisited } = useVisitedPages();
+  useEffect(() => markVisited("about"), []);
+
   const stars = (() => {
     const rng = makeRNG(20010418);
     const starCount = 100;

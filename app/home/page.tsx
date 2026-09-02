@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./home.module.css";
 import Image from "next/image";
 import { useMobile } from "../mobile/mobileContext";
 import { makeRNG } from "../utility/utility";
 import { PageTransition } from "../transition/TransitionProvider";
+import { useVisitedPages } from "../utility/visitedPageTracker";
 
 const LEAF_COLORS = ["#7a9a52", "#d4a83e", "#c97c3d", "#a84b3d", "#6b8f3a"];
 const LEAF_COUNT = 10;
@@ -47,6 +48,10 @@ type Burst = { id: number; leaves: Leaf[]; originStyle: React.CSSProperties };
 
 export default function Home() {
   const { isMobile } = useMobile();
+
+  const { markVisited } = useVisitedPages();
+  useEffect(() => markVisited("home"), []);
+
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const starCount = isMobile ? 40 : 50;

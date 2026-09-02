@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import useKonamiCode from "./hooks/useKonamiCode";
+import useKonamiCode from "../hooks/useKonamiCode";
 
 export default function KonamiRedirect() {
   const router = useRouter();
