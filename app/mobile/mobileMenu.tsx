@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import styles from "./mobileMenu.module.css";
-import Link from 'next/link'
+import Link from 'next/link';
+import { useVisitedPages } from "../utility/visitedPageTracker";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { canAccessSecret } = useVisitedPages();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -31,6 +33,11 @@ const HamburgerMenu = () => {
             <li>
               <Link href="/projects" className={styles.navLink} onClick={toggleMenu}>Projects</Link>
             </li>
+            {canAccessSecret && (
+              <li>
+                <Link href="/secret" className={styles.navLink} onClick={toggleMenu}>Starfall</Link>
+              </li>
+            )}
           </ul>
         </nav>
       </div>

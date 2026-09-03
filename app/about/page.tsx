@@ -2,13 +2,19 @@
 import styles from "./about.module.css";
 import { makeRNG } from "../utility/utility";
 import React, { useState, useRef, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import FireFlyDustCursor from "../animations/cursor/fireFlyDustCursor";
 import { PageTransition } from "../transition/TransitionProvider";
 import { useVisitedPages } from "../utility/visitedPageTracker";
 
 export default function About() {
+  const pathname = usePathname();
   const { markVisited } = useVisitedPages();
-  useEffect(() => markVisited("about"), []);
+  useEffect(() => {
+    if (pathname === "/about") {
+      markVisited("about");
+    }
+  }, [pathname, markVisited]);
 
   const stars = (() => {
     const rng = makeRNG(20010418);

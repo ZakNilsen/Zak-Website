@@ -147,6 +147,16 @@ export default function TransitionProvider({ children }: { children: React.React
     });
   }, []);
 
+  // Bypass the page transition entirely for the secret route so entering
+  // Starfall feels direct and uninterrupted.
+  if (pathname === "/secret") {
+    return (
+      <TransitionContext.Provider value={{ register: () => {} }}>
+        {children}
+      </TransitionContext.Provider>
+    );
+  }
+
   // If on mobile, disable visual page transitions but still provide a
   // no-op `register` so components calling `useRegisterTransition` don't throw.
   if (isMobile) {

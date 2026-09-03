@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import ConstellationOverlay, {
   CONSTELLATION_LIFESPAN,
 } from "../animations/moonSecrets/ConstellationOverlay";
@@ -17,8 +18,13 @@ const MAX_CONSTELLATIONS = 5;
 const METEOR_TRIGGER_CLICKS = 7;
 
 export default function Projects() {
+  const pathname = usePathname();
   const { markVisited } = useVisitedPages();
-  useEffect(() => markVisited("projects"), []);
+  useEffect(() => {
+    if (pathname === "/projects") {
+      markVisited("projects");
+    }
+  }, [pathname, markVisited]);
 
   // Fireflies - increased count for forest atmosphere
   const fireflies = (() => {

@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMobile } from "../mobile/mobileContext";
+import { useVisitedPages } from "../utility/visitedPageTracker";
 import { useState, useEffect } from "react";
 
 function LogoName({ size = "normal", className = "" }) {
@@ -31,12 +32,9 @@ const HamburgerMenu = dynamic(() => import("../mobile/mobileMenu"), { ssr: false
 export default function Navigation() {
   const { isMobile } = useMobile();
   const pathname = usePathname();
+  const { canAccessSecret } = useVisitedPages();
   const [isScrolled, setIsScrolled] = useState(false);
   const isSecretPage = pathname === "/secret";
-
-  if (isSecretPage) {
-    return null;
-  }
 
   useEffect(() => {
     // Only set up the listener if we are on a mobile device
@@ -58,7 +56,11 @@ export default function Navigation() {
     };
   }, [isMobile, isScrolled]); // Re-run effect if mobile status or scroll state changes
 
-    return (
+  if (isSecretPage) {
+    return null;
+  }
+
+  return (
       <div className={styles.navigationContainer}>
         {!isMobile && (
           <div className={styles.topBar}>
@@ -69,6 +71,7 @@ export default function Navigation() {
               <Link href="/" className={styles.navLink}>Home</Link>
               <Link href="/about" className={styles.navLink}>About</Link>
               <Link href="/projects" className={styles.navLink}>Projects</Link>
+              {canAccessSecret && <Link href="/secret" className={styles.navLink}>Starfall</Link>}
             </nav>
           </div>
         )}

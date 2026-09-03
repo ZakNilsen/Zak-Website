@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import styles from "./home.module.css";
 import Image from "next/image";
 import { useMobile } from "../mobile/mobileContext";
@@ -48,9 +49,14 @@ type Burst = { id: number; leaves: Leaf[]; originStyle: React.CSSProperties };
 
 export default function Home() {
   const { isMobile } = useMobile();
+  const pathname = usePathname();
 
   const { markVisited } = useVisitedPages();
-  useEffect(() => markVisited("home"), []);
+  useEffect(() => {
+    if (pathname === "/") {
+      markVisited("home");
+    }
+  }, [pathname, markVisited]);
 
   const wrapperRef = useRef<HTMLDivElement>(null);
 
