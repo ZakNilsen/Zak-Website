@@ -5,7 +5,7 @@ import Navigation from "./navigation/navigation";
 import { MobileProvider } from "./mobile/mobileContext";
 import TransitionProvider from "./transition/TransitionProvider";
 import ConsoleEasterEgg from "./utility/console-easter-egg";
-import KonamiRedirect from "./utility/konami-redirect";
+import { KonamiProvider } from "./utility/konamiProvider";
 import { VisitedPagesProvider } from "./utility/visitedPageTracker";
 import SecretUnlockToast from "./secret/unlockToast";
 
@@ -16,16 +16,17 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       <ConsoleEasterEgg />
-      <KonamiRedirect />
-      <VisitedPagesProvider>
-        <MobileProvider>
-          <TransitionProvider>
-            {!isSecretPage && <Navigation />}
-            {isSecretPage ? children : <main>{children}</main>}
-          </TransitionProvider>
-        </MobileProvider>
-        <SecretUnlockToast />
-      </VisitedPagesProvider>
+      <KonamiProvider>
+        <VisitedPagesProvider>
+          <MobileProvider>
+            <TransitionProvider>
+              {!isSecretPage && <Navigation />}
+              {isSecretPage ? children : <main>{children}</main>}
+            </TransitionProvider>
+          </MobileProvider>
+          <SecretUnlockToast />
+        </VisitedPagesProvider>
+      </KonamiProvider>
     </>
   );
 }

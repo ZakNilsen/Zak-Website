@@ -8,6 +8,7 @@ import { useMobile } from "../mobile/mobileContext";
 import { makeRNG } from "../utility/utility";
 import { PageTransition } from "../transition/TransitionProvider";
 import { useVisitedPages } from "../utility/visitedPageTracker";
+import { useKonamiTrigger } from "../utility/konamiProvider";
 
 const LEAF_COLORS = ["#7a9a52", "#d4a83e", "#c97c3d", "#a84b3d", "#6b8f3a"];
 const LEAF_COUNT = 10;
@@ -50,6 +51,7 @@ type Burst = { id: number; leaves: Leaf[]; originStyle: React.CSSProperties };
 export default function Home() {
   const { isMobile } = useMobile();
   const pathname = usePathname();
+  const { triggerSignal, triggerCounts, triggerPage } = useKonamiTrigger();
 
   const { markVisited } = useVisitedPages();
   useEffect(() => {
@@ -57,6 +59,25 @@ export default function Home() {
       markVisited("home");
     }
   }, [pathname, markVisited]);
+
+  const lastSignalRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (lastSignalRef.current === null) {
+      lastSignalRef.current = triggerSignal;
+      return;
+    }
+
+    if (lastSignalRef.current === triggerSignal) return;
+    lastSignalRef.current = triggerSignal;
+
+    const nextCount = (triggerCounts.home ?? 0) + 1;
+    triggerPage("home");
+    console.log("Home konami trigger fired", {
+      triggerSignal,
+      count: nextCount,
+    });
+  }, [triggerSignal, triggerPage, triggerCounts.home]);
 
   const wrapperRef = useRef<HTMLDivElement>(null);
 

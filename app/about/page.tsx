@@ -6,15 +6,36 @@ import { usePathname } from "next/navigation";
 import FireFlyDustCursor from "../animations/cursor/fireFlyDustCursor";
 import { PageTransition } from "../transition/TransitionProvider";
 import { useVisitedPages } from "../utility/visitedPageTracker";
+import { useKonamiTrigger } from "../utility/konamiProvider";
 
 export default function About() {
   const pathname = usePathname();
+  const { triggerSignal, triggerCounts, triggerPage } = useKonamiTrigger();
   const { markVisited } = useVisitedPages();
   useEffect(() => {
     if (pathname === "/about") {
       markVisited("about");
     }
   }, [pathname, markVisited]);
+
+  const lastSignalRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (lastSignalRef.current === null) {
+      lastSignalRef.current = triggerSignal;
+      return;
+    }
+
+    if (lastSignalRef.current === triggerSignal) return;
+    lastSignalRef.current = triggerSignal;
+
+    const nextCount = (triggerCounts.about ?? 0) + 1;
+    triggerPage("about");
+    console.log("About konami trigger fired", {
+      triggerSignal,
+      count: nextCount,
+    });
+  }, [triggerSignal, triggerPage, triggerCounts.about]);
 
   const stars = (() => {
     const rng = makeRNG(20010418);

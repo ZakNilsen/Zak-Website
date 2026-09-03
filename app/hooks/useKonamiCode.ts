@@ -16,6 +16,7 @@ const KONAMI_CODE = [
 ];
 
 export default function useKonamiCode() {
+  const [triggerSignal, setTriggerSignal] = useState(0);
   const [isActivated, setIsActivated] = useState(false);
   const inputRef = useRef<string[]>([]);
 
@@ -40,6 +41,7 @@ export default function useKonamiCode() {
 
       if (matches && inputRef.current.length === KONAMI_CODE.length) {
         setIsActivated(true);
+        setTriggerSignal((current) => current + 1);
         inputRef.current = [];
       }
     };
@@ -51,5 +53,5 @@ export default function useKonamiCode() {
     };
   }, []);
 
-  return { isActivated, resetActivated };
+  return { isActivated, resetActivated, triggerSignal };
 }

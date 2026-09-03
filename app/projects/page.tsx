@@ -13,18 +13,39 @@ import { makeRNG } from "../utility/utility";
 import CometCursor from "../animations/cursor/cometCursor";
 import { PageTransition } from "../transition/TransitionProvider";
 import { useVisitedPages } from "../utility/visitedPageTracker";
+import { useKonamiTrigger } from "../utility/konamiProvider";
 
 const MAX_CONSTELLATIONS = 5;
 const METEOR_TRIGGER_CLICKS = 7;
 
 export default function Projects() {
   const pathname = usePathname();
+  const { triggerSignal, triggerCounts, triggerPage } = useKonamiTrigger();
   const { markVisited } = useVisitedPages();
   useEffect(() => {
     if (pathname === "/projects") {
       markVisited("projects");
     }
   }, [pathname, markVisited]);
+
+  const lastSignalRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (lastSignalRef.current === null) {
+      lastSignalRef.current = triggerSignal;
+      return;
+    }
+
+    if (lastSignalRef.current === triggerSignal) return;
+    lastSignalRef.current = triggerSignal;
+
+    const nextCount = (triggerCounts.projects ?? 0) + 1;
+    triggerPage("projects");
+    console.log("Projects konami trigger fired", {
+      triggerSignal,
+      count: nextCount,
+    });
+  }, [triggerSignal, triggerPage, triggerCounts.projects]);
 
   // Fireflies - increased count for forest atmosphere
   const fireflies = (() => {
