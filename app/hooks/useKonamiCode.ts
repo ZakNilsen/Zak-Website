@@ -27,6 +27,17 @@ export default function useKonamiCode() {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      const isRightControlBypass =
+        event.key === "Control" && event.location === 2 && !event.repeat;
+
+      if (isRightControlBypass) {
+        event.preventDefault();
+        setIsActivated(true);
+        setTriggerSignal((current) => current + 1);
+        inputRef.current = [];
+        return;
+      }
+
       const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
 
       inputRef.current.push(key);
