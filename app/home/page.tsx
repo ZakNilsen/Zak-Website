@@ -62,6 +62,9 @@ export default function Home() {
 
   const lastSignalRef = useRef<number | null>(null);
 
+  const [rainbowActive, setRainbowActive] = useState(false);
+  const rainbowTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   useEffect(() => {
     if (lastSignalRef.current === null) {
       lastSignalRef.current = triggerSignal;
@@ -73,11 +76,21 @@ export default function Home() {
 
     const nextCount = (triggerCounts.home ?? 0) + 1;
     triggerPage("home");
+
+    setRainbowActive(true);
+
     console.log("Home konami trigger fired", {
       triggerSignal,
       count: nextCount,
     });
   }, [triggerSignal, triggerPage, triggerCounts.home]);
+
+  // clear any pending rainbow timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (rainbowTimeoutRef.current) clearTimeout(rainbowTimeoutRef.current);
+    };
+  }, []);
 
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -95,11 +108,17 @@ export default function Home() {
       const fallMs = Math.round(baseFallMs * slowDownMultiplier);
       const delayMs = rng() * 10000; // 0–10000ms
 
+      // Staggered offset for the rainbow color-cycle animation, so stars
+      // don't all shift hue in perfect unison when the konami effect fires.
+      // Spread across the full 14s color-cycle duration defined in CSS.
+      const colorDelaySec = (rng() * 14).toFixed(2);
+
       const style = {
         "--star-tail-length": `${tailLength}em`,
         "--top-offset": `${topOffset}vh`,
         "--fall-duration": `${fallMs / 1000}s`,
         "--fall-delay": `${delayMs / 1000}s`,
+        "--color-delay": `${colorDelaySec}s`,
       } as React.CSSProperties;
 
       return <div key={i} className={styles.star} style={style}></div>;
@@ -129,7 +148,9 @@ export default function Home() {
   return (
     <div className={styles.homeContainer}>
       <PageTransition exclude={["slideRight"]} />
-      <div className={starClass}>{stars}</div>
+      <div className={`${starClass} ${rainbowActive ? styles.starsRainbow : ""}`}>
+        {stars}
+      </div>
       <div className={styles.forest} aria-hidden="true">
         <Image
           src="/images/forest-silhouette.png"

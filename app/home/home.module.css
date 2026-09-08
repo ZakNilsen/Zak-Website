@@ -283,3 +283,19 @@
   }
 }
 
+@keyframes starRainbow {
+  0%   { color: hsl(200, 75%, 78%); }
+  20%  { color: hsl(260, 70%, 80%); }
+  40%  { color: hsl(320, 60%, 80%); }
+  60%  { color: hsl(20, 65%, 80%); }
+  80%  { color: hsl(160, 60%, 76%); }
+  100% { color: hsl(200, 75%, 78%); }
+}
+
+.starsRainbow .star {
+  animation:
+    fall var(--fall-duration) linear var(--fall-delay) infinite,
+    tail-fade var(--tail-fade-duration) ease-out var(--fall-delay) infinite,
+    starRainbow 14s ease-in-out infinite;
+  animation-delay: var(--fall-delay), var(--fall-delay), var(--color-delay, 0s);
+}
