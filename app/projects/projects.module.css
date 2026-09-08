@@ -19,21 +19,25 @@
 }
 
 .firefly {
+  --firefly-c1: rgba(255, 223, 100, 1);
+  --firefly-c2: rgba(255, 200, 50, 0.6);
+  --firefly-glow1: rgba(255, 223, 100, 0.9);
+  --firefly-glow2: rgba(255, 200, 50, 0.5);
+
   position: absolute;
   left: var(--start-x);
   top: var(--start-y);
   width: var(--firefly-size);
   height: var(--firefly-size);
-  background: radial-gradient(circle, rgba(255, 223, 100, 1), rgba(255, 200, 50, 0.6));
+  background: radial-gradient(circle, var(--firefly-c1), var(--firefly-c2));
   border-radius: 50%;
-  box-shadow:
-    0 0 15px rgba(255, 223, 100, 0.9),
-    0 0 30px rgba(255, 200, 50, 0.5);
+  box-shadow: 0 0 15px var(--firefly-glow1), 0 0 30px var(--firefly-glow2);
   animation:
     fireflyFloat var(--float-duration) ease-in-out infinite,
     fireflyGlow 2s ease-in-out infinite;
   animation-delay: var(--float-delay);
   opacity: 0;
+  transition: background 1.5s ease, box-shadow 1.5s ease;
 }
 
 @keyframes fireflyFloat {
@@ -60,14 +64,10 @@
 
 @keyframes fireflyGlow {
   0%, 100% {
-    box-shadow:
-      0 0 10px rgba(255, 223, 100, 0.6),
-      0 0 20px rgba(255, 200, 50, 0.3);
+    box-shadow: 0 0 10px var(--firefly-glow1), 0 0 20px var(--firefly-glow2);
   }
   50% {
-    box-shadow:
-      0 0 15px rgba(255, 223, 100, 1),
-      0 0 30px rgba(255, 200, 50, 0.6);
+    box-shadow: 0 0 15px var(--firefly-c1), 0 0 30px var(--firefly-c2);
   }
 }
 
@@ -437,4 +437,19 @@
   .projectsGrid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* When boosted, remap each firefly's color vars to its own assigned
+   palette color instead of the default gold */
+.fireflyColorShift .firefly {
+  --firefly-c1: var(--boost-c1);
+  --firefly-c2: var(--boost-c2);
+  --firefly-glow1: var(--boost-glow1);
+  --firefly-glow2: var(--boost-glow2);
+}
+
+.fireflyFadeOut {
+  animation: none !important;
+  opacity: 0 !important;
+  transition: opacity 1.2s ease;
 }

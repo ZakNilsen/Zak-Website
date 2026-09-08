@@ -22,6 +22,11 @@ type Particle = {
   twinkleSeed: number;
 };
 
+type CometCursorProps = {
+  rgbPulse?: boolean;
+  burstOnClick?: boolean;
+};
+
 // Cosmic palette — tweak freely
 const COLORS = [
   "255,255,255", // white
@@ -42,8 +47,18 @@ const SMOOTHING = 0.22;
 const HEAD_WIDTH = 3.5;
 const TAIL_WIDTH = 0.4;
 
-export default function CometCursor() {
+export default function CometCursor({ rgbPulse = true, burstOnClick = false }: CometCursorProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const rgbPulseRef = useRef(rgbPulse);
+  const burstOnClickRef = useRef(burstOnClick);
+
+  useEffect(() => {
+    rgbPulseRef.current = rgbPulse;
+  }, [rgbPulse]);
+
+  useEffect(() => {
+    burstOnClickRef.current = burstOnClick;
+  }, [burstOnClick]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -142,8 +157,65 @@ export default function CometCursor() {
       }
     };
 
+    const burstAtCursor = () => {
+      if (!burstOnClickRef.current || target.x < 0 || target.y < 0) return;
+
+      for (let i = 0; i < 18; i += 1) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 0.8 + Math.random() * 1.4;
+        particles.push({
+          x: target.x,
+          y: target.y,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          size: 4 + Math.random() * 6,
+          age: 0,
+          life: 360 + Math.random() * 220,
+          color: COLORS[Math.floor(Math.random() * COLORS.length)],
+          twinkleSeed: Math.random() * Math.PI * 2,
+        });
+      }
+    };
+
+    const handleClick = () => {
+      burstAtCursor();
+    };
+
     const render = () => {
       const now = performance.now();
+      const hueShift = rgbPulseRef.current ? (now / 40) % 360 : 0;
+      const rgbaFromHue = (alpha: number, offset = 0) => {
+        const hue = (hueShift + offset) % 360;
+        const x = (1 - Math.abs(((hue / 60) % 2) - 1)) * 255;
+        const sector = Math.floor(hue / 60);
+
+        let r = 0;
+        let g = 0;
+        let b = 0;
+
+        switch (sector) {
+          case 0:
+            r = 255; g = x; b = 0;
+            break;
+          case 1:
+            r = x; g = 255; b = 0;
+            break;
+          case 2:
+            r = 0; g = 255; b = x;
+            break;
+          case 3:
+            r = 0; g = x; b = 255;
+            break;
+          case 4:
+            r = x; g = 0; b = 255;
+            break;
+          default:
+            r = 255; g = 0; b = x;
+            break;
+        }
+
+        return `rgba(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)}, ${alpha})`;
+      };
 
       // Chase the real cursor with a lerp — this is what smooths out
       // hand jitter before it ever becomes trail geometry.
@@ -177,7 +249,9 @@ export default function CometCursor() {
           const width = HEAD_WIDTH - (HEAD_WIDTH - TAIL_WIDTH) * ageRatio;
 
           // Soft outer glow pass
-          ctx.strokeStyle = `rgba(180,230,255,${alpha * 0.35})`;
+          ctx.strokeStyle = rgbPulseRef.current
+            ? rgbaFromHue(alpha * 0.45, 30)
+            : `rgba(180,230,255,${alpha * 0.35})`;
           ctx.lineWidth = width * 2.2;
           ctx.beginPath();
           ctx.moveTo(p0.x, p0.y);
@@ -185,7 +259,9 @@ export default function CometCursor() {
           ctx.stroke();
 
           // Bright core pass
-          ctx.strokeStyle = `rgba(255,255,255,${alpha * 0.9})`;
+          ctx.strokeStyle = rgbPulseRef.current
+            ? rgbaFromHue(alpha * 0.95, 0)
+            : `rgba(255,255,255,${alpha * 0.9})`;
           ctx.lineWidth = width;
           ctx.beginPath();
           ctx.moveTo(p0.x, p0.y);
@@ -196,7 +272,11 @@ export default function CometCursor() {
         // Bright head glow, pinned to the smoothed cursor position
         if (smoothed) {
           ctx.globalAlpha = 0.9;
+          if (rgbPulseRef.current) {
+            ctx.filter = "saturate(2.2) hue-rotate(30deg)";
+          }
           ctx.drawImage(sprite, smoothed.x - 20, smoothed.y - 20, 40, 40);
+          ctx.filter = "none";
           ctx.globalAlpha = 1;
         }
       }
@@ -224,12 +304,14 @@ export default function CometCursor() {
     window.addEventListener("resize", resize);
     window.addEventListener("mousemove", handleMove);
     window.addEventListener("touchmove", handleTouch, { passive: true });
+    window.addEventListener("click", handleClick);
     raf = requestAnimationFrame(render);
 
     return () => {
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", handleMove);
       window.removeEventListener("touchmove", handleTouch);
+      window.removeEventListener("click", handleClick);
       cancelAnimationFrame(raf);
     };
   }, []);

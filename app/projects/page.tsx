@@ -18,6 +18,52 @@ import { useKonamiTrigger } from "../utility/konamiProvider";
 const MAX_CONSTELLATIONS = 5;
 const METEOR_TRIGGER_CLICKS = 7;
 
+const BOOST_FIREFLY_COUNT = 20;
+
+type FireflyStyle = React.CSSProperties & Record<`--${string}`, string>;
+
+// Curated palette for the boosted/color-shifted fireflies. Using explicit
+// colors instead of a hue-rotate filter guarantees real, distinct color per
+// firefly -- hue-rotate on the original pale-gold gradient tends to wash
+// back toward pink/pastel regardless of rotation amount, since the gradient
+// blends toward near-white at its core and near-white pixels barely have a
+// hue for the filter to grab onto.
+const FIREFLY_PALETTE: { c1: string; c2: string; glow1: string; glow2: string }[] = [
+  { c1: "#ff3fa4", c2: "#ff8ccf", glow1: "rgba(255, 63, 164, 0.9)", glow2: "rgba(255, 140, 207, 0.5)" }, // pink
+  { c1: "#e838ff", c2: "#c46bff", glow1: "rgba(232, 56, 255, 0.9)", glow2: "rgba(196, 107, 255, 0.5)" }, // magenta-violet
+  { c1: "#7c4dff", c2: "#b388ff", glow1: "rgba(124, 77, 255, 0.9)", glow2: "rgba(179, 136, 255, 0.5)" }, // violet
+  { c1: "#ff2ee6", c2: "#ff7de8", glow1: "rgba(255, 46, 230, 0.9)", glow2: "rgba(255, 125, 232, 0.5)" }, // fuchsia
+  { c1: "#c400ff", c2: "#e070ff", glow1: "rgba(196, 0, 255, 0.9)", glow2: "rgba(224, 112, 255, 0.5)" }, // deep magenta
+  { c1: "#ff5da2", c2: "#ffb3d1", glow1: "rgba(255, 93, 162, 0.9)", glow2: "rgba(255, 179, 209, 0.5)" }, // rose
+  { c1: "#5ec8ff", c2: "#a3e4ff", glow1: "rgba(94, 200, 255, 0.9)", glow2: "rgba(163, 228, 255, 0.5)" }, // icy blue, for contrast against the pinks/violets
+];
+
+const pickPaletteEntry = (rng: () => number = Math.random) =>
+  FIREFLY_PALETTE[Math.floor(rng() * FIREFLY_PALETTE.length)];
+
+const makeBoostFireflyStyle = (): FireflyStyle => {
+  const startX = Math.random() * 100;
+  const startY = Math.random() * 100;
+  const duration = 8 + Math.random() * 12;
+  // shorter delay range than the base fireflies so the boosted ones
+  // appear quickly rather than trickling in over 10s
+  const delay = Math.random() * 3;
+  const size = 3 + Math.random() * 3;
+  const palette = pickPaletteEntry();
+
+  return {
+    "--start-x": `${startX}%`,
+    "--start-y": `${startY}%`,
+    "--float-duration": `${duration}s`,
+    "--float-delay": `${delay}s`,
+    "--firefly-size": `${size}px`,
+    "--boost-c1": palette.c1,
+    "--boost-c2": palette.c2,
+    "--boost-glow1": palette.glow1,
+    "--boost-glow2": palette.glow2,
+  };
+};
+
 export default function Projects() {
   const pathname = usePathname();
   const { triggerSignal, triggerCounts, triggerPage } = useKonamiTrigger();
@@ -30,6 +76,12 @@ export default function Projects() {
 
   const lastSignalRef = useRef<number | null>(null);
 
+  // Firefly boost: temporarily multiplies + recolors the firefly swarm
+  const [fireflyBoostActive, setFireflyBoostActive] = useState(false);
+  const [boostFireflyStyles, setBoostFireflyStyles] = useState<FireflyStyle[]>([]);
+  const [cursorRgbPulse, setCursorRgbPulse] = useState(true);
+  const [cursorBurstOnClick, setCursorBurstOnClick] = useState(false);
+
   useEffect(() => {
     if (lastSignalRef.current === null) {
       lastSignalRef.current = triggerSignal;
@@ -41,6 +93,14 @@ export default function Projects() {
 
     const nextCount = (triggerCounts.projects ?? 0) + 1;
     triggerPage("projects");
+
+    setFireflyBoostActive(true);
+    setBoostFireflyStyles(
+      Array.from({ length: BOOST_FIREFLY_COUNT }, () => makeBoostFireflyStyle())
+    );
+    setCursorRgbPulse(true);
+    setCursorBurstOnClick(true);
+
     console.log("Projects konami trigger fired", {
       triggerSignal,
       count: nextCount,
@@ -58,6 +118,7 @@ export default function Projects() {
       const duration = 8 + rng() * 12;
       const delay = rng() * 10;
       const size = 3 + rng() * 3;
+      const palette = pickPaletteEntry(rng);
 
       const style = {
         "--start-x": `${startX}%`,
@@ -65,6 +126,10 @@ export default function Projects() {
         "--float-duration": `${duration}s`,
         "--float-delay": `${delay}s`,
         "--firefly-size": `${size}px`,
+        "--boost-c1": palette.c1,
+        "--boost-c2": palette.c2,
+        "--boost-glow1": palette.glow1,
+        "--boost-glow2": palette.glow2,
       } as React.CSSProperties;
 
       return (
@@ -76,6 +141,14 @@ export default function Projects() {
       );
     });
   })();
+
+  const boostFireflies = boostFireflyStyles.map((style, i) => (
+    <div
+      key={`boost-${i}`}
+      className={styles.firefly}
+      style={style}
+    />
+  ));
 
   // Moon click state
   const [moonClicks, setMoonClicks] = useState(0);
@@ -259,10 +332,17 @@ export default function Projects() {
   return (
     <div className={styles.projectsContainer}>
       <PageTransition exclude={["slideLeft"]} />
-      <div className={styles.fireflies}>{fireflies}</div>
+      <div
+        className={`${styles.fireflies} ${
+          fireflyBoostActive ? styles.fireflyColorShift : ""
+        }`}
+      >
+        {fireflies}
+        {boostFireflies}
+      </div>
 
       {/* Cosmic cursor trail */}
-      <CometCursor />
+      <CometCursor rgbPulse={cursorRgbPulse} burstOnClick={cursorBurstOnClick} />
 
       {/* Moon */}
       <div
