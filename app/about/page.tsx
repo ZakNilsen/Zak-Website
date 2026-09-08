@@ -20,6 +20,9 @@ export default function About() {
 
   const lastSignalRef = useRef<number | null>(null);
 
+  const [tempShiftActive, setTempShiftActive] = useState(false);
+  const tempShiftTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   useEffect(() => {
     if (lastSignalRef.current === null) {
       lastSignalRef.current = triggerSignal;
@@ -31,6 +34,9 @@ export default function About() {
 
     const nextCount = (triggerCounts.about ?? 0) + 1;
     triggerPage("about");
+
+    setTempShiftActive(true);
+
     console.log("About konami trigger fired", {
       triggerSignal,
       count: nextCount,
@@ -108,7 +114,7 @@ export default function About() {
   };
 
   return (
-    <div className={styles.aboutContainer}>
+    <div className={`${styles.aboutContainer} ${tempShiftActive ? styles.tempShiftWarm : ""}`}>
       <PageTransition />
 
       <div className={styles.stars}>{stars}</div>

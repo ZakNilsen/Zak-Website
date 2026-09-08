@@ -499,3 +499,11 @@
     align-items: center;
   }
 }
+
+.aboutContainer {
+  transition: filter 3s ease;
+}
+
+.aboutContainer.tempShiftWarm {
+  filter: hue-rotate(-160deg) saturate(1.15) brightness(1.05);
+}

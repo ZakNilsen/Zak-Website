@@ -85,13 +85,6 @@ export default function Home() {
     });
   }, [triggerSignal, triggerPage, triggerCounts.home]);
 
-  // clear any pending rainbow timeout on unmount
-  useEffect(() => {
-    return () => {
-      if (rainbowTimeoutRef.current) clearTimeout(rainbowTimeoutRef.current);
-    };
-  }, []);
-
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const starCount = isMobile ? 40 : 50;
