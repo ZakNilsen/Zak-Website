@@ -119,6 +119,50 @@
   height: 100%;
 }
 
+/* Nightfall (moon) toggle button */
+.nightfallButton {
+  position: fixed;
+  top: 1.4rem;
+  left: 1.4rem;
+  z-index: 1004;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  color: var(--main-text);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.14);
+}
+
+.nightfallButton.full {
+  /* Use a subtle translucent circle instead of a solid white block; no stroke */
+  background: rgba(255,255,255,0.02);
+  color: var(--main-text);
+  backdrop-filter: blur(4px);
+}
+
+/* hidden by default, animate in when .showNightfall is applied */
+.nightfallButton {
+  opacity: 0;
+  transform: translateY(-8px) scale(0.98);
+  transition: opacity 220ms ease 200ms, transform 220ms ease 200ms;
+}
+
+@keyframes nightfallIn {
+  from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.showNightfall {
+  animation: nightfallIn 260ms ease 200ms both;
+  will-change: transform, opacity;
+}
+
 .mobileOverlayStars {
 	z-index: -2;
 	background: #000 url('/images/star-background.png') repeat top center;

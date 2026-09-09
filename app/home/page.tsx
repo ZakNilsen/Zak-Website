@@ -8,6 +8,7 @@ import { useMobile } from "../mobile/mobileContext";
 import { makeRNG } from "../utility/utility";
 import { PageTransition } from "../transition/TransitionProvider";
 import { useVisitedPages } from "../utility/visitedPageTracker";
+import { useNightfall } from "../utility/nightfallProvider";
 import { useKonamiTrigger } from "../utility/konamiProvider";
 
 const LEAF_COLORS = ["#7a9a52", "#d4a83e", "#c97c3d", "#a84b3d", "#6b8f3a"];
@@ -64,6 +65,9 @@ export default function Home() {
 
   const [rainbowActive, setRainbowActive] = useState(false);
   const rainbowTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const { nightfallActive } = useNightfall();
+  const visuallyActive = rainbowActive || nightfallActive;
 
   useEffect(() => {
     if (lastSignalRef.current === null) {
@@ -141,7 +145,7 @@ export default function Home() {
   return (
     <div className={styles.homeContainer}>
       <PageTransition exclude={["slideRight"]} />
-      <div className={`${starClass} ${rainbowActive ? styles.starsRainbow : ""}`}>
+      <div className={`${starClass} ${visuallyActive ? styles.starsRainbow : ""}`}>
         {stars}
       </div>
       <div className={styles.forest} aria-hidden="true">
@@ -152,6 +156,7 @@ export default function Home() {
           width={1600}
           height={900}
           className={styles.forestImage}
+          priority
         />
       </div>
       <div className={styles.centeredWelcome}>

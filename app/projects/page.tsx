@@ -11,9 +11,11 @@ import MeteorShower, {
 import styles from "./projects.module.css";
 import { makeRNG } from "../utility/utility";
 import CometCursor from "../animations/cursor/cometCursor";
+import { useMobile } from "../mobile/mobileContext";
 import { PageTransition } from "../transition/TransitionProvider";
 import { useVisitedPages } from "../utility/visitedPageTracker";
 import { useKonamiTrigger } from "../utility/konamiProvider";
+import { useNightfall } from "../utility/nightfallProvider";
 
 const MAX_CONSTELLATIONS = 5;
 const METEOR_TRIGGER_CLICKS = 7;
@@ -106,6 +108,10 @@ export default function Projects() {
       count: nextCount,
     });
   }, [triggerSignal, triggerPage, triggerCounts.projects]);
+
+  const { nightfallActive } = useNightfall();
+  const visuallyActive = fireflyBoostActive || nightfallActive;
+  const { isMobile } = useMobile();
 
   // Fireflies - increased count for forest atmosphere
   const fireflies = (() => {
@@ -332,17 +338,15 @@ export default function Projects() {
   return (
     <div className={styles.projectsContainer}>
       <PageTransition exclude={["slideLeft"]} />
-      <div
-        className={`${styles.fireflies} ${
-          fireflyBoostActive ? styles.fireflyColorShift : ""
-        }`}
-      >
+      <div className={`${styles.fireflies} ${visuallyActive ? styles.fireflyColorShift : ""}`}>
         {fireflies}
         {boostFireflies}
       </div>
 
-      {/* Cosmic cursor trail */}
-      <CometCursor rgbPulse={cursorRgbPulse} burstOnClick={cursorBurstOnClick} />
+      {/* Cosmic cursor trail (hidden on mobile) */}
+      {!isMobile && (
+        <CometCursor rgbPulse={cursorRgbPulse} burstOnClick={cursorBurstOnClick} />
+      )}
 
       {/* Moon */}
       <div

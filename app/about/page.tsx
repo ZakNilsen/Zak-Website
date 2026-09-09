@@ -7,6 +7,7 @@ import FireFlyDustCursor from "../animations/cursor/fireFlyDustCursor";
 import { PageTransition } from "../transition/TransitionProvider";
 import { useVisitedPages } from "../utility/visitedPageTracker";
 import { useKonamiTrigger } from "../utility/konamiProvider";
+import { useNightfall } from "../utility/nightfallProvider";
 
 export default function About() {
   const pathname = usePathname();
@@ -22,6 +23,9 @@ export default function About() {
 
   const [tempShiftActive, setTempShiftActive] = useState(false);
   const tempShiftTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const { nightfallActive } = useNightfall();
+  const visuallyActive = tempShiftActive || nightfallActive;
 
   useEffect(() => {
     if (lastSignalRef.current === null) {
@@ -114,7 +118,7 @@ export default function About() {
   };
 
   return (
-    <div className={`${styles.aboutContainer} ${tempShiftActive ? styles.tempShiftWarm : ""}`}>
+    <div className={`${styles.aboutContainer} ${visuallyActive ? styles.tempShiftWarm : ""}`}>
       <PageTransition />
 
       <div className={styles.stars}>{stars}</div>

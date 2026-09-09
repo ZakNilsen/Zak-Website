@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from "./mobileMenu.module.css";
+import NightfallToggle from "./NightfallToggle";
 import Link from 'next/link';
 import { useVisitedPages } from "../utility/visitedPageTracker";
 
@@ -13,6 +14,7 @@ const HamburgerMenu = () => {
 
   return (
     <div className={styles.hamburgerMenuContainer}>
+      {isOpen && <NightfallToggle className={styles.showNightfall} />}
       <button className={styles.hamburgerIcon} onClick={toggleMenu} aria-label="Open navigation menu">
         <div className={`${styles.line} ${isOpen ? styles.open : ''}`}></div>
         <div className={`${styles.line} ${isOpen ? styles.open : ''}`}></div>
