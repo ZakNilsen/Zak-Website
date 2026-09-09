@@ -37,11 +37,23 @@ export default function ConsoleEasterEgg() {
       "color: #f4e9c1; font-size: 11px;"
     );
     console.log(
-      "%c(hint: the sky remembers how many times you've reached for it)",
+      "%c☾ There's a secret woven into every page of this site, not just one...",
+      "color: #f4e9c1; font-size: 12px; font-style: italic;"
+    );
+    console.log(
+      "%cIt doesn't care where you are. It only cares that you remember the old ways.",
+      "color: #f4e9c1; font-size: 11px;"
+    );
+    console.log(
+      "%c(hint: just knock- you already know the rhythm)",
       "color: #7ee8fa; font-size: 10px; font-style: italic;"
     );
     console.log(
-      "%cNot everything on this site is on the map. ↑ ↑ ↓ ↓ ← → ← → B A",
+      "%cUp, up, down, down, left, right, left, right, B, A. ↑ ↑ ↓ ↓ ← → ← → B A",
+      "color: #7ee8fa; font-size: 10px; font-style: italic;"
+    );
+    console.log(
+      "%c(or if your fingers are lazy — try the right Ctrl key instead)",
       "color: #7ee8fa; font-size: 10px; font-style: italic;"
     );
   }, []);
