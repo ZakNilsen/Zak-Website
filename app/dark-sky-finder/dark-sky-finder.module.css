@@ -1,8 +1,128 @@
 .wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
   color: #e8e4ff;
+}
+
+/* Ambient starfield behind the page content (see Starfield.tsx). */
+.starfield {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  min-height: 100vh;
+  height: 100%;
+  margin-left: -50vw;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wrapper > :not(.starfield) {
+  position: relative;
+  z-index: 1;
+}
+
+.twinkleStar {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: twinkle 4s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.1;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.3);
+  }
+}
+
+.shootingStar {
+  position: absolute;
+  width: 120px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9));
+  opacity: 0;
+}
+
+.shootingStarA {
+  top: 14%;
+  left: -5%;
+  transform: rotate(18deg);
+  animation: shootLeft 16s linear 3s infinite;
+}
+
+.shootingStarB {
+  top: 58%;
+  left: 63%;
+  transform: rotate(-22deg);
+  animation: shootRight 18s linear 9s infinite;
+}
+
+.shootingStarC {
+  top: 28%;
+  left: 72%;
+  transform: rotate(-16deg);
+  animation: shootRight 21s linear 16s infinite;
+}
+
+.shootingStarD {
+  top: 72%;
+  left: -8%;
+  transform: rotate(25deg);
+  animation: shootLeft 19s linear 12s infinite;
+}
+
+@keyframes shootLeft {
+  0% {
+    opacity: 0;
+    translate: 0 0;
+  }
+  1.5% {
+    opacity: 0.9;
+  }
+  7% {
+    opacity: 0;
+    translate: 340px 120px;
+  }
+  100% {
+    opacity: 0;
+    translate: 340px 120px;
+  }
+}
+
+@keyframes shootRight {
+  0% {
+    opacity: 0;
+    translate: 0 0;
+  }
+  1.5% {
+    opacity: 0.9;
+  }
+  7% {
+    opacity: 0;
+    translate: -360px 110px;
+  }
+  100% {
+    opacity: 0;
+    translate: -360px 110px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .twinkleStar,
+  .shootingStar {
+    animation: none;
+  }
 }
 
 .intro p {
@@ -104,6 +224,75 @@
   color: #b388ff;
 }
 
+.panelTitle::before {
+  content: "✦";
+  color: #ffd76a;
+  margin-right: 0.45rem;
+  text-shadow: 0 0 8px rgba(255, 215, 106, 0.7);
+}
+
+.scoreStars {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.2em;
+  color: #ffd76a;
+  text-shadow: 0 0 10px rgba(255, 215, 106, 0.55);
+}
+
+.scoreStarsEmpty {
+  color: rgba(232, 228, 255, 0.18);
+  text-shadow: none;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem 0.9rem;
+  margin: 0;
+}
+
+.stat {
+  margin: 0;
+}
+
+.statLabel {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9d97c2;
+  margin: 0 0 0.1rem;
+}
+
+.statValue {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #e8e4ff;
+  display: flex;
+  flex-direction: column;
+}
+
+.statSub {
+  font-size: 0.72rem;
+  color: #9d97c2;
+}
+
+.statFootnote {
+  margin: 0.75rem 0 0;
+  font-size: 0.72rem;
+  color: #9d97c2;
+  font-style: italic;
+}
+
+.placeStarCertified {
+  color: #ffd76a;
+  text-shadow: 0 0 6px rgba(255, 215, 106, 0.6);
+}
+
+.placeStarRegional {
+  color: #c46bff;
+  text-shadow: 0 0 6px rgba(196, 107, 255, 0.6);
+}
+
 .muted {
   color: #9d97c2;
   font-size: 0.9rem;
@@ -114,6 +303,7 @@
   color: #7dffb0;
   font-weight: 600;
   margin: 0 0 0.25rem;
+  text-shadow: 0 0 12px rgba(125, 255, 176, 0.45);
 }
 
 .verdictOk {

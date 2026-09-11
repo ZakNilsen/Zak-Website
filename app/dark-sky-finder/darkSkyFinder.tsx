@@ -3,6 +3,8 @@
 import dynamic from "next/dynamic";
 import { useEffect, useMemo, useState } from "react";
 import { darkSkyPlaces, type DarkSkyPlace } from "./darkSkyPlaces";
+import { astroDarkness, moonInfo, stargazingScore } from "./astro";
+import Starfield from "./starField";
 import styles from "./dark-sky-finder.module.css";
 
 // Leaflet touches `window` on import, so the map must never render on the server.
@@ -13,7 +15,13 @@ const DarkSkyMap = dynamic(() => import("./darkSkyMap"), {
 
 type LatLng = { lat: number; lng: number };
 
-type HourlyCloud = { time: string; cloudCoverPct: number };
+type TonightForecast = {
+  avgCloudPct: number | null;
+  avgHumidityPct: number | null;
+  avgWindMph: number | null;
+  avgVisibilityMiles: number | null;
+  timezone: string | null; // IANA name of the location's timezone
+};
 
 // Haversine distance in miles.
 function distanceMiles(a: LatLng, b: LatLng): number {
@@ -27,11 +35,12 @@ function distanceMiles(a: LatLng, b: LatLng): number {
   return 2 * R * Math.asin(Math.sqrt(h));
 }
 
-async function fetchTonightsCloudCover(point: LatLng): Promise<HourlyCloud[]> {
+async function fetchTonightForecast(point: LatLng): Promise<TonightForecast> {
   const url = new URL("https://api.open-meteo.com/v1/forecast");
   url.searchParams.set("latitude", point.lat.toFixed(4));
   url.searchParams.set("longitude", point.lng.toFixed(4));
-  url.searchParams.set("hourly", "cloudcover");
+  url.searchParams.set("hourly", "cloudcover,relative_humidity_2m,wind_speed_10m,visibility");
+  url.searchParams.set("wind_speed_unit", "mph");
   url.searchParams.set("forecast_days", "2");
   url.searchParams.set("timezone", "auto");
 
@@ -40,21 +49,47 @@ async function fetchTonightsCloudCover(point: LatLng): Promise<HourlyCloud[]> {
   const data = await res.json();
 
   const times: string[] = data.hourly.time;
-  const clouds: number[] = data.hourly.cloudcover;
 
   // Keep tonight's evening/overnight window: 8pm today through 4am tomorrow.
-  const now = new Date();
-  const windowStart = new Date(now);
+  const windowStart = new Date();
   windowStart.setHours(20, 0, 0, 0);
   const windowEnd = new Date(windowStart);
   windowEnd.setHours(windowEnd.getHours() + 8);
 
-  return times
-    .map((t, i) => ({ time: t, cloudCoverPct: clouds[i] }))
-    .filter(({ time }) => {
-      const d = new Date(time);
-      return d >= windowStart && d <= windowEnd;
-    });
+  const indices = times
+    .map((t, i) => ({ d: new Date(t), i }))
+    .filter(({ d }) => d >= windowStart && d <= windowEnd)
+    .map(({ i }) => i);
+
+  const avg = (values: number[] | undefined): number | null => {
+    if (!values) return null;
+    const picked = indices.map((i) => values[i]).filter((v) => typeof v === "number");
+    if (picked.length === 0) return null;
+    return picked.reduce((acc, v) => acc + v, 0) / picked.length;
+  };
+
+  const visibilityMeters = avg(data.hourly.visibility);
+  return {
+    avgCloudPct: avg(data.hourly.cloudcover),
+    avgHumidityPct: avg(data.hourly.relative_humidity_2m),
+    avgWindMph: avg(data.hourly.wind_speed_10m),
+    avgVisibilityMiles: visibilityMeters === null ? null : visibilityMeters / 1609.34,
+    timezone: typeof data.timezone === "string" ? data.timezone : null,
+  };
+}
+
+// Format a UTC instant as a local wall-clock time at the forecast location.
+function formatTime(date: Date | null, timezone: string | null): string {
+  if (!date) return "—";
+  try {
+    return new Intl.DateTimeFormat(undefined, {
+      hour: "numeric",
+      minute: "2-digit",
+      timeZone: timezone ?? undefined,
+    }).format(date);
+  } catch {
+    return new Intl.DateTimeFormat(undefined, { hour: "numeric", minute: "2-digit" }).format(date);
+  }
 }
 
 function skyVerdict(avgCloud: number | null): { label: string; className: string } {
@@ -69,7 +104,7 @@ export default function DarkSkyFinder() {
   const [selected, setSelected] = useState<LatLng | null>(null);
   const [locating, setLocating] = useState(false);
   const [locateError, setLocateError] = useState<string | null>(null);
-  const [forecast, setForecast] = useState<HourlyCloud[] | null>(null);
+  const [forecast, setForecast] = useState<TonightForecast | null>(null);
   const [forecastLoading, setForecastLoading] = useState(false);
 
   const activePoint = selected ?? userLocation;
@@ -108,9 +143,9 @@ export default function DarkSkyFinder() {
     if (!activePoint) return;
     let cancelled = false;
     setForecastLoading(true);
-    fetchTonightsCloudCover(activePoint)
-      .then((hours) => {
-        if (!cancelled) setForecast(hours);
+    fetchTonightForecast(activePoint)
+      .then((result) => {
+        if (!cancelled) setForecast(result);
       })
       .catch(() => {
         if (!cancelled) setForecast(null);
@@ -123,13 +158,28 @@ export default function DarkSkyFinder() {
     };
   }, [activePoint]);
 
-  const avgCloud = useMemo(() => {
-    if (!forecast || forecast.length === 0) return null;
-    const sum = forecast.reduce((acc, h) => acc + h.cloudCoverPct, 0);
-    return Math.round(sum / forecast.length);
-  }, [forecast]);
+  const avgCloud = forecast?.avgCloudPct === null || forecast?.avgCloudPct === undefined
+    ? null
+    : Math.round(forecast.avgCloudPct);
 
   const verdict = skyVerdict(avgCloud);
+
+  const moon = useMemo(() => moonInfo(new Date()), []);
+
+  const darkness = useMemo(() => {
+    if (!activePoint) return null;
+    return astroDarkness(new Date(), activePoint.lat, activePoint.lng);
+  }, [activePoint]);
+
+  const score = useMemo(() => {
+    if (avgCloud === null) return null;
+    return stargazingScore({
+      avgCloudPct: avgCloud,
+      moonIlluminationPct: moon.illuminationPct,
+      avgHumidityPct: forecast?.avgHumidityPct ?? null,
+      avgWindMph: forecast?.avgWindMph ?? null,
+    });
+  }, [avgCloud, moon, forecast]);
 
   const nearestPlaces = useMemo(() => {
     if (!activePoint) return [] as (DarkSkyPlace & { miles: number })[];
@@ -141,6 +191,7 @@ export default function DarkSkyFinder() {
 
   return (
     <div className={styles.wrapper}>
+      <Starfield />
       <div className={styles.intro}>
         <p>
           The overlay is NASA&rsquo;s VIIRS night-lights satellite imagery &mdash; brighter
@@ -167,10 +218,62 @@ export default function DarkSkyFinder() {
             {!activePoint && <p className={styles.muted}>Pick a location to check the forecast.</p>}
             {activePoint && forecastLoading && <p className={styles.muted}>Checking the clouds&hellip;</p>}
             {activePoint && !forecastLoading && (
-              <p className={verdict.className}>{verdict.label}</p>
-            )}
-            {activePoint && !forecastLoading && avgCloud !== null && (
-              <p className={styles.muted}>~{avgCloud}% average cloud cover, 8pm&ndash;4am</p>
+              <>
+                <p className={verdict.className}>{verdict.label}</p>
+                {score !== null && (
+                  <p
+                    className={styles.scoreStars}
+                    aria-label={`Stargazing score: ${score} out of 5`}
+                    title={`Stargazing score: ${score}/5`}
+                  >
+                    <span>{"★".repeat(score)}</span>
+                    <span className={styles.scoreStarsEmpty}>{"★".repeat(5 - score)}</span>
+                  </p>
+                )}
+                <dl className={styles.statGrid}>
+                  <div className={styles.stat}>
+                    <dt className={styles.statLabel}>Moon</dt>
+                    <dd className={styles.statValue}>
+                      {moon.emoji} {moon.name}
+                      <span className={styles.statSub}>{moon.illuminationPct}% lit</span>
+                    </dd>
+                  </div>
+                  <div className={styles.stat}>
+                    <dt className={styles.statLabel}>True darkness</dt>
+                    <dd className={styles.statValue}>
+                      {darkness?.dusk && darkness?.dawn
+                        ? `${formatTime(darkness.dusk, forecast?.timezone ?? null)} – ${formatTime(darkness.dawn, forecast?.timezone ?? null)}`
+                        : "No full darkness"}
+                      <span className={styles.statSub}>sun 18&deg; below horizon</span>
+                    </dd>
+                  </div>
+                  <div className={styles.stat}>
+                    <dt className={styles.statLabel}>Cloud cover</dt>
+                    <dd className={styles.statValue}>{avgCloud === null ? "—" : `~${avgCloud}%`}</dd>
+                  </div>
+                  <div className={styles.stat}>
+                    <dt className={styles.statLabel}>Humidity</dt>
+                    <dd className={styles.statValue}>
+                      {forecast?.avgHumidityPct == null ? "—" : `${Math.round(forecast.avgHumidityPct)}%`}
+                    </dd>
+                  </div>
+                  <div className={styles.stat}>
+                    <dt className={styles.statLabel}>Wind</dt>
+                    <dd className={styles.statValue}>
+                      {forecast?.avgWindMph == null ? "—" : `${Math.round(forecast.avgWindMph)} mph`}
+                    </dd>
+                  </div>
+                  <div className={styles.stat}>
+                    <dt className={styles.statLabel}>Visibility</dt>
+                    <dd className={styles.statValue}>
+                      {forecast?.avgVisibilityMiles == null
+                        ? "—"
+                        : `${Math.round(forecast.avgVisibilityMiles)} mi`}
+                    </dd>
+                  </div>
+                </dl>
+                <p className={styles.statFootnote}>Averages for 8pm&ndash;4am at the picked spot.</p>
+              </>
             )}
           </section>
 
@@ -180,7 +283,17 @@ export default function DarkSkyFinder() {
             <ul className={styles.placeList}>
               {nearestPlaces.map((p) => (
                 <li key={p.id} className={styles.placeItem}>
-                  <span className={styles.placeName}>{p.name}</span>
+                  <span className={styles.placeName}>
+                    <span
+                      className={
+                        p.designation === "Regional" ? styles.placeStarRegional : styles.placeStarCertified
+                      }
+                      aria-hidden="true"
+                    >
+                      ✦
+                    </span>{" "}
+                    {p.name}
+                  </span>
                   <span className={styles.placeMeta}>
                     {p.designation} &middot; {Math.round(p.miles)} mi
                   </span>
