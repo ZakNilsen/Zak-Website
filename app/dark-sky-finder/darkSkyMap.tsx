@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -48,19 +48,38 @@ function ClickHandler({ onMapClickAction }: { onMapClickAction: Props["onMapClic
 
 export default function DarkSkyMap({ userLocation, selected, onMapClickAction }: Props) {
   const gibsDate = useRef(latestAvailableGibsDate());
+  const [mounted, setMounted] = useState(false);
   const center = userLocation ?? { lat: 39.8, lng: -98.6 }; // continental-US-ish default
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className={styles.map} aria-label="Loading map" />;
+  }
 
   return (
     <MapContainer
+      key={`${center.lat}-${center.lng}-${userLocation ? "loc" : "default"}`}
       center={[center.lat, center.lng]}
       zoom={userLocation ? 6 : 4}
+      minZoom={2}
+      maxZoom={8}
       scrollWheelZoom
+      worldCopyJump={false}
+      maxBounds={[
+        [-90, -180],
+        [90, 180],
+      ]}
+      maxBoundsViscosity={1.0}
       className={styles.map}
     >
       {/* Base map */}
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        noWrap
       />
 
       {/* NASA GIBS VIIRS Day/Night Band — the actual "light pollution" layer.
@@ -71,6 +90,7 @@ export default function DarkSkyMap({ userLocation, selected, onMapClickAction }:
         attribution='Imagery: <a href="https://wiki.earthdata.nasa.gov/display/GIBS">NASA EOSDIS GIBS</a>'
         opacity={0.65}
         maxNativeZoom={8}
+        noWrap
         crossOrigin="anonymous"
       />
 
