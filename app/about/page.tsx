@@ -28,6 +28,20 @@ export default function About() {
   const visuallyActive = tempShiftActive || nightfallActive;
 
   useEffect(() => {
+    if (!tempShiftActive) return;
+
+    tempShiftTimeoutRef.current = setTimeout(() => {
+      setTempShiftActive(false);
+    }, 2000);
+
+    return () => {
+      if (tempShiftTimeoutRef.current) {
+        clearTimeout(tempShiftTimeoutRef.current);
+      }
+    };
+  }, [tempShiftActive]);
+
+  useEffect(() => {
     if (lastSignalRef.current === null) {
       lastSignalRef.current = triggerSignal;
       return;

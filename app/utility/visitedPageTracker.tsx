@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useLayoutEffect, useState, ReactNode } from "react";
+import { createContext, useContext, useLayoutEffect, useState, ReactNode } from "react";
 
 type PageKey = "home" | "about" | "projects";
 const ALL_PAGES: PageKey[] = ["home", "about", "projects"];

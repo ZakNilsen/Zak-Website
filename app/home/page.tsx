@@ -70,6 +70,20 @@ export default function Home() {
   const visuallyActive = rainbowActive || nightfallActive;
 
   useEffect(() => {
+    if (!rainbowActive) return;
+
+    rainbowTimeoutRef.current = setTimeout(() => {
+      setRainbowActive(false);
+    }, 2500);
+
+    return () => {
+      if (rainbowTimeoutRef.current) {
+        clearTimeout(rainbowTimeoutRef.current);
+      }
+    };
+  }, [rainbowActive]);
+
+  useEffect(() => {
     if (lastSignalRef.current === null) {
       lastSignalRef.current = triggerSignal;
       return;

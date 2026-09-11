@@ -21,7 +21,7 @@ export function NightfallProvider({ children }: { children: React.ReactNode }) {
       if (stored !== null) {
         setNightfallActive(stored === "true");
       }
-    } catch (e) {
+    } catch {
       // ignore (SSR safety)
     }
 
@@ -38,7 +38,7 @@ export function NightfallProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, nightfallActive ? "true" : "false");
-    } catch (e) {
+    } catch {
       // ignore
     }
   }, [nightfallActive]);
