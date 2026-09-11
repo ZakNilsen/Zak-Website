@@ -164,6 +164,98 @@
   color: #9d97c2;
 }
 
+/* Night-mode basemap: invert OSM's light tiles, swing the hue back so water
+   stays blue-ish, and pull brightness/saturation down to a starlit palette. */
+.darkBase {
+  filter: invert(1) hue-rotate(200deg) brightness(0.7) contrast(1.05) saturate(0.45);
+}
+
+/* NASA night-lights tiles are black with bright lights; screen-blending them
+   onto the dark basemap makes the lights glow instead of graying the map. */
+.gibsLayer {
+  mix-blend-mode: screen;
+}
+
+.starIcon {
+  background: transparent;
+  border: none;
+  display: grid;
+  place-items: center;
+}
+
+.selectedStar svg {
+  animation: starTwinkle 1.6s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes starTwinkle {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.82);
+    opacity: 0.75;
+  }
+}
+
+.clusterIcon {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(196, 107, 255, 0.9), rgba(74, 33, 150, 0.85));
+  border: 1px solid rgba(232, 228, 255, 0.5);
+  box-shadow:
+    0 0 14px rgba(124, 77, 255, 0.8),
+    inset 0 0 8px rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+/* Restyle Leaflet's own chrome (popups, zoom, attribution) for the night look. */
+.map :global(.leaflet-popup-content-wrapper) {
+  background: rgba(16, 13, 35, 0.94);
+  color: #e8e4ff;
+  border: 1px solid rgba(124, 77, 255, 0.35);
+  border-radius: 10px;
+  box-shadow: 0 0 18px rgba(124, 77, 255, 0.3);
+}
+
+.map :global(.leaflet-popup-tip) {
+  background: rgba(16, 13, 35, 0.94);
+  border: 1px solid rgba(124, 77, 255, 0.35);
+}
+
+.map :global(.leaflet-popup-close-button) {
+  color: #b388ff;
+}
+
+.map :global(.leaflet-container a) {
+  color: #b388ff;
+}
+
+.map :global(.leaflet-bar a) {
+  background: #141028;
+  color: #e8e4ff;
+  border-bottom-color: rgba(124, 77, 255, 0.35);
+}
+
+.map :global(.leaflet-bar a:hover) {
+  background: #241a4a;
+}
+
+.map :global(.leaflet-bar a.leaflet-disabled) {
+  background: #0b0c1a;
+  color: #4a4468;
+}
+
+.map :global(.leaflet-control-attribution) {
+  background: rgba(11, 12, 26, 0.75);
+  color: #9d97c2;
+}
+
 .youAreHereIcon {
   background: transparent;
   border: none;

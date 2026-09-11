@@ -8,14 +8,34 @@ import "leaflet/dist/leaflet.css";
 import { darkSkyPlaces } from "./darkSkyPlaces";
 import styles from "./dark-sky-finder.module.css";
 
-// Leaflet's default marker icons reference image paths that don't survive
-// a Next.js/webpack bundle. Point them at a CDN instead of fighting the bundler.
-delete (L.Icon.Default.prototype as unknown as { _getIconUrl?: unknown })._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
-  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-});
+// Every marker on this map is a star. divIcons with inline SVG mean no image
+// assets to fight the bundler over (Leaflet's default pin icons don't survive
+// a Next.js bundle anyway).
+function starIcon(fill: string, glow: string, size: number, className?: string) {
+  // A four-point light glint (concave curves) with a white-hot core — reads as
+  // an actual point of starlight rather than a cartoon star shape.
+  return L.divIcon({
+    className: `${styles.starIcon}${className ? ` ${className}` : ""}`,
+    html: `<svg viewBox="0 0 24 24" width="${size}" height="${size}" style="filter: drop-shadow(0 0 ${Math.round(size / 4)}px ${glow})" aria-hidden="true"><path fill="${fill}" d="M12 0C12.9 9.1 14.9 11.1 24 12 14.9 12.9 12.9 14.9 12 24 11.1 14.9 9.1 12.9 0 12 9.1 11.1 11.1 9.1 12 0Z"/><circle cx="12" cy="12" r="1.8" fill="#fff"/></svg>`,
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size / 2],
+    popupAnchor: [0, -size / 2],
+  });
+}
+
+const certifiedIcon = starIcon("#ffd76a", "rgba(255, 215, 106, 0.9)", 18);
+const regionalIcon = starIcon("#c46bff", "rgba(196, 107, 255, 0.9)", 16);
+const selectedIcon = starIcon("#aef0ff", "rgba(94, 200, 255, 1)", 28, styles.selectedStar);
+
+// Clusters render as glowing nebula orbs with a count.
+function createClusterIcon(cluster: { getChildCount(): number }) {
+  return L.divIcon({
+    className: styles.clusterIcon,
+    html: `<span>${cluster.getChildCount()}</span>`,
+    iconSize: [36, 36],
+    iconAnchor: [18, 18],
+  });
+}
 
 const youAreHereIcon = L.divIcon({
   className: styles.youAreHereIcon,
@@ -76,20 +96,25 @@ export default function DarkSkyMap({ userLocation, selected, onMapClickAction }:
       maxBoundsViscosity={1.0}
       className={styles.map}
     >
-      {/* Base map */}
+      {/* Base map — standard OSM tiles inverted to night colors with a CSS
+          filter (see .darkBase). Keyless dark tile providers all watermark or
+          rate-limit now, and OSM itself is reliable. */}
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        className={styles.darkBase}
         noWrap
       />
 
       {/* NASA GIBS VIIRS Day/Night Band — the actual "light pollution" layer.
-          Night lights show up bright against a dark background, so a light
-          blend/opacity mode reads well over the base map. */}
+          The tiles are mostly black with bright city lights, so screen-blending
+          them over the dark base makes the lights glow instead of graying the
+          map out. */}
       <TileLayer
         url={`/api/gibs/{z}/{x}/{y}?date=${gibsDate.current}`}
         attribution='Imagery: <a href="https://wiki.earthdata.nasa.gov/display/GIBS">NASA EOSDIS GIBS</a>'
-        opacity={0.65}
+        className={styles.gibsLayer}
+        opacity={0.8}
         maxNativeZoom={8}
         noWrap
         crossOrigin="anonymous"
@@ -104,7 +129,7 @@ export default function DarkSkyMap({ userLocation, selected, onMapClickAction }:
       )}
 
       {selected && (
-        <Marker position={[selected.lat, selected.lng]}>
+        <Marker position={[selected.lat, selected.lng]} icon={selectedIcon}>
           <Popup>Selected spot</Popup>
         </Marker>
       )}
@@ -113,9 +138,14 @@ export default function DarkSkyMap({ userLocation, selected, onMapClickAction }:
         chunkedLoading
         maxClusterRadius={120}
         disableClusteringAtZoom={4}
+        iconCreateFunction={createClusterIcon}
       >
         {darkSkyPlaces.map((place) => (
-          <Marker key={place.id} position={[place.lat, place.lng]}>
+          <Marker
+            key={place.id}
+            position={[place.lat, place.lng]}
+            icon={place.designation === "Regional" ? regionalIcon : certifiedIcon}
+          >
             <Popup>
               <strong>{place.name}</strong>
               <br />

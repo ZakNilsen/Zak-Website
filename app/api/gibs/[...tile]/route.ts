@@ -12,7 +12,10 @@ export async function GET(
   const date =
     request.nextUrl.searchParams.get("date") ??
     new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
-  const product = "VIIRS_SNPP_DayNightBand_ENCC";
+  // NASA's "Black Marble" nightly night-lights product (gap-filled, moonlight-
+  // corrected). The previous VIIRS_SNPP_DayNightBand_ENCC product stopped
+  // producing data in July 2023 and 404s for every current date.
+  const product = "VIIRS_NOAA20_GapFilled_BRDF_Corrected_DayNightBand_Radiance";
 
   const [z, x, yWithExt] = tile;
   if (!z || !x || !yWithExt) {
@@ -24,7 +27,7 @@ export async function GET(
   }
 
   const y = yWithExt.replace(/\.(jpe?g|png|webp|gif)$/i, "");
-  const targetUrl = `${NASA_GIBS_BASE}/${product}/default/${date}/GoogleMapsCompatible_Level8/${z}/${y}/${x}.jpg`;
+  const targetUrl = `${NASA_GIBS_BASE}/${product}/default/${date}/GoogleMapsCompatible_Level8/${z}/${y}/${x}.png`;
 
   try {
     const upstream = await fetch(targetUrl, {
@@ -36,11 +39,10 @@ export async function GET(
 
     if (!upstream.ok) {
       if (upstream.status === 404 || upstream.status === 403 || upstream.status === 401) {
+        // A valid 1x1 transparent PNG — missing tiles just show nothing.
         return new NextResponse(
           Buffer.from(
-            "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAF" +
-              "c6k1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJ0UkG" +
-              "AAAAAABJRU5ErkJggg==",
+            "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR4nGNgAAIAAAUAAXpeqz8AAAAASUVORK5CYII=",
             "base64"
           ),
           {
