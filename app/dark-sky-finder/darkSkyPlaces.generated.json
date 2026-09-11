@@ -1,0 +1,3801 @@
+{
+  "source": "https://darkskyparks.org/dsag/DSAG_word_list.htm",
+  "sourceUpdated": "23rd October 2025",
+  "fetched": "2026-09-11",
+  "places": [
+    {
+      "id": "andorra-comapedros-starlight-reserve",
+      "name": "Andorra Comapedros Starlight Reserve",
+      "lat": 42.59,
+      "lng": 1.47,
+      "designation": "Reserve",
+      "region": "Andorra",
+      "year": 2023
+    },
+    {
+      "id": "ibera-starlight-reserve",
+      "name": "Iberá Starlight Reserve",
+      "lat": -28.76,
+      "lng": -57.54,
+      "designation": "Reserve",
+      "region": "Argentina",
+      "year": 2022
+    },
+    {
+      "id": "arkaroola-wilderness",
+      "name": "Arkaroola Wilderness",
+      "lat": -30.31,
+      "lng": 139.34,
+      "designation": "Sanctuary",
+      "region": "Australia",
+      "year": 2023
+    },
+    {
+      "id": "carrickalinga",
+      "name": "Carrickalinga",
+      "lat": -35.42,
+      "lng": 138.33,
+      "designation": "Community",
+      "region": "Australia",
+      "year": 2024
+    },
+    {
+      "id": "palm-beach-headland",
+      "name": "Palm Beach Headland",
+      "lat": -33.58,
+      "lng": 151.33,
+      "designation": "Park",
+      "region": "Australia",
+      "year": 2024
+    },
+    {
+      "id": "river-murray",
+      "name": "River Murray",
+      "lat": -34.59,
+      "lng": 139.5,
+      "designation": "Reserve",
+      "region": "Australia",
+      "year": 2019
+    },
+    {
+      "id": "the-jump-up",
+      "name": "The Jump up",
+      "lat": -22.48,
+      "lng": 143.17,
+      "designation": "Sanctuary",
+      "region": "Australia",
+      "year": 2019
+    },
+    {
+      "id": "warrumbungle-dark-sky-park",
+      "name": "Warrumbungle Dark Sky Park",
+      "lat": -31.29,
+      "lng": 149.01,
+      "designation": "Park",
+      "region": "Australia",
+      "year": 2016
+    },
+    {
+      "id": "dark-sky-reserve-eisenwurzen",
+      "name": "Dark Sky Reserve Eisenwurzen",
+      "lat": 47.6928,
+      "lng": 14.6173,
+      "designation": "Reserve",
+      "region": "Austria",
+      "year": 2026
+    },
+    {
+      "id": "naturpark-attersee-traunsee",
+      "name": "Naturpark Attersee-Traunsee",
+      "lat": 47.88,
+      "lng": 13.66,
+      "designation": "Reserve",
+      "region": "Austria",
+      "year": 2016
+    },
+    {
+      "id": "desengano-state-park",
+      "name": "Desengano State Park",
+      "lat": -22.08,
+      "lng": -42.07,
+      "designation": "Park",
+      "region": "Brazil",
+      "year": 2021
+    },
+    {
+      "id": "acadian-skies-and-mi-kmaq-lands-starlight-reserve-and-tourism-destination",
+      "name": "Acadian Skies and Mi'kmaq Lands Starlight Reserve and Tourism Destination",
+      "lat": 44.14,
+      "lng": -65.59,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2014
+    },
+    {
+      "id": "ann-and-sandy-cross-conservation-area-nocturnal-preserve",
+      "name": "Ann and Sandy Cross Conservation Area Nocturnal Preserve",
+      "lat": 50.9,
+      "lng": -114.2,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2015
+    },
+    {
+      "id": "au-diable-vert",
+      "name": "Au Diable Vert",
+      "lat": -45.04,
+      "lng": -72.56,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2018
+    },
+    {
+      "id": "beaver-hills",
+      "name": "Beaver Hills",
+      "lat": 53.59,
+      "lng": -112.88,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2006
+    },
+    {
+      "id": "bluewater-outdoor-education-centre",
+      "name": "Bluewater Outdoor Education Centre",
+      "lat": 44.74,
+      "lng": -81.23,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2012
+    },
+    {
+      "id": "bon-accord",
+      "name": "Bon Accord",
+      "lat": 53.84,
+      "lng": -113.41,
+      "designation": "Community",
+      "region": "Canada",
+      "year": 2015
+    },
+    {
+      "id": "bruce-peninsula",
+      "name": "Bruce Peninsula",
+      "lat": 45.16,
+      "lng": -81.52,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2009
+    },
+    {
+      "id": "cattle-point-urban-star-park",
+      "name": "Cattle Point Urban Star Park",
+      "lat": 48.4,
+      "lng": -123.3,
+      "designation": "Park",
+      "region": "Canada",
+      "year": 2013
+    },
+    {
+      "id": "cypress-hills",
+      "name": "Cypress Hills",
+      "lat": 49.67,
+      "lng": -110.17,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2005
+    },
+    {
+      "id": "fundy",
+      "name": "Fundy",
+      "lat": 45.64,
+      "lng": -65.1,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2011
+    },
+    {
+      "id": "grasslands",
+      "name": "Grasslands",
+      "lat": 49.12,
+      "lng": -107.42,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2009
+    },
+    {
+      "id": "irving-urban-star-park",
+      "name": "Irving Urban Star Park",
+      "lat": 45.22,
+      "lng": -66.13,
+      "designation": "Park",
+      "region": "Canada",
+      "year": 2011
+    },
+    {
+      "id": "jasper",
+      "name": "Jasper",
+      "lat": 52.89,
+      "lng": -118.04,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2011
+    },
+    {
+      "id": "johns-family-nocturnal-preserve",
+      "name": "Johns Family Nocturnal Preserve",
+      "lat": 49.77,
+      "lng": -119.52,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2023
+    },
+    {
+      "id": "kejimkujik",
+      "name": "Kejimkujik",
+      "lat": 44.39,
+      "lng": -65.23,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2010
+    },
+    {
+      "id": "killarney",
+      "name": "Killarney",
+      "lat": 46.1,
+      "lng": -81.39,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2018
+    },
+    {
+      "id": "kouchibouguac",
+      "name": "Kouchibouguac",
+      "lat": 46.82,
+      "lng": -64.97,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2009
+    },
+    {
+      "id": "lake-superior-provincial-park",
+      "name": "Lake Superior Provincial Park",
+      "lat": 44.59,
+      "lng": -84.74,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2018
+    },
+    {
+      "id": "lakeland",
+      "name": "Lakeland",
+      "lat": 54.71,
+      "lng": -111.39,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2016
+    },
+    {
+      "id": "le-terrain",
+      "name": "Le Terrain",
+      "lat": 45.78,
+      "lng": -76.3,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2025
+    },
+    {
+      "id": "manitoulin-ecopark",
+      "name": "Manitoulin Ecopark",
+      "lat": 45.66,
+      "lng": -81.97,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2008
+    },
+    {
+      "id": "mont-tremblant-national-park",
+      "name": "Mont Tremblant National Park",
+      "lat": 44.49,
+      "lng": -74.36,
+      "designation": "Park",
+      "region": "Canada",
+      "year": 2023
+    },
+    {
+      "id": "mont-megantic",
+      "name": "Mont-Mégantic",
+      "lat": 45.46,
+      "lng": -71.15,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2007
+    },
+    {
+      "id": "mount-carleton",
+      "name": "Mount Carleton",
+      "lat": 47.38,
+      "lng": -66.88,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2009
+    },
+    {
+      "id": "north-frontenac-township",
+      "name": "North Frontenac Township",
+      "lat": 44.92,
+      "lng": -76.94,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2013
+    },
+    {
+      "id": "old-man-on-his-back-conservation-area-nocturnal-preserve",
+      "name": "Old Man on his Back Conservation Area Nocturnal Preserve",
+      "lat": 44.2,
+      "lng": -109.6,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2015
+    },
+    {
+      "id": "parc-du-mont-bellevue",
+      "name": "Parc du Mont-Bellevue",
+      "lat": 45.38,
+      "lng": -71.91,
+      "designation": "Park",
+      "region": "Canada",
+      "year": 2022
+    },
+    {
+      "id": "point-pelee",
+      "name": "Point Pelee",
+      "lat": 41.97,
+      "lng": -82.52,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2006
+    },
+    {
+      "id": "quetico-provincial-park",
+      "name": "Quetico Provincial Park",
+      "lat": 48.41,
+      "lng": -91.54,
+      "designation": "Park",
+      "region": "Canada",
+      "year": 2021
+    },
+    {
+      "id": "spruce-woods",
+      "name": "Spruce Woods",
+      "lat": 50.04,
+      "lng": -100.2,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2020
+    },
+    {
+      "id": "sunshine-coast",
+      "name": "Sunshine Coast",
+      "lat": -26.6852,
+      "lng": 152.8065,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2026
+    },
+    {
+      "id": "terra-nova",
+      "name": "Terra Nova",
+      "lat": 48.53,
+      "lng": -53.95,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2018
+    },
+    {
+      "id": "torrance-barrens",
+      "name": "Torrance Barrens",
+      "lat": 44.94,
+      "lng": -79.51,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 1999
+    },
+    {
+      "id": "waterton-lakes-national-park",
+      "name": "Waterton Lakes National Park",
+      "lat": 49.05,
+      "lng": -113.91,
+      "designation": "Park",
+      "region": "Canada",
+      "year": 2017
+    },
+    {
+      "id": "winton",
+      "name": "Winton",
+      "lat": -22.386,
+      "lng": 143.0411,
+      "designation": "Park",
+      "region": "Canada",
+      "year": 2026
+    },
+    {
+      "id": "wood-buffalo",
+      "name": "Wood Buffalo",
+      "lat": 59.8,
+      "lng": -112,
+      "designation": "Reserve",
+      "region": "Canada",
+      "year": 2013
+    },
+    {
+      "id": "alto-loa-starlight-tourism-destination",
+      "name": "Alto Loa Starlight Tourism Destination",
+      "lat": -21.46,
+      "lng": -68.54,
+      "designation": "Park",
+      "region": "Chile",
+      "year": 2014
+    },
+    {
+      "id": "comuna-de-rio-hurtado",
+      "name": "Comuna de Rio Hurtado",
+      "lat": -30.2444,
+      "lng": -70.6783,
+      "designation": "Community",
+      "region": "Chile",
+      "year": 2026
+    },
+    {
+      "id": "fray-jorge-starlight-reserve",
+      "name": "Fray Jorge Starlight Reserve",
+      "lat": -30.67,
+      "lng": -71.67,
+      "designation": "Reserve",
+      "region": "Chile",
+      "year": 2013
+    },
+    {
+      "id": "gabriela-mistral",
+      "name": "Gabriela Mistral",
+      "lat": -30.1,
+      "lng": -70.81,
+      "designation": "Sanctuary",
+      "region": "Chile",
+      "year": 2015
+    },
+    {
+      "id": "mano-de-desierto-starlight-tourism-destination",
+      "name": "Mano de Desierto Starlight Tourism Destination",
+      "lat": -24.16,
+      "lng": -70.16,
+      "designation": "Park",
+      "region": "Chile",
+      "year": 2014
+    },
+    {
+      "id": "pampa-joya-starlight-tourism-destination",
+      "name": "Pampa Joya Starlight Tourism Destination",
+      "lat": -23.66,
+      "lng": -70.4,
+      "designation": "Park",
+      "region": "Chile",
+      "year": 2014
+    },
+    {
+      "id": "pueblo-de-san-andres-de-pica-starlight-tourism-destination",
+      "name": "Pueblo de San Andrés de Pica Starlight Tourism Destination",
+      "lat": -19.98,
+      "lng": -69.78,
+      "designation": "Park",
+      "region": "Chile",
+      "year": 2022
+    },
+    {
+      "id": "ruta-del-peregrino-starlight-walking-trail",
+      "name": "Ruta del Peregrino Starlight Walking Trail",
+      "lat": -30.23,
+      "lng": -71.09,
+      "designation": "Park",
+      "region": "Chile",
+      "year": 2022
+    },
+    {
+      "id": "chaka-no-1-salt-lake",
+      "name": "Chaka No. 1 Salt Lake",
+      "lat": 36.3,
+      "lng": 99.04,
+      "designation": "Park",
+      "region": "China",
+      "year": 2026
+    },
+    {
+      "id": "geyuan-conservation-area-for-dark-and-starry-sky",
+      "name": "Geyuan Conservation Area for Dark and Starry Sky",
+      "lat": 28.6,
+      "lng": 117.65,
+      "designation": "Community",
+      "region": "China",
+      "year": 2019
+    },
+    {
+      "id": "kaihua-community-conservation-dark-sky-area",
+      "name": "Kaihua Community Conservation Dark Sky Area",
+      "lat": 29.32,
+      "lng": 118.23,
+      "designation": "Community",
+      "region": "China",
+      "year": 2024
+    },
+    {
+      "id": "nagqu-conservation-area-for-dark-and-starry-sky",
+      "name": "Nagqu Conservation Area for Dark and Starry Sky",
+      "lat": 30.53,
+      "lng": 91.2,
+      "designation": "Park",
+      "region": "China",
+      "year": 2016
+    },
+    {
+      "id": "ngari",
+      "name": "Ngari",
+      "lat": 32.5,
+      "lng": 80.12,
+      "designation": "Reserve",
+      "region": "China",
+      "year": 2016
+    },
+    {
+      "id": "saihanwula-dark-sky-conservation-area",
+      "name": "Saihanwula Dark Sky Conservation Area",
+      "lat": 44.2394,
+      "lng": 118.6976,
+      "designation": "Park",
+      "region": "China",
+      "year": 2026
+    },
+    {
+      "id": "taihang-conservation-area-for-dark-and-starry-sky",
+      "name": "Taihang Conservation Area for Dark and Starry Sky",
+      "lat": 35.26,
+      "lng": 112.04,
+      "designation": "Park",
+      "region": "China",
+      "year": 2018
+    },
+    {
+      "id": "xichong-shenzhen",
+      "name": "Xichong Shenzhen",
+      "lat": 22.48,
+      "lng": 114.54,
+      "designation": "Community",
+      "region": "China",
+      "year": 2023
+    },
+    {
+      "id": "yeludang-conservation-area-for-dark-and-starry-sky",
+      "name": "Yeludang Conservation Area for Dark and Starry Sky",
+      "lat": 33.06,
+      "lng": 120.82,
+      "designation": "Park",
+      "region": "China",
+      "year": 2018
+    },
+    {
+      "id": "zhaojin-conservation-area-for-dark-and-starry-sky",
+      "name": "Zhaojin Conservation Area for Dark and Starry Sky",
+      "lat": 35.05,
+      "lng": 108.65,
+      "designation": "Park",
+      "region": "China",
+      "year": 2020
+    },
+    {
+      "id": "desierto-de-la-tatacoa-starlight-tourism-destination",
+      "name": "Desierto de la Tatacoa Starlight Tourism Destination",
+      "lat": 3.23,
+      "lng": -75.17,
+      "designation": "Park",
+      "region": "Colombia"
+    },
+    {
+      "id": "jelsa",
+      "name": "Jelsa",
+      "lat": 43.14,
+      "lng": 16.84,
+      "designation": "Community",
+      "region": "Croatia",
+      "year": 2022
+    },
+    {
+      "id": "petrova-gora-biljeg",
+      "name": "Petrova Gora-Biljeg",
+      "lat": 46.16,
+      "lng": 16,
+      "designation": "Park",
+      "region": "Croatia",
+      "year": 2019
+    },
+    {
+      "id": "vrani-kamen",
+      "name": "Vrani kamen",
+      "lat": 45.62,
+      "lng": 17.4,
+      "designation": "Park",
+      "region": "Croatia",
+      "year": 2019
+    },
+    {
+      "id": "beskydy",
+      "name": "Beskydy",
+      "lat": 49.5,
+      "lng": 18.5,
+      "designation": "Park",
+      "region": "Czech Republic",
+      "year": 2013
+    },
+    {
+      "id": "izera",
+      "name": "Izera",
+      "lat": 50.84,
+      "lng": 15.33,
+      "designation": "Park",
+      "region": "Czech Republic",
+      "year": 2009
+    },
+    {
+      "id": "anholt",
+      "name": "Anholt",
+      "lat": 56.71,
+      "lng": 11.57,
+      "designation": "Park",
+      "region": "Denmark",
+      "year": 2025
+    },
+    {
+      "id": "bulbjerg",
+      "name": "Bulbjerg",
+      "lat": 57.16,
+      "lng": 9.03,
+      "designation": "Park",
+      "region": "Denmark",
+      "year": 2024
+    },
+    {
+      "id": "mand",
+      "name": "Mandø",
+      "lat": 55.28,
+      "lng": 8.55,
+      "designation": "Park",
+      "region": "Denmark",
+      "year": 2024
+    },
+    {
+      "id": "m-n-and-nyord",
+      "name": "Møn and Nyord",
+      "lat": 55,
+      "lng": 12.35,
+      "designation": "Community",
+      "region": "Denmark",
+      "year": 2017
+    },
+    {
+      "id": "m-n-and-nyord-denmark",
+      "name": "Møn and Nyord",
+      "lat": 55,
+      "lng": 12.35,
+      "designation": "Park",
+      "region": "Denmark",
+      "year": 2017
+    },
+    {
+      "id": "alpes-azur-mercantour",
+      "name": "Alpes Azur Mercantour",
+      "lat": 43.99,
+      "lng": 6.98,
+      "designation": "Reserve",
+      "region": "France",
+      "year": 2019
+    },
+    {
+      "id": "cevennes",
+      "name": "Cévennes",
+      "lat": 44.19,
+      "lng": 3.58,
+      "designation": "Reserve",
+      "region": "France",
+      "year": 2018
+    },
+    {
+      "id": "landes-de-gascogne-regional-natural-park",
+      "name": "Landes de Gascogne Regional Natural Park",
+      "lat": 44.9,
+      "lng": -0.79,
+      "designation": "Reserve",
+      "region": "France",
+      "year": 2025
+    },
+    {
+      "id": "millevaches-in-limousin-regional-natural-park",
+      "name": "Millevaches in Limousin Regional Natural Park",
+      "lat": 45.79,
+      "lng": 2,
+      "designation": "Reserve",
+      "region": "France",
+      "year": 2022
+    },
+    {
+      "id": "morvan",
+      "name": "Morvan",
+      "lat": 47.17,
+      "lng": 4.12,
+      "designation": "Reserve",
+      "region": "France",
+      "year": 2022
+    },
+    {
+      "id": "pic-du-midi",
+      "name": "Pic du Midi",
+      "lat": 42.94,
+      "lng": 0.14,
+      "designation": "Reserve",
+      "region": "France",
+      "year": 2013
+    },
+    {
+      "id": "vercors",
+      "name": "Vercors",
+      "lat": 44.88,
+      "lng": 5.37,
+      "designation": "Reserve",
+      "region": "France",
+      "year": 2023
+    },
+    {
+      "id": "bavarian-forest-national-park",
+      "name": "Bavarian Forest National Park",
+      "lat": 48,
+      "lng": 13.38,
+      "designation": "Reserve",
+      "region": "Germany",
+      "year": 2025
+    },
+    {
+      "id": "eifel-national-park",
+      "name": "Eifel National Park",
+      "lat": 50.6,
+      "lng": 6.43,
+      "designation": "Park",
+      "region": "Germany",
+      "year": 2014
+    },
+    {
+      "id": "eiweiler",
+      "name": "Eiweiler",
+      "lat": 49.56,
+      "lng": 7.01,
+      "designation": "Community",
+      "region": "Germany",
+      "year": 2024
+    },
+    {
+      "id": "fulda",
+      "name": "Fulda",
+      "lat": 50.55,
+      "lng": 9.68,
+      "designation": "Community",
+      "region": "Germany",
+      "year": 2019
+    },
+    {
+      "id": "kyritz-ruppiner-heath",
+      "name": "Kyritz-Ruppiner Heath",
+      "lat": 53.5742,
+      "lng": 12.3081,
+      "designation": "Community",
+      "region": "Germany",
+      "year": 2026
+    },
+    {
+      "id": "natur-und-sternenpark-nossentiner-schwinzer-heide",
+      "name": "Natur- und Sternenpark Nossentiner-Schwinzer Heide",
+      "lat": 53.0383,
+      "lng": 12.6659,
+      "designation": "Community",
+      "region": "Germany",
+      "year": 2026
+    },
+    {
+      "id": "pellworm-star-island",
+      "name": "Pellworm Star Island",
+      "lat": 54.31,
+      "lng": 8.38,
+      "designation": "Community",
+      "region": "Germany",
+      "year": 2021
+    },
+    {
+      "id": "rhon",
+      "name": "Rhön",
+      "lat": 50.45,
+      "lng": 10.04,
+      "designation": "Reserve",
+      "region": "Germany",
+      "year": 2014
+    },
+    {
+      "id": "spiekeroog-star-island",
+      "name": "Spiekeroog Star Island",
+      "lat": 53.77,
+      "lng": 7.7,
+      "designation": "Community",
+      "region": "Germany",
+      "year": 2021
+    },
+    {
+      "id": "westhavelland",
+      "name": "Westhavelland",
+      "lat": 52.7,
+      "lng": 12.48,
+      "designation": "Reserve",
+      "region": "Germany",
+      "year": 2014
+    },
+    {
+      "id": "winklmoosalm",
+      "name": "Winklmoosalm",
+      "lat": 47.65,
+      "lng": 12.58,
+      "designation": "Park",
+      "region": "Germany",
+      "year": 2018
+    },
+    {
+      "id": "mount-aenos-national-park",
+      "name": "Mount Aenos National Park",
+      "lat": 38.16,
+      "lng": 20.65,
+      "designation": "Park",
+      "region": "Greece",
+      "year": 2023
+    },
+    {
+      "id": "bukk-starry-sky-park-international",
+      "name": "Bükk Starry Sky Park/International",
+      "lat": 48.05,
+      "lng": 20.53,
+      "designation": "Park",
+      "region": "Hungary",
+      "year": 2017
+    },
+    {
+      "id": "hortobagy-starry-sky-park-international",
+      "name": "Hortobágy Starry-Sky Park/International",
+      "lat": 47.55,
+      "lng": 21.12,
+      "designation": "Park",
+      "region": "Hungary",
+      "year": 2011
+    },
+    {
+      "id": "zselic-national-landscape-protection-area-starry-sky-park-international",
+      "name": "Zselic National Landscape Protection Area Starry-Sky Park/International",
+      "lat": 46.38,
+      "lng": 18.27,
+      "designation": "Park",
+      "region": "Hungary",
+      "year": 2006
+    },
+    {
+      "id": "kerry",
+      "name": "Kerry",
+      "lat": 51.8969,
+      "lng": -10.0894,
+      "designation": "Reserve",
+      "region": "Ireland",
+      "year": 2014
+    },
+    {
+      "id": "mayo-dark-sky-park",
+      "name": "Mayo Dark Sky Park",
+      "lat": 54.07,
+      "lng": -9.69,
+      "designation": "Park",
+      "region": "Ireland",
+      "year": 2016
+    },
+    {
+      "id": "ramon-crater-nature-reserve",
+      "name": "Ramon Crater Nature Reserve",
+      "lat": 30.58,
+      "lng": 34.82,
+      "designation": "Reserve",
+      "region": "Israel",
+      "year": 2017
+    },
+    {
+      "id": "gal-hassin-astronomical-center-stellar-park",
+      "name": "Gal Hassin Astronomical Center Stellar Park",
+      "lat": 37.94,
+      "lng": 14.02,
+      "designation": "Park",
+      "region": "Italy",
+      "year": 2021
+    },
+    {
+      "id": "val-d-aosta-starlight-stellar-park",
+      "name": "Val d'Aosta Starlight Stellar Park",
+      "lat": 45.79,
+      "lng": 7.48,
+      "designation": "Park",
+      "region": "Italy",
+      "year": 2020
+    },
+    {
+      "id": "bisei-town",
+      "name": "Bisei Town",
+      "lat": 34.68,
+      "lng": 133.55,
+      "designation": "Community",
+      "region": "Japan",
+      "year": 2021
+    },
+    {
+      "id": "iriomote-ishigaki-national-park",
+      "name": "Iriomote-Ishigaki National Park",
+      "lat": 24.32,
+      "lng": 123.88,
+      "designation": "Park",
+      "region": "Japan",
+      "year": 2018
+    },
+    {
+      "id": "kozushima-dark-sky-island",
+      "name": "Kozushima Dark Sky Island",
+      "lat": 34.2,
+      "lng": 139.13,
+      "designation": "Park",
+      "region": "Japan",
+      "year": 2020
+    },
+    {
+      "id": "minami-rokuroshi",
+      "name": "Minami-Rokuroshi",
+      "lat": 36.02,
+      "lng": 136.59,
+      "designation": "Park",
+      "region": "Japan",
+      "year": 2023
+    },
+    {
+      "id": "putscheid",
+      "name": "Putscheid",
+      "lat": 49.9626,
+      "lng": 6.1225,
+      "designation": "Park",
+      "region": "Japan",
+      "year": 2026
+    },
+    {
+      "id": "greater-big-bend",
+      "name": "Greater Big Bend",
+      "lat": 28.18,
+      "lng": -102.81,
+      "designation": "Reserve",
+      "region": "Mexico",
+      "year": 2022
+    },
+    {
+      "id": "joya-la-barreta",
+      "name": "Joya-La Barreta",
+      "lat": 20.81,
+      "lng": -100.53,
+      "designation": "Park",
+      "region": "Mexico",
+      "year": 2023
+    },
+    {
+      "id": "villas-puerta-del-cielo-stellar-camp",
+      "name": "Villas Puerta del Cielo Stellar Camp",
+      "lat": 18.95,
+      "lng": -97.17,
+      "designation": "Park",
+      "region": "Mexico",
+      "year": 2022
+    },
+    {
+      "id": "namibrand-nature-reserve",
+      "name": "NamibRand Nature Reserve",
+      "lat": -25.12,
+      "lng": 15.99,
+      "designation": "Reserve",
+      "region": "Namibia",
+      "year": 2012
+    },
+    {
+      "id": "de-boschplaat",
+      "name": "De Boschplaat",
+      "lat": 53.44,
+      "lng": 5.5,
+      "designation": "Park",
+      "region": "Netherlands",
+      "year": 2015
+    },
+    {
+      "id": "lauwersmeer-national-park",
+      "name": "Lauwersmeer National Park",
+      "lat": 53.35,
+      "lng": 6.19,
+      "designation": "Park",
+      "region": "Netherlands",
+      "year": 2016
+    },
+    {
+      "id": "aoraki-mackenzie",
+      "name": "Aoraki Mackenzie",
+      "lat": -43.6,
+      "lng": 170.35,
+      "designation": "Reserve",
+      "region": "New Zealand",
+      "year": 2012
+    },
+    {
+      "id": "aotea-great-barrier-island",
+      "name": "Aotea/Great Barrier Island",
+      "lat": -36.17,
+      "lng": 175.38,
+      "designation": "Sanctuary",
+      "region": "New Zealand",
+      "year": 2017
+    },
+    {
+      "id": "kaikoura",
+      "name": "Kaikoura",
+      "lat": -42.17,
+      "lng": 173.71,
+      "designation": "Sanctuary",
+      "region": "New Zealand",
+      "year": 2024
+    },
+    {
+      "id": "kawarau-gibbston",
+      "name": "Kawarau Gibbston",
+      "lat": -45.04,
+      "lng": 168.93,
+      "designation": "Park",
+      "region": "New Zealand",
+      "year": 2024
+    },
+    {
+      "id": "niue",
+      "name": "Niue",
+      "lat": -19.06,
+      "lng": -169.92,
+      "designation": "Community",
+      "region": "New Zealand",
+      "year": 2020
+    },
+    {
+      "id": "niue-new-zealand",
+      "name": "Niue",
+      "lat": -19,
+      "lng": -169.85,
+      "designation": "Sanctuary",
+      "region": "New Zealand",
+      "year": 2020
+    },
+    {
+      "id": "oxford-forest",
+      "name": "Oxford Forest",
+      "lat": -43.21,
+      "lng": 172.03,
+      "designation": "Park",
+      "region": "New Zealand",
+      "year": 2024
+    },
+    {
+      "id": "stewart-island-rakiura-island",
+      "name": "Stewart Island/Rakiura Island",
+      "lat": -46.9,
+      "lng": 168.13,
+      "designation": "Sanctuary",
+      "region": "New Zealand",
+      "year": 2019
+    },
+    {
+      "id": "tahuna-glenorchy",
+      "name": "Tähuna Glenorchy",
+      "lat": -44.53,
+      "lng": 168.32,
+      "designation": "Sanctuary",
+      "region": "New Zealand",
+      "year": 2025
+    },
+    {
+      "id": "wai-iti",
+      "name": "Wai-iti",
+      "lat": -41.38,
+      "lng": 173.07,
+      "designation": "Park",
+      "region": "New Zealand",
+      "year": 2020
+    },
+    {
+      "id": "wairarapa",
+      "name": "Wairarapa",
+      "lat": -41.16,
+      "lng": 175.4,
+      "designation": "Reserve",
+      "region": "New Zealand",
+      "year": 2023
+    },
+    {
+      "id": "oslash-vre-pasvik-national-park",
+      "name": "&Oslash;vre Pasvik National Park",
+      "lat": 69.16,
+      "lng": 29.23,
+      "designation": "Park",
+      "region": "Norway",
+      "year": 2024
+    },
+    {
+      "id": "mullakas-misminay-starlight-wilderness",
+      "name": "Mullakas Misminay Starlight Wilderness",
+      "lat": -13.34,
+      "lng": -72.2,
+      "designation": "Park",
+      "region": "Peru",
+      "year": 2022
+    },
+    {
+      "id": "bieszczady-starry-sky-park",
+      "name": "Bieszczady Starry-Sky Park",
+      "lat": 49.2,
+      "lng": 22.47,
+      "designation": "Park",
+      "region": "Poland",
+      "year": 2013
+    },
+    {
+      "id": "dobre-miasto",
+      "name": "Dobre Miasto",
+      "lat": 53.98,
+      "lng": 20.4,
+      "designation": "Community",
+      "region": "Poland",
+      "year": 2019
+    },
+    {
+      "id": "izdebno-and-chalin",
+      "name": "Izdebno and Chalin",
+      "lat": 52.75,
+      "lng": 17.64,
+      "designation": "Community",
+      "region": "Poland",
+      "year": 2014
+    },
+    {
+      "id": "izera-poland",
+      "name": "Izera",
+      "lat": 50.85,
+      "lng": 15.38,
+      "designation": "Park",
+      "region": "Poland",
+      "year": 2009
+    },
+    {
+      "id": "ostrowik-dark-sky-protected-area",
+      "name": "Ostrowik Dark Sky Protected Area",
+      "lat": 52.09,
+      "lng": 21.41,
+      "designation": "Park",
+      "region": "Poland",
+      "year": 2014
+    },
+    {
+      "id": "palowice",
+      "name": "Palowice",
+      "lat": 50,
+      "lng": 18.73,
+      "designation": "Community",
+      "region": "Poland",
+      "year": 2009
+    },
+    {
+      "id": "sopotnia",
+      "name": "Sopotnia",
+      "lat": 49.59,
+      "lng": 19.28,
+      "designation": "Community",
+      "region": "Poland",
+      "year": 2011
+    },
+    {
+      "id": "aldeias-do-xisto-starlight-tourism-destination",
+      "name": "Aldeias do Xisto Starlight Tourism Destination",
+      "lat": 40.05,
+      "lng": -7.95,
+      "designation": "Community",
+      "region": "Portugal",
+      "year": 2019
+    },
+    {
+      "id": "alqueva-starlight-tourism-destination",
+      "name": "Alqueva Starlight Tourism Destination",
+      "lat": 38.2,
+      "lng": -7.5,
+      "designation": "Community",
+      "region": "Portugal",
+      "year": 2011
+    },
+    {
+      "id": "porta-do-mezio-stellar-park",
+      "name": "Porta do Mezio Stellar Park",
+      "lat": 41.88,
+      "lng": -8.31,
+      "designation": "Park",
+      "region": "Portugal",
+      "year": 2021
+    },
+    {
+      "id": "vale-do-tua-starlight-tourism-destination",
+      "name": "Vale do Tua Starlight Tourism Destination",
+      "lat": 41.33,
+      "lng": -7.47,
+      "designation": "Park",
+      "region": "Portugal",
+      "year": 2020
+    },
+    {
+      "id": "vimioso-starlight-tourism-destination",
+      "name": "Vimioso Starlight Tourism Destination",
+      "lat": 41.57,
+      "lng": -6.52,
+      "designation": "Park",
+      "region": "Portugal",
+      "year": 2023
+    },
+    {
+      "id": "al-ula-manara-and-al-gharameel-nature-reserves",
+      "name": "Al Ula Manara and Al Gharameel Nature Reserves",
+      "lat": 26.6,
+      "lng": 37.93,
+      "designation": "Reserve",
+      "region": "Saudi Arabia",
+      "year": 2024
+    },
+    {
+      "id": "beskydy-slovakia",
+      "name": "Beskydy",
+      "lat": 49.4,
+      "lng": 18.5,
+      "designation": "Park",
+      "region": "Slovakia",
+      "year": 2013
+    },
+    {
+      "id": "poloniny",
+      "name": "Poloniny",
+      "lat": 49.03,
+      "lng": 22.36,
+      "designation": "Park",
+      "region": "Slovakia",
+      "year": 2010
+    },
+    {
+      "id": "ae-hai-kalahari-heritage-park",
+      "name": "!Ae!Hai Kalahari Heritage Park",
+      "lat": -26.15,
+      "lng": 20.26,
+      "designation": "Sanctuary",
+      "region": "South Africa",
+      "year": 2019
+    },
+    {
+      "id": "yeongyang-firefly-eco-park",
+      "name": "Yeongyang Firefly Eco Park",
+      "lat": 36.67,
+      "lng": 129.11,
+      "designation": "Park",
+      "region": "South Korea",
+      "year": 2015
+    },
+    {
+      "id": "aiguestortes-starlight-reserve",
+      "name": "Aigüestortes Starlight Reserve",
+      "lat": 42.59,
+      "lng": 0.97,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2018
+    },
+    {
+      "id": "albanya",
+      "name": "Albanyà",
+      "lat": 42.31,
+      "lng": 2.71,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2017
+    },
+    {
+      "id": "allande-starlight-tourism-destination",
+      "name": "Allande Starlight Tourism Destination",
+      "lat": 43.25,
+      "lng": -6.71,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2021
+    },
+    {
+      "id": "alto-turia-starlight-tourism-destination",
+      "name": "Alto Turia Starlight Tourism Destination",
+      "lat": 39.8,
+      "lng": -1.06,
+      "designation": "Community",
+      "region": "Spain",
+      "year": 2018
+    },
+    {
+      "id": "ancares-lucenses-starlight-tourism-destination",
+      "name": "Ancares Lucenses Starlight Tourism Destination",
+      "lat": 42.9,
+      "lng": -6.98,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2023
+    },
+    {
+      "id": "bassegoda-park-starlight-camp",
+      "name": "Bassegoda Park Starlight Camp",
+      "lat": 42.32,
+      "lng": 2.66,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2015
+    },
+    {
+      "id": "borobia-starlight-tourism-destination",
+      "name": "Borobia Starlight Tourism Destination",
+      "lat": 41.67,
+      "lng": -1.8967,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2022
+    },
+    {
+      "id": "cabaneros-starlight-tourism-destination",
+      "name": "Cabañeros Starlight Tourism Destination",
+      "lat": 39.26,
+      "lng": -4.48,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2023
+    },
+    {
+      "id": "camino-barranca-de-badajoz-starlight-wilderness",
+      "name": "Camino Barranca de Badajoz Starlight Wilderness",
+      "lat": 28.3,
+      "lng": -16.44,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2019
+    },
+    {
+      "id": "camino-natural-via-verde-del-ferrocarril-vasco-navarro-starlight-walking-trail",
+      "name": "Camino Natural Via Verde del Ferrocarril Vasco Navarro Starlight Walking Trail",
+      "lat": 42.67,
+      "lng": -2.28,
+      "designation": "Park",
+      "region": "Spain"
+    },
+    {
+      "id": "campos-de-hellin-starlight-tourism-destination",
+      "name": "Campos de Hellin Starlight Tourism Destination",
+      "lat": 38.53,
+      "lng": -1.61,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2023
+    },
+    {
+      "id": "centro-astronomico-son-bi-stellar-park",
+      "name": "Centro Astronómico Son Bí Stellar Park",
+      "lat": 39.47,
+      "lng": 2.82,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2023
+    },
+    {
+      "id": "centro-astronomico-tiedra-stellar-park",
+      "name": "Centro Astronómico Tiedra Stellar Park",
+      "lat": 41.66,
+      "lng": -5.2672,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2016
+    },
+    {
+      "id": "centro-interpretacion-cielo-gorafe-stellar-park",
+      "name": "Centro Interpretación Cielo Gorafe Stellar Park",
+      "lat": 37.48,
+      "lng": -3.04,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2017
+    },
+    {
+      "id": "cielos-de-guadalajara-starlight-reserve",
+      "name": "Cielos de Guadalajara Starlight Reserve",
+      "lat": 40.92,
+      "lng": -2.58,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2022
+    },
+    {
+      "id": "comarca-cuencas-mineras-starlight-reserve",
+      "name": "Comarca Cuencas Mineras Starlight Reserve",
+      "lat": 41.26,
+      "lng": -1.59,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2018
+    },
+    {
+      "id": "comarca-de-las-hurdes-starlight-tourism-destination",
+      "name": "Comarca de Las Hurdes Starlight Tourism Destination",
+      "lat": 40.37,
+      "lng": -6.27,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2021
+    },
+    {
+      "id": "comarca-del-aranda-starlight-tourism-destination",
+      "name": "Comarca del Aranda Starlight Tourism Destination",
+      "lat": 41.53,
+      "lng": -1.62,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2022
+    },
+    {
+      "id": "comarca-del-valle-del-alberche-y-la-tierra-de-pinares-starlight-tourism-destination",
+      "name": "Comarca del Valle del Alberche y la Tierra de Pinares Starlight Tourism Destination",
+      "lat": 39.9,
+      "lng": -3.84,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2023
+    },
+    {
+      "id": "comarca-mancha-jucar-centro-starlight-tourism-destination",
+      "name": "Comarca Mancha Júcar-Centro Starlight Tourism Destination",
+      "lat": 39.2,
+      "lng": -2.09,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2023
+    },
+    {
+      "id": "comarca-sierra-sur-de-jaen-starlight-reserve",
+      "name": "Comarca Sierra Sur de Jaén Starlight Reserve",
+      "lat": 37.65,
+      "lng": -3.9,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2014
+    },
+    {
+      "id": "comunidad-de-tierra-de-junta-de-juarros-starlight-tourism-destination",
+      "name": "Comunidad de Tierra de Junta de Juarros Starlight Tourism Destination",
+      "lat": 42.33,
+      "lng": -3.54,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2022
+    },
+    {
+      "id": "concello-de-lalin-starlight-tourism-destination",
+      "name": "Concello de Lalín Starlight Tourism Destination",
+      "lat": 42.66,
+      "lng": -8.11,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2023
+    },
+    {
+      "id": "costa-da-morte-starlight-tourism-destination",
+      "name": "Costa da Morte Starlight Tourism Destination",
+      "lat": 43.05,
+      "lng": -9.3,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2023
+    },
+    {
+      "id": "cuevas-del-becerro-starlight-tourism-destination",
+      "name": "Cuevas del Becerro Starlight Tourism Destination",
+      "lat": 36.88,
+      "lng": -5.04,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2023
+    },
+    {
+      "id": "cumbres-de-tenerife-starlight-reserve-and-el-teide-starlight-tourism-destination",
+      "name": "Cumbres de Tenerife Starlight Reserve and El Teide Starlight Tourism Destination",
+      "lat": 28.3,
+      "lng": -16.6,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2013
+    },
+    {
+      "id": "el-cerrajon-de-murtas-starlight-wilderness",
+      "name": "El Cerrajón de Murtas Starlight Wilderness",
+      "lat": 36.88,
+      "lng": -3.13,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2021
+    },
+    {
+      "id": "el-chorreron-starlight-wilderness",
+      "name": "El Chorrerón Starlight Wilderness",
+      "lat": 40.02,
+      "lng": -6.68,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2022
+    },
+    {
+      "id": "el-jabalon-stellar-park",
+      "name": "El Jabalón Stellar Park",
+      "lat": 40.23,
+      "lng": -1.42,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2018
+    },
+    {
+      "id": "faro-de-avion-covelo-starlight-wilderness",
+      "name": "Faro de Avión (Covelo) Starlight Wilderness",
+      "lat": 42.3,
+      "lng": -8.26,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2021
+    },
+    {
+      "id": "formentera-starlight-tourism-destination",
+      "name": "Formentera Starlight Tourism Destination",
+      "lat": 38.7,
+      "lng": 1.45,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2023
+    },
+    {
+      "id": "fuencaliente-de-la-palma-canarias-starlight-tourism-destination",
+      "name": "Fuencaliente de La Palma (Canarias) Starlight Tourism Destination",
+      "lat": 28.48,
+      "lng": -17.83,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2020
+    },
+    {
+      "id": "fuerteventura-starlight-reserve",
+      "name": "Fuerteventura Starlight Reserve",
+      "lat": 28.44,
+      "lng": -14.1,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2015
+    },
+    {
+      "id": "gran-canaria-starlight-tourism-destination",
+      "name": "Gran Canaria Starlight Tourism Destination",
+      "lat": 27.97,
+      "lng": -15.6,
+      "designation": "Community",
+      "region": "Spain",
+      "year": 2017
+    },
+    {
+      "id": "granadilla-de-abona-starlight-tourism-destination",
+      "name": "Granadilla de Abona Starlight Tourism Destination",
+      "lat": 28.12,
+      "lng": -16.5,
+      "designation": "Community",
+      "region": "Spain",
+      "year": 2012
+    },
+    {
+      "id": "gredos-norte-starlight-tourism-destination",
+      "name": "Gredos Norte Starlight Tourism Destination",
+      "lat": 40.42,
+      "lng": -5.17,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2014
+    },
+    {
+      "id": "gredos-starlight-reserve",
+      "name": "Gredos Starlight Reserve",
+      "lat": 40.25,
+      "lng": -5.45,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2020
+    },
+    {
+      "id": "gudar-javalambre-starlight-reserve",
+      "name": "Gúdar Javalambre Starlight Reserve",
+      "lat": 40.23,
+      "lng": -0.68,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2016
+    },
+    {
+      "id": "hoces-de-segovia-starlight-tourism-destination",
+      "name": "Hoces de Segovia Starlight Tourism Destination",
+      "lat": 41.32,
+      "lng": -3.87,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2023
+    },
+    {
+      "id": "huerto-alegre-starlight-farm",
+      "name": "Huerto Alegre Starlight Farm",
+      "lat": 36.88,
+      "lng": -3.74,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2017
+    },
+    {
+      "id": "isla-de-tabarca-punta-falcon-starlight-wilderness",
+      "name": "Isla de Tabarca - Punta Falcón Starlight Wilderness",
+      "lat": 38.17,
+      "lng": -0.48,
+      "designation": "Community",
+      "region": "Spain",
+      "year": 2022
+    },
+    {
+      "id": "islas-cies-camping-starlight-camp",
+      "name": "Islas Cíes Camping Starlight Camp",
+      "lat": 42.22,
+      "lng": -8.91,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2022
+    },
+    {
+      "id": "jardin-botanico-de-santa-catalina-stellar-park",
+      "name": "Jardin Botánico de Santa Catalina Stellar Park",
+      "lat": 42.85,
+      "lng": -2.8,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2015
+    },
+    {
+      "id": "la-estela-de-ciguela-starlight-walking-trail",
+      "name": "La Estela de Cigüela Starlight Walking Trail",
+      "lat": 39.6,
+      "lng": 3.13,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2021
+    },
+    {
+      "id": "la-frontera-starlight-tourism-destination",
+      "name": "La Frontera Starlight Tourism Destination",
+      "lat": 27.79,
+      "lng": -17.99,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2023
+    },
+    {
+      "id": "la-manchuela-starlight-tourism-destination",
+      "name": "La Manchuela Starlight Tourism Destination",
+      "lat": 39.23,
+      "lng": -1.52,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2022
+    },
+    {
+      "id": "la-matanza-de-acentejo-starlight-tourism-destination",
+      "name": "La Matanza de Acentejo Starlight Tourism Destination",
+      "lat": 28.45,
+      "lng": -16.46,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2019
+    },
+    {
+      "id": "la-palma-starlight-reserve",
+      "name": "La Palma Starlight Reserve",
+      "lat": 28.71,
+      "lng": -17.86,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2011
+    },
+    {
+      "id": "lerin-village-starlight-tourism-destination",
+      "name": "Lerín Village Starlight Tourism Destination",
+      "lat": 42.49,
+      "lng": -1.96,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2021
+    },
+    {
+      "id": "leza-jubera-cidacos-y-alhama-valleys-starlight-tourism-destination",
+      "name": "Leza, Jubera, Cidacos y Alhama Valleys Starlight Tourism Destination",
+      "lat": 42.01,
+      "lng": -2.01,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2012
+    },
+    {
+      "id": "los-coloraos-astronomical-complex-starlight-camp",
+      "name": "Los Coloraos Astronomical Complex Starlight Camp",
+      "lat": 37.49,
+      "lng": -3,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2021
+    },
+    {
+      "id": "los-pedroches-starlight-reserve",
+      "name": "Los Pedroches Starlight Reserve",
+      "lat": 38.42,
+      "lng": -4.08,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2016
+    },
+    {
+      "id": "marinas-corunesas-starlight-tourism-destination",
+      "name": "Mariñas Coruñesas Starlight Tourism Destination",
+      "lat": 43.23,
+      "lng": -8.2,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2023
+    },
+    {
+      "id": "menorca-starlight-reserve",
+      "name": "Menorca Starlight Reserve",
+      "lat": 40.08,
+      "lng": 3.88,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2019
+    },
+    {
+      "id": "mirador-de-los-llanillo-stellar-park",
+      "name": "Mirador de los Llanillo Stellar Park",
+      "lat": 36.94,
+      "lng": -3.22,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2024
+    },
+    {
+      "id": "mizar-y-alcor-stellar-park",
+      "name": "Mizar y Alcor Stellar Park",
+      "lat": 42.44,
+      "lng": -3.84,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2022
+    },
+    {
+      "id": "monfrague-starlight-tourism-destination",
+      "name": "Monfragüe Starlight Tourism Destination",
+      "lat": 39.82,
+      "lng": -5.94,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2016
+    },
+    {
+      "id": "monteiberico-corredor-de-almansa-region-starlight-tourism-destination",
+      "name": "Monteiberico - Corredor de Almansa Region Starlight Tourism Destination",
+      "lat": 38.87,
+      "lng": -1.13,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2016
+    },
+    {
+      "id": "montgai-starlight-tourism-destination",
+      "name": "Montgai Starlight Tourism Destination",
+      "lat": 41.8,
+      "lng": 0.96,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2022
+    },
+    {
+      "id": "montsec-starlight-reserve",
+      "name": "Montsec Starlight Reserve",
+      "lat": 42.01,
+      "lng": 0.8,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2013
+    },
+    {
+      "id": "muntanyes-de-prades-i-serra-de-montsant-starlight-reserve",
+      "name": "Muntanyes de Prades i Serra de Montsant Starlight Reserve",
+      "lat": 41.29,
+      "lng": 0.91,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2021
+    },
+    {
+      "id": "muras-starlight-tourism-destination",
+      "name": "Muras Starlight Tourism Destination",
+      "lat": 43.49,
+      "lng": -7.6,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2020
+    },
+    {
+      "id": "muriel-viejo-starlight-tourism-destination",
+      "name": "Muriel Viejo Starlight Tourism Destination",
+      "lat": 41.78,
+      "lng": -2.92,
+      "designation": "Community",
+      "region": "Spain",
+      "year": 2013
+    },
+    {
+      "id": "observatorio-astronomico-de-la-hita-starlight-stellar-park",
+      "name": "Observatorio Astronómico de la Hita Starlight Stellar Park",
+      "lat": 39.66,
+      "lng": 3.12,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2021
+    },
+    {
+      "id": "observatorio-cabeza-de-la-jara-starlight-stellar-park",
+      "name": "Observatorio Cabeza de la Jara Starlight Stellar Park",
+      "lat": 37.56,
+      "lng": 1.87,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2020
+    },
+    {
+      "id": "parque-nacional-das-illas-atlanticas-de-galicia-starlight-tourism-destination",
+      "name": "Parque Nacional das Illas Atlánticas de Galicia Starlight Tourism Destination",
+      "lat": 42.38,
+      "lng": -8.93,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2016
+    },
+    {
+      "id": "provincio-de-soria-starlight-reserve",
+      "name": "Provincio de Soria Starlight Reserve",
+      "lat": 41.62,
+      "lng": -2.55,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2023
+    },
+    {
+      "id": "pueblo-de-fuente-tojar-starlight-tourism-destination",
+      "name": "Pueblo de Fuente Tójar Starlight Tourism Destination",
+      "lat": 37.52,
+      "lng": -4.12,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2022
+    },
+    {
+      "id": "pueblo-de-las-navas-del-marques-starlight-tourism-destination",
+      "name": "Pueblo de Las Navas del Marqués Starlight Tourism Destination",
+      "lat": 40.6,
+      "lng": -4.33,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2022
+    },
+    {
+      "id": "quimpi-starlight-camp",
+      "name": "Quimpi Starlight Camp",
+      "lat": 28.41,
+      "lng": -16.41,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2015
+    },
+    {
+      "id": "ribera-de-navarra-network-of-sites-starlight-tourism-destination",
+      "name": "Ribera de Navarra Network of Sites Starlight Tourism Destination",
+      "lat": 41.97,
+      "lng": -1.45,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2024
+    },
+    {
+      "id": "santa-lucia-de-tirajana-starlight-tourism-destination",
+      "name": "Santa Lucía de Tirajana Starlight Tourism Destination",
+      "lat": 27.87,
+      "lng": -15.49,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2022
+    },
+    {
+      "id": "santiago-pontones-starlight-wilderness",
+      "name": "Santiago-Pontones Starlight Wilderness",
+      "lat": 38.08,
+      "lng": -2.69,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2016
+    },
+    {
+      "id": "senda-de-los-pastores-starlight-walking-trail",
+      "name": "Senda de Los Pastores Starlight Walking Trail",
+      "lat": 40.12,
+      "lng": 3.01,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2021
+    },
+    {
+      "id": "serrania-de-cuenca-starlight-tourism-destination",
+      "name": "Serranía de Cuenca Starlight Tourism Destination",
+      "lat": 40.13,
+      "lng": -1.99,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2017
+    },
+    {
+      "id": "sierra-de-albarracin-starlight-reserve",
+      "name": "Sierra de Albarracín Starlight Reserve",
+      "lat": 40.41,
+      "lng": -1.47,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2020
+    },
+    {
+      "id": "sierra-de-alcaraz-y-campo-de-montiel-starlight-tourism-destination",
+      "name": "Sierra de Alcaraz y Campo de Montiel Starlight Tourism Destination",
+      "lat": 38.76,
+      "lng": 2.38,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2020
+    },
+    {
+      "id": "sierra-de-cadiz-starlight-tourism-destination",
+      "name": "Sierra de Cádiz Starlight Tourism Destination",
+      "lat": 36.83,
+      "lng": -5.53,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2021
+    },
+    {
+      "id": "sierra-del-segura-starlight-tourism-destination",
+      "name": "Sierra del Segura Starlight Tourism Destination",
+      "lat": 38.3,
+      "lng": -2.66,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2020
+    },
+    {
+      "id": "sierra-morena-andaluza-starlight-reserve",
+      "name": "Sierra Morena Andaluza Starlight Reserve",
+      "lat": 37.92,
+      "lng": -6.18,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2014
+    },
+    {
+      "id": "sierra-nevada-observatory-area",
+      "name": "Sierra Nevada Observatory Area",
+      "lat": 37.09,
+      "lng": -3.3819,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2013
+    },
+    {
+      "id": "tierra-bobal-starlight-tourism-destination",
+      "name": "Tierra Bobal Starlight Tourism Destination",
+      "lat": 39.57,
+      "lng": -1.2,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2021
+    },
+    {
+      "id": "torralba-del-rio-starlight-tourism-destination",
+      "name": "Torralba del Río Starlight Tourism Destination",
+      "lat": 42.61,
+      "lng": -2.33,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2024
+    },
+    {
+      "id": "trevinca-starlight-tourism-destination",
+      "name": "Trevinca Starlight Tourism Destination",
+      "lat": 42.24,
+      "lng": -6.8,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2015
+    },
+    {
+      "id": "valle-de-alcudia-y-sierra-madrona-starlight-tourism-destination",
+      "name": "Valle de Alcudia y Sierra Madrona Starlight Tourism Destination",
+      "lat": 38.52,
+      "lng": -4.31,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2019
+    },
+    {
+      "id": "valle-del-alto-guadiato-starlight-tourism-destination",
+      "name": "Valle del Alto Guadiato Starlight Tourism Destination",
+      "lat": 38.34,
+      "lng": -5.34,
+      "designation": "Reserve",
+      "region": "Spain",
+      "year": 2021
+    },
+    {
+      "id": "valle-del-roncal-starlight-tourism-destination",
+      "name": "Valle del Roncal Starlight Tourism Destination",
+      "lat": 42.82,
+      "lng": -0.95,
+      "designation": "Community",
+      "region": "Spain",
+      "year": 2017
+    },
+    {
+      "id": "villar-del-salz-stellar-park",
+      "name": "Villar del Salz Stellar Park",
+      "lat": 40.68,
+      "lng": -1.5,
+      "designation": "Park",
+      "region": "Spain",
+      "year": 2021
+    },
+    {
+      "id": "campalta-starlight-camp",
+      "name": "Campalta Starlight Camp",
+      "lat": 67.82,
+      "lng": 20.54,
+      "designation": "Park",
+      "region": "Sweden",
+      "year": 2017
+    },
+    {
+      "id": "gantrisch",
+      "name": "Gantrisch",
+      "lat": 46.73,
+      "lng": 7.37,
+      "designation": "Park",
+      "region": "Switzerland",
+      "year": 2024
+    },
+    {
+      "id": "hehuan-mountain",
+      "name": "Hehuan Mountain",
+      "lat": 24.12,
+      "lng": 121.29,
+      "designation": "Park",
+      "region": "Taiwan",
+      "year": 2019
+    },
+    {
+      "id": "bannau-brycheiniog-national-park",
+      "name": "Bannau Brycheiniog National Park",
+      "lat": 51.86,
+      "lng": -3.47,
+      "designation": "Reserve",
+      "region": "United Kingdom",
+      "year": 2013
+    },
+    {
+      "id": "bodmin-moor-dark-sky-landscape",
+      "name": "Bodmin Moor Dark Sky Landscape",
+      "lat": 50.56,
+      "lng": -4.63,
+      "designation": "Reserve",
+      "region": "United Kingdom",
+      "year": 2017
+    },
+    {
+      "id": "coll",
+      "name": "Coll",
+      "lat": 56.63,
+      "lng": -6.56,
+      "designation": "Community",
+      "region": "United Kingdom",
+      "year": 2013
+    },
+    {
+      "id": "cranborne-chase",
+      "name": "Cranborne Chase",
+      "lat": 51.1,
+      "lng": -2.03,
+      "designation": "Reserve",
+      "region": "United Kingdom",
+      "year": 2019
+    },
+    {
+      "id": "elan-valley-estate",
+      "name": "Elan Valley Estate",
+      "lat": 52.28,
+      "lng": -3.64,
+      "designation": "Park",
+      "region": "United Kingdom",
+      "year": 2015
+    },
+    {
+      "id": "eryri-national-park",
+      "name": "Eryri National Park",
+      "lat": 52.9,
+      "lng": -3.9,
+      "designation": "Reserve",
+      "region": "United Kingdom",
+      "year": 2015
+    },
+    {
+      "id": "exmoor",
+      "name": "Exmoor",
+      "lat": 51.14,
+      "lng": -3.65,
+      "designation": "Reserve",
+      "region": "United Kingdom",
+      "year": 2011
+    },
+    {
+      "id": "galloway-forest-park",
+      "name": "Galloway Forest Park",
+      "lat": 55.09,
+      "lng": -4.37,
+      "designation": "Reserve",
+      "region": "United Kingdom",
+      "year": 2009
+    },
+    {
+      "id": "gower-national-landscape",
+      "name": "Gower National Landscape",
+      "lat": 51.62,
+      "lng": -4.07,
+      "designation": "Community",
+      "region": "United Kingdom",
+      "year": 2025
+    },
+    {
+      "id": "isle-of-rum",
+      "name": "Isle of Rum",
+      "lat": 57,
+      "lng": -6.34,
+      "designation": "Sanctuary",
+      "region": "United Kingdom",
+      "year": 2024
+    },
+    {
+      "id": "moffat",
+      "name": "Moffat",
+      "lat": 55.34,
+      "lng": -3.44,
+      "designation": "Community",
+      "region": "United Kingdom",
+      "year": 2016
+    },
+    {
+      "id": "moore-s-reserve",
+      "name": "Moore’s Reserve",
+      "lat": 51.06,
+      "lng": -0.69,
+      "designation": "Reserve",
+      "region": "United Kingdom",
+      "year": 2016
+    },
+    {
+      "id": "north-ronaldsay-dark-sky-island",
+      "name": "North Ronaldsay Dark Sky Island",
+      "lat": 59.37,
+      "lng": -2.42,
+      "designation": "Community",
+      "region": "United Kingdom",
+      "year": 2021
+    },
+    {
+      "id": "north-york-moors-national-park",
+      "name": "North York Moors National Park",
+      "lat": 54.38,
+      "lng": -0.75,
+      "designation": "Reserve",
+      "region": "United Kingdom",
+      "year": 2020
+    },
+    {
+      "id": "northumberland-national-park-and-kielder-water-and-forest-park",
+      "name": "Northumberland National Park and Kielder Water and Forest Park",
+      "lat": 55.32,
+      "lng": -2.34,
+      "designation": "Park",
+      "region": "United Kingdom",
+      "year": 2013
+    },
+    {
+      "id": "om-dark-sky-park-and-observatory",
+      "name": "OM Dark Sky Park and Observatory",
+      "lat": 54.71,
+      "lng": -6.9,
+      "designation": "Park",
+      "region": "United Kingdom",
+      "year": 2020
+    },
+    {
+      "id": "pitcairn-islands",
+      "name": "Pitcairn Islands",
+      "lat": -25.07,
+      "lng": -130.1,
+      "designation": "Sanctuary",
+      "region": "United Kingdom",
+      "year": 2019
+    },
+    {
+      "id": "presteigne-and-norton",
+      "name": "Presteigne and Norton",
+      "lat": 52.27,
+      "lng": -3.01,
+      "designation": "Community",
+      "region": "United Kingdom",
+      "year": 2024
+    },
+    {
+      "id": "sark",
+      "name": "Sark",
+      "lat": 49.43,
+      "lng": -2.37,
+      "designation": "Community",
+      "region": "United Kingdom",
+      "year": 2011
+    },
+    {
+      "id": "thorington-street",
+      "name": "Thorington Street",
+      "lat": 51.9801,
+      "lng": 0.9269,
+      "designation": "Park",
+      "region": "United Kingdom",
+      "year": 2026
+    },
+    {
+      "id": "tomintoul-and-glenlivet-cairngorms",
+      "name": "Tomintoul and Glenlivet - Cairngorms",
+      "lat": 57.24,
+      "lng": -3.35,
+      "designation": "Reserve",
+      "region": "United Kingdom",
+      "year": 2018
+    },
+    {
+      "id": "west-penwith",
+      "name": "West Penwith",
+      "lat": 50.14,
+      "lng": -5.58,
+      "designation": "Park",
+      "region": "United Kingdom",
+      "year": 2021
+    },
+    {
+      "id": "ynys-enlli-bardsey-island",
+      "name": "Ynys Enlli (Bardsey Island)",
+      "lat": 52.76,
+      "lng": -4.79,
+      "designation": "Sanctuary",
+      "region": "United Kingdom",
+      "year": 2023
+    },
+    {
+      "id": "yorkshire-dales-national-park",
+      "name": "Yorkshire Dales National Park",
+      "lat": 54.3,
+      "lng": -2.11,
+      "designation": "Reserve",
+      "region": "United Kingdom",
+      "year": 2020
+    },
+    {
+      "id": "amc-maine-woods",
+      "name": "AMC Maine Woods",
+      "lat": 45.68,
+      "lng": -69.33,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "antelope",
+      "name": "Antelope",
+      "lat": 44.9,
+      "lng": -120.71,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2024
+    },
+    {
+      "id": "antelope-island",
+      "name": "Antelope Island",
+      "lat": 40.96,
+      "lng": -112.21,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2017
+    },
+    {
+      "id": "anza-borrego-desert-state-park",
+      "name": "Anza-Borrego Desert State Park",
+      "lat": 33.26,
+      "lng": -116.4,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2018
+    },
+    {
+      "id": "apache-junction-municipal-complex",
+      "name": "Apache Junction Municipal Complex",
+      "lat": 33.4234,
+      "lng": -111.543,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2026
+    },
+    {
+      "id": "arches-national-park",
+      "name": "Arches National Park",
+      "lat": 38.68,
+      "lng": -109.57,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2019
+    },
+    {
+      "id": "beaver-island-state-wildlife-research-area",
+      "name": "Beaver Island State Wildlife Research Area",
+      "lat": 45.67,
+      "lng": -85.53,
+      "designation": "Sanctuary",
+      "region": "United States",
+      "year": 2024
+    },
+    {
+      "id": "bee-cave",
+      "name": "Bee Cave",
+      "lat": 30.31,
+      "lng": -97.96,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2023
+    },
+    {
+      "id": "beverley-shores",
+      "name": "Beverley Shores",
+      "lat": 41.68,
+      "lng": -86.99,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2014
+    },
+    {
+      "id": "big-bend",
+      "name": "Big Bend",
+      "lat": 29.22,
+      "lng": -103.24,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2012
+    },
+    {
+      "id": "big-bend-ranch-state-park",
+      "name": "Big Bend Ranch State Park",
+      "lat": 29.53,
+      "lng": -104.15,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2017
+    },
+    {
+      "id": "big-cypress-national-preserve",
+      "name": "Big Cypress National Preserve",
+      "lat": 25.86,
+      "lng": -81.03,
+      "designation": "Reserve",
+      "region": "United States",
+      "year": 2016
+    },
+    {
+      "id": "big-park-village-of-oak-creek",
+      "name": "Big Park/Village of Oak Creek",
+      "lat": 34.8,
+      "lng": -111.8,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2016
+    },
+    {
+      "id": "bisbee",
+      "name": "Bisbee",
+      "lat": 31.42,
+      "lng": -109.9,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2024
+    },
+    {
+      "id": "black-canyon-of-the-gunnison",
+      "name": "Black Canyon of the Gunnison",
+      "lat": 38.58,
+      "lng": -107.74,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2015
+    },
+    {
+      "id": "black-gap-wildlife-management-area",
+      "name": "Black Gap Wildlife Management Area",
+      "lat": 29.57,
+      "lng": -102.9,
+      "designation": "Sanctuary",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "blanco",
+      "name": "Blanco",
+      "lat": 30.1,
+      "lng": -98.42,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2022
+    },
+    {
+      "id": "bluff",
+      "name": "Bluff",
+      "lat": 37.29,
+      "lng": -109.55,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2025
+    },
+    {
+      "id": "borrego-springs",
+      "name": "Borrego Springs",
+      "lat": 33.25,
+      "lng": -116.37,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2009
+    },
+    {
+      "id": "boundary-waters-canoe-area",
+      "name": "Boundary Waters Canoe Area",
+      "lat": 48.02,
+      "lng": -99.21,
+      "designation": "Sanctuary",
+      "region": "United States",
+      "year": 2020
+    },
+    {
+      "id": "browns-canyon-national-monument",
+      "name": "Browns Canyon National Monument",
+      "lat": 38.7,
+      "lng": -106,
+      "designation": "Park",
+      "region": "United States"
+    },
+    {
+      "id": "bruneau-dunes",
+      "name": "Bruneau Dunes",
+      "lat": 42.9,
+      "lng": -115.7,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2024
+    },
+    {
+      "id": "bryce-canyon-national-park",
+      "name": "Bryce Canyon National Park",
+      "lat": 37.63,
+      "lng": -112.17,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2019
+    },
+    {
+      "id": "buffalo-national-river",
+      "name": "Buffalo National River",
+      "lat": 35.97,
+      "lng": -92.89,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2019
+    },
+    {
+      "id": "camp-verde",
+      "name": "Camp Verde",
+      "lat": 34.56,
+      "lng": -111.85,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2018
+    },
+    {
+      "id": "canyonlands",
+      "name": "Canyonlands",
+      "lat": 38.33,
+      "lng": -109.88,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2015
+    },
+    {
+      "id": "cape-lookout-national-seashore",
+      "name": "Cape Lookout National Seashore",
+      "lat": 34.6,
+      "lng": -76.54,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "capitol-reef-national-park",
+      "name": "Capitol Reef National Park",
+      "lat": 38.36,
+      "lng": -111.26,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "castle-valley",
+      "name": "Castle Valley",
+      "lat": 38.64,
+      "lng": -109.41,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2024
+    },
+    {
+      "id": "cedar-breaks-national-monument",
+      "name": "Cedar Breaks National Monument",
+      "lat": 37.64,
+      "lng": -112.85,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2017
+    },
+    {
+      "id": "central-idaho",
+      "name": "Central Idaho",
+      "lat": 44.03,
+      "lng": -114.81,
+      "designation": "Reserve",
+      "region": "United States",
+      "year": 2017
+    },
+    {
+      "id": "chaco-culture-national-historical-park",
+      "name": "Chaco Culture National Historical Park",
+      "lat": 36.06,
+      "lng": -107.97,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2013
+    },
+    {
+      "id": "cherry-springs",
+      "name": "Cherry Springs",
+      "lat": 41.65,
+      "lng": -77.82,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2008
+    },
+    {
+      "id": "chiricahua-national-monument",
+      "name": "Chiricahua National Monument",
+      "lat": 32.01,
+      "lng": -109.36,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2011
+    },
+    {
+      "id": "city-of-rocks-national-reserve",
+      "name": "City of Rocks National Reserve",
+      "lat": 42.09,
+      "lng": -113.7,
+      "designation": "Reserve",
+      "region": "United States",
+      "year": 2023
+    },
+    {
+      "id": "clayton-lake-state-park",
+      "name": "Clayton Lake State Park",
+      "lat": 36.58,
+      "lng": -103.31,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2010
+    },
+    {
+      "id": "copper-breaks-state-park",
+      "name": "Copper Breaks State Park",
+      "lat": 34.11,
+      "lng": -99.75,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2014
+    },
+    {
+      "id": "cosmic-campground",
+      "name": "Cosmic Campground",
+      "lat": 33.48,
+      "lng": -108.92,
+      "designation": "Sanctuary",
+      "region": "United States",
+      "year": 2016
+    },
+    {
+      "id": "cottonwood",
+      "name": "Cottonwood",
+      "lat": 34.73,
+      "lng": -112.02,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2019
+    },
+    {
+      "id": "cottonwood-canyon-state-park",
+      "name": "Cottonwood Canyon State Park",
+      "lat": 42.48,
+      "lng": -120.4,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2025
+    },
+    {
+      "id": "craters-of-the-moon-national-monument",
+      "name": "Craters Of The Moon National Monument",
+      "lat": 43.43,
+      "lng": -113.48,
+      "designation": "Park",
+      "region": "United States"
+    },
+    {
+      "id": "crestone",
+      "name": "Crestone",
+      "lat": 38,
+      "lng": -105.7,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "curecenti-national-recreation-areainternational",
+      "name": "Curecenti National Recreation AreaInternational",
+      "lat": 38.47,
+      "lng": -107.17,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "dark-sky-coast",
+      "name": "Dark Sky Coast",
+      "lat": 45.73,
+      "lng": 84.85,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2012
+    },
+    {
+      "id": "dead-horse-point-state-park",
+      "name": "Dead Horse Point State Park",
+      "lat": 38.51,
+      "lng": -109.74,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2016
+    },
+    {
+      "id": "death-valley-national-park",
+      "name": "Death Valley National Park",
+      "lat": 36.51,
+      "lng": -117.08,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2013
+    },
+    {
+      "id": "devil-s-river-state-natural-area",
+      "name": "Devil's River State Natural Area",
+      "lat": 29.96,
+      "lng": -100.94,
+      "designation": "Sanctuary",
+      "region": "United States",
+      "year": 2019
+    },
+    {
+      "id": "dinosaur-national-monument",
+      "name": "Dinosaur National Monument",
+      "lat": 40.52,
+      "lng": -109.02,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2019
+    },
+    {
+      "id": "dr-t-k-lawless-county-park",
+      "name": "Dr. T.K. Lawless County Park",
+      "lat": 41.9,
+      "lng": -85.86,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2020
+    },
+    {
+      "id": "dripping-springs",
+      "name": "Dripping Springs",
+      "lat": 30.2,
+      "lng": -98.09,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2014
+    },
+    {
+      "id": "east-canyon-state-park",
+      "name": "East Canyon State Park",
+      "lat": 40.9,
+      "lng": -111.59,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2020
+    },
+    {
+      "id": "el-morro-national-monument",
+      "name": "El Morro National Monument",
+      "lat": 35.04,
+      "lng": -108.35,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2019
+    },
+    {
+      "id": "enchanted-rock",
+      "name": "Enchanted Rock",
+      "lat": 30.51,
+      "lng": -98.82,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2014
+    },
+    {
+      "id": "flagstaff",
+      "name": "Flagstaff",
+      "lat": 31.2,
+      "lng": -111.63,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2001
+    },
+    {
+      "id": "flagstaff-area-national-monuments",
+      "name": "Flagstaff Area National Monuments",
+      "lat": 35.37,
+      "lng": -111.45,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2016
+    },
+    {
+      "id": "florissant-fossil-beds-national-monument",
+      "name": "Florissant Fossil Beds National Monument",
+      "lat": 38.91,
+      "lng": -105.29,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "fort-union-national-monument",
+      "name": "Fort Union National Monument",
+      "lat": 35.91,
+      "lng": -105.15,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2019
+    },
+    {
+      "id": "fountain-hills",
+      "name": "Fountain Hills",
+      "lat": 33.6,
+      "lng": -111.72,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2018
+    },
+    {
+      "id": "fredericksburg",
+      "name": "Fredericksburg",
+      "lat": 30.27,
+      "lng": -98.87,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2020
+    },
+    {
+      "id": "fremont-indian-state-park",
+      "name": "Fremont Indian State Park",
+      "lat": 38.58,
+      "lng": -112.33,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "fry-family-park",
+      "name": "Fry Family Park",
+      "lat": 40.66,
+      "lng": -81.34,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "geauga-observatory-park",
+      "name": "Geauga Observatory Park",
+      "lat": 41.56,
+      "lng": -81.2,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2009
+    },
+    {
+      "id": "glacier-national-park",
+      "name": "Glacier National Park",
+      "lat": 48.7,
+      "lng": -113.72,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2017
+    },
+    {
+      "id": "goblin-valley-state-park",
+      "name": "Goblin Valley State Park",
+      "lat": 38.57,
+      "lng": -110.71,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2016
+    },
+    {
+      "id": "goosenecks-state-park",
+      "name": "Goosenecks State Park",
+      "lat": 37.18,
+      "lng": -109.92,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "grand-canyon-national-park",
+      "name": "Grand Canyon National Park",
+      "lat": 36.06,
+      "lng": -112.12,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2016
+    },
+    {
+      "id": "grand-canyon-parashant-national-monument-international-night-sky-province",
+      "name": "Grand Canyon-Parashant National Monument International Night Sky Province",
+      "lat": 36.46,
+      "lng": -113.63,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2014
+    },
+    {
+      "id": "great-basin-national-park",
+      "name": "Great Basin National Park",
+      "lat": 39.01,
+      "lng": -114.22,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2016
+    },
+    {
+      "id": "great-sand-dunes-national-park-and-preserve",
+      "name": "Great Sand Dunes National Park and Preserve",
+      "lat": 37.73,
+      "lng": -105.51,
+      "designation": "Reserve",
+      "region": "United States",
+      "year": 2019
+    },
+    {
+      "id": "greater-big-bend-united-states",
+      "name": "Greater Big Bend",
+      "lat": 30.08,
+      "lng": -103.81,
+      "designation": "Reserve",
+      "region": "United States",
+      "year": 2022
+    },
+    {
+      "id": "groveland",
+      "name": "Groveland",
+      "lat": 28.6,
+      "lng": -81.82,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2023
+    },
+    {
+      "id": "gunnison-gorge",
+      "name": "Gunnison Gorge",
+      "lat": 38.7,
+      "lng": -107.84,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2024
+    },
+    {
+      "id": "hawthorn-woods",
+      "name": "Hawthorn Woods",
+      "lat": 42.23,
+      "lng": -88.07,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2020
+    },
+    {
+      "id": "headlands",
+      "name": "Headlands",
+      "lat": 45.78,
+      "lng": -84.78,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2011
+    },
+    {
+      "id": "helper",
+      "name": "Helper",
+      "lat": 39.69,
+      "lng": -110.8,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2020
+    },
+    {
+      "id": "homer-glen",
+      "name": "Homer Glen",
+      "lat": 41.63,
+      "lng": -87.94,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2011
+    },
+    {
+      "id": "horseshoe-bay",
+      "name": "Horseshoe Bay",
+      "lat": 30.56,
+      "lng": -98.36,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2015
+    },
+    {
+      "id": "hovenweep-national-monument",
+      "name": "Hovenweep National Monument",
+      "lat": 37.28,
+      "lng": -109.12,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2014
+    },
+    {
+      "id": "jackson-hole-airport",
+      "name": "Jackson Hole Airport",
+      "lat": 43.6,
+      "lng": -110.74,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2025
+    },
+    {
+      "id": "jackson-lake-state-park",
+      "name": "Jackson Lake State Park",
+      "lat": 40.39,
+      "lng": -104.07,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2020
+    },
+    {
+      "id": "james-river-state-park",
+      "name": "James River State Park",
+      "lat": 37.62,
+      "lng": -78.81,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2018
+    },
+    {
+      "id": "jonestown",
+      "name": "Jonestown",
+      "lat": 30.48,
+      "lng": -97.93,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2024
+    },
+    {
+      "id": "jordanelle-state-park",
+      "name": "Jordanelle State Park",
+      "lat": 40.61,
+      "lng": -111.41,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "joshua-tree-national-park",
+      "name": "Joshua Tree National Park",
+      "lat": 33.87,
+      "lng": -115.9,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2017
+    },
+    {
+      "id": "julian",
+      "name": "Julian",
+      "lat": 33.08,
+      "lng": -116.6,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "kartchner-caverns-state-park",
+      "name": "Kartchner Caverns State Park",
+      "lat": 31.84,
+      "lng": -110.35,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2017
+    },
+    {
+      "id": "katahdin",
+      "name": "Katahdin",
+      "lat": 45.85,
+      "lng": -68.75,
+      "designation": "Sanctuary",
+      "region": "United States",
+      "year": 2020
+    },
+    {
+      "id": "ketchum",
+      "name": "Ketchum",
+      "lat": 43.68,
+      "lng": -114.37,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2017
+    },
+    {
+      "id": "keweenaw",
+      "name": "Keweenaw",
+      "lat": 47.46,
+      "lng": -87.9,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2022
+    },
+    {
+      "id": "kissimmee-prairie-preserve-state-park",
+      "name": "Kissimmee Prairie Preserve State Park",
+      "lat": 27.56,
+      "lng": -81.02,
+      "designation": "Reserve",
+      "region": "United States",
+      "year": 2016
+    },
+    {
+      "id": "lake-county-oregon-outback",
+      "name": "Lake County, Oregon Outback",
+      "lat": 42.84,
+      "lng": -120.5,
+      "designation": "Sanctuary",
+      "region": "United States",
+      "year": 2024
+    },
+    {
+      "id": "lake-fork-earth-and-sky-center",
+      "name": "Lake Fork Earth and Sky Center",
+      "lat": 37.99,
+      "lng": -107.29,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2020
+    },
+    {
+      "id": "lake-hudson-recreation-area",
+      "name": "Lake Hudson Recreation Area",
+      "lat": 41.83,
+      "lng": -84.26,
+      "designation": "Reserve",
+      "region": "United States",
+      "year": 1993
+    },
+    {
+      "id": "lakewood-village",
+      "name": "Lakewood Village",
+      "lat": 33.14,
+      "lng": -96.97,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2020
+    },
+    {
+      "id": "liberty-hill",
+      "name": "Liberty Hill",
+      "lat": 30.65,
+      "lng": -97.88,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2025
+    },
+    {
+      "id": "lost-trail-national-wildlife-refuge",
+      "name": "Lost Trail National Wildlife Refuge",
+      "lat": 48.18,
+      "lng": -114.91,
+      "designation": "Sanctuary",
+      "region": "United States",
+      "year": 2022
+    },
+    {
+      "id": "lyndon-b-johnson-national-historical-park",
+      "name": "Lyndon B. Johnson National Historical Park",
+      "lat": 30.24,
+      "lng": -98.62,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "mammoth-cave-national-park",
+      "name": "Mammoth Cave National Park",
+      "lat": 37.19,
+      "lng": -86,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "massacre-rim-wilderness-area",
+      "name": "Massacre Rim Wilderness Area",
+      "lat": 41.74,
+      "lng": -119.59,
+      "designation": "Sanctuary",
+      "region": "United States",
+      "year": 2019
+    },
+    {
+      "id": "mayland-earth-to-sky-park-and-bare-dark-sky-observatory",
+      "name": "Mayland Earth to Sky Park and Bare Dark Sky Observatory",
+      "lat": 35.93,
+      "lng": -82.02,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2014
+    },
+    {
+      "id": "medicine-rock-state-park",
+      "name": "Medicine Rock State Park",
+      "lat": 46.05,
+      "lng": -104.46,
+      "designation": "Sanctuary",
+      "region": "United States",
+      "year": 2020
+    },
+    {
+      "id": "merritt-reservoir-state-recreation-area",
+      "name": "Merritt Reservoir State Recreation Area",
+      "lat": 42.61,
+      "lng": -100.88,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2022
+    },
+    {
+      "id": "mesa-verde-national-park",
+      "name": "Mesa Verde National Park",
+      "lat": 37.18,
+      "lng": -108.49,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "middle-fork-river-forest-preserve",
+      "name": "Middle Fork River Forest Preserve",
+      "lat": 40.38,
+      "lng": -87.97,
+      "designation": "Reserve",
+      "region": "United States",
+      "year": 2018
+    },
+    {
+      "id": "milton-reimers-ranch-park",
+      "name": "Milton Reimers Ranch Park",
+      "lat": 30.37,
+      "lng": -98.12,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "moab",
+      "name": "Moab",
+      "lat": 38.57,
+      "lng": -109.22,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2024
+    },
+    {
+      "id": "natural-bridge-state-park",
+      "name": "Natural Bridge State Park",
+      "lat": 37.63,
+      "lng": -79.54,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "natural-bridges-national-monument",
+      "name": "Natural Bridges National Monument",
+      "lat": 37.6,
+      "lng": -110.01,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2007
+    },
+    {
+      "id": "negwegon",
+      "name": "Negwegon",
+      "lat": 44.87,
+      "lng": -83.33,
+      "designation": "Reserve",
+      "region": "United States",
+      "year": 2016
+    },
+    {
+      "id": "newport-state-park",
+      "name": "Newport State Park",
+      "lat": 45.24,
+      "lng": -86.99,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2017
+    },
+    {
+      "id": "norwood",
+      "name": "Norwood",
+      "lat": 38.13,
+      "lng": -108.29,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2019
+    },
+    {
+      "id": "nucla-naturita",
+      "name": "Nucla-Naturita",
+      "lat": 38.24,
+      "lng": -108.56,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "obed-wild-and-scenic-river",
+      "name": "Obed Wild and Scenic River",
+      "lat": 36.11,
+      "lng": -84.6,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2017
+    },
+    {
+      "id": "observatory-park-at-turner-farm",
+      "name": "Observatory Park at Turner Farm",
+      "lat": 38.9964,
+      "lng": -77.3112,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2026
+    },
+    {
+      "id": "old-snowmass",
+      "name": "Old Snowmass",
+      "lat": 39.3311,
+      "lng": -106.9849,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2026
+    },
+    {
+      "id": "oracle-state-park",
+      "name": "Oracle State Park",
+      "lat": 32.61,
+      "lng": -110.73,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2014
+    },
+    {
+      "id": "oregon-caves-national-monument-and-preserve",
+      "name": "Oregon Caves National Monument and Preserve",
+      "lat": 42.11,
+      "lng": -123.42,
+      "designation": "Reserve",
+      "region": "United States",
+      "year": 2024
+    },
+    {
+      "id": "organ-pipe-cactus-national-monument-az",
+      "name": "Organ Pipe Cactus National Monument-AZ",
+      "lat": 32.126,
+      "lng": -112.7694,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2026
+    },
+    {
+      "id": "palos-preserves",
+      "name": "Palos Preserves",
+      "lat": 41.71,
+      "lng": -87.87,
+      "designation": "Reserve",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "paonia",
+      "name": "Paonia",
+      "lat": 38.87,
+      "lng": -107.6,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2024
+    },
+    {
+      "id": "petrified-forest-national-park",
+      "name": "Petrified Forest National Park",
+      "lat": 35.98,
+      "lng": -109.77,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2018
+    },
+    {
+      "id": "pickett-ccc-memorial-state-park-and-pogue-creek-canyon-state-natural-area",
+      "name": "Pickett CCC Memorial State Park and Pogue Creek Canyon State Natural Area",
+      "lat": 36.53,
+      "lng": -83.15,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2015
+    },
+    {
+      "id": "pipe-spring-national-monument",
+      "name": "Pipe Spring National Monument",
+      "lat": 36.86,
+      "lng": -112.74,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "pisgah-astronomical-research-institute",
+      "name": "Pisgah Astronomical Research Institute",
+      "lat": 35.2,
+      "lng": -82.88,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2020
+    },
+    {
+      "id": "port-crescent",
+      "name": "Port Crescent",
+      "lat": 44,
+      "lng": -83.07,
+      "designation": "Reserve",
+      "region": "United States",
+      "year": 2012
+    },
+    {
+      "id": "potawatomi-dark-sky-preserve",
+      "name": "Potawatomi Dark-Sky Preserve",
+      "lat": 41.23,
+      "lng": -86.11,
+      "designation": "Reserve",
+      "region": "United States",
+      "year": 2009
+    },
+    {
+      "id": "prineville-reservoir-state-park",
+      "name": "Prineville Reservoir State Park",
+      "lat": 44.14,
+      "lng": -120.73,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "rainbow-bridge",
+      "name": "Rainbow Bridge",
+      "lat": 37.08,
+      "lng": -110.96,
+      "designation": "Sanctuary",
+      "region": "United States",
+      "year": 2018
+    },
+    {
+      "id": "rappahannock-county-park",
+      "name": "Rappahannock County Park",
+      "lat": 38.71,
+      "lng": -78.15,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2019
+    },
+    {
+      "id": "ridgway",
+      "name": "Ridgway",
+      "lat": 38.15,
+      "lng": -107.76,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2020
+    },
+    {
+      "id": "rockport-dark-sky-preserve",
+      "name": "Rockport Dark-Sky Preserve",
+      "lat": 45.21,
+      "lng": -83.41,
+      "designation": "Reserve",
+      "region": "United States",
+      "year": 2016
+    },
+    {
+      "id": "rockport-state-park",
+      "name": "Rockport State Park",
+      "lat": 40.79,
+      "lng": -111.4,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "saguaro-national-park",
+      "name": "Saguaro National Park",
+      "lat": 32.32,
+      "lng": -111.17,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2024
+    },
+    {
+      "id": "salinas-pueblo-missions-national-monument",
+      "name": "Salinas Pueblo Missions National Monument",
+      "lat": 44.26,
+      "lng": -106.09,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2016
+    },
+    {
+      "id": "sedona",
+      "name": "Sedona",
+      "lat": 34.87,
+      "lng": -111.76,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2014
+    },
+    {
+      "id": "shield-ranch-barton-creek",
+      "name": "Shield Ranch Barton Creek",
+      "lat": 30.26,
+      "lng": -98.02,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2024
+    },
+    {
+      "id": "sinks-canyon-state-park",
+      "name": "Sinks Canyon State Park",
+      "lat": 42.75,
+      "lng": -108.81,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2024
+    },
+    {
+      "id": "sisters",
+      "name": "Sisters",
+      "lat": 44.29,
+      "lng": -121.55,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2025
+    },
+    {
+      "id": "sky-meadows-state-park",
+      "name": "Sky Meadows State Park",
+      "lat": 38.99,
+      "lng": -77.97,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "south-llano-river-state-park",
+      "name": "South Llano River State Park",
+      "lat": 30.45,
+      "lng": -99.81,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2017
+    },
+    {
+      "id": "springdale",
+      "name": "Springdale",
+      "lat": 31.18,
+      "lng": -113,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2023
+    },
+    {
+      "id": "stacy-park",
+      "name": "Stacy Park",
+      "lat": 38.67,
+      "lng": -90.39,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "staunton-river-state-park",
+      "name": "Staunton River State Park",
+      "lat": 36.7,
+      "lng": -77.33,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2015
+    },
+    {
+      "id": "steinaker-state-park",
+      "name": "Steinaker State Park",
+      "lat": 40.52,
+      "lng": -109.53,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2018
+    },
+    {
+      "id": "stephen-c-foster-state-park",
+      "name": "Stephen C. Foster State Park",
+      "lat": 30.83,
+      "lng": -82.36,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2016
+    },
+    {
+      "id": "teton-county",
+      "name": "Teton County",
+      "lat": 43.483,
+      "lng": -110.76,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2025
+    },
+    {
+      "id": "thompson-s-harbor",
+      "name": "Thompson's Harbor",
+      "lat": 45.21,
+      "lng": -83.41,
+      "designation": "Reserve",
+      "region": "United States",
+      "year": 2016
+    },
+    {
+      "id": "thousand-hills-state-park",
+      "name": "Thousand Hills State Park",
+      "lat": 40.18,
+      "lng": -92.64,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2024
+    },
+    {
+      "id": "thunder-mountain-pootsee-nightsky",
+      "name": "Thunder Mountain Pootsee Nightsky",
+      "lat": 36.9,
+      "lng": -112.75,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2015
+    },
+    {
+      "id": "timpanagos-cave-national-monument",
+      "name": "Timpanagos Cave National Monument",
+      "lat": 40.44,
+      "lng": -111.71,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2020
+    },
+    {
+      "id": "tonto-national-monument",
+      "name": "Tonto National Monument",
+      "lat": 33.66,
+      "lng": -111.09,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2019
+    },
+    {
+      "id": "top-of-the-pines",
+      "name": "Top of the Pines",
+      "lat": 38.11,
+      "lng": -107.79,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "torrey",
+      "name": "Torrey",
+      "lat": 38.3,
+      "lng": -111.42,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2018
+    },
+    {
+      "id": "tubac",
+      "name": "Tubac",
+      "lat": 31.63,
+      "lng": -111.05,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2024
+    },
+    {
+      "id": "tumacacori-national-historical-park",
+      "name": "Tumacácori National Historical Park",
+      "lat": 31.57,
+      "lng": -111.05,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2018
+    },
+    {
+      "id": "ubaru-camp-and-retreat-center",
+      "name": "UBarU Camp and Retreat Center",
+      "lat": 30.19,
+      "lng": -99.27,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2015
+    },
+    {
+      "id": "valle-de-oro-national-wildlife-refuge",
+      "name": "Valle de Oro National Wildlife Refuge",
+      "lat": 34.97,
+      "lng": -106.67,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2019
+    },
+    {
+      "id": "valles-caldera-national-preserve",
+      "name": "Valles Caldera National Preserve",
+      "lat": 35.9,
+      "lng": -106.53,
+      "designation": "Reserve",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "voyageurs-national-park",
+      "name": "Voyageurs National Park",
+      "lat": 48.48,
+      "lng": -92.85,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2020
+    },
+    {
+      "id": "watoga-state-park",
+      "name": "Watoga State Park",
+      "lat": 38.12,
+      "lng": -80.13,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    },
+    {
+      "id": "westcliffe-silver-cliff",
+      "name": "Westcliffe/Silver Cliff",
+      "lat": 38.13,
+      "lng": -105.45,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2015
+    },
+    {
+      "id": "wimberley-valley",
+      "name": "Wimberley Valley",
+      "lat": 29.99,
+      "lng": -98.09,
+      "designation": "Community",
+      "region": "United States",
+      "year": 2018
+    },
+    {
+      "id": "zion-national-park",
+      "name": "Zion National Park",
+      "lat": 37.3,
+      "lng": -113,
+      "designation": "Park",
+      "region": "United States",
+      "year": 2021
+    }
+  ]
+}

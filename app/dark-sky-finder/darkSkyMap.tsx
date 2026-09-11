@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from "react-leaflet";
+import MarkerClusterGroup from "react-leaflet-cluster";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { darkSkyPlaces } from "./darkSkyPlaces";
@@ -108,15 +109,21 @@ export default function DarkSkyMap({ userLocation, selected, onMapClickAction }:
         </Marker>
       )}
 
-      {darkSkyPlaces.map((place) => (
-        <Marker key={place.id} position={[place.lat, place.lng]}>
-          <Popup>
-            <strong>{place.name}</strong>
-            <br />
-            {place.designation} &middot; {place.region}
-          </Popup>
-        </Marker>
-      ))}
+      <MarkerClusterGroup
+        chunkedLoading
+        maxClusterRadius={120}
+        disableClusteringAtZoom={4}
+      >
+        {darkSkyPlaces.map((place) => (
+          <Marker key={place.id} position={[place.lat, place.lng]}>
+            <Popup>
+              <strong>{place.name}</strong>
+              <br />
+              {place.designation} &middot; {place.region}
+            </Popup>
+          </Marker>
+        ))}
+      </MarkerClusterGroup>
     </MapContainer>
   );
 }
