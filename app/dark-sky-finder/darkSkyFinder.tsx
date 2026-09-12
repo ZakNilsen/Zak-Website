@@ -4,6 +4,8 @@ import dynamic from "next/dynamic";
 import { useEffect, useMemo, useState } from "react";
 import { darkSkyPlaces, type DarkSkyPlace } from "./darkSkyPlaces";
 import { astroDarkness, moonInfo, stargazingScore } from "./astro";
+import { estimateBortle, type BortleEstimate } from "./bortle";
+import { upcomingEvents, EVENT_EMOJI, type AstroEvent } from "./astroEvents";
 import Starfield from "./starField";
 import styles from "./dark-sky-finder.module.css";
 
@@ -92,6 +94,15 @@ function formatTime(date: Date | null, timezone: string | null): string {
   }
 }
 
+// "Sep 23", plus a relative tag like "tonight" / "in 12 days".
+function formatEventDate(date: Date, now: Date): string {
+  const label = new Intl.DateTimeFormat(undefined, { month: "short", day: "numeric" }).format(date);
+  const days = Math.round((date.getTime() - now.getTime()) / 86_400_000);
+  if (days <= 0) return `${label} · tonight!`;
+  if (days === 1) return `${label} · tomorrow`;
+  return `${label} · in ${days} days`;
+}
+
 function skyVerdict(avgCloud: number | null): { label: string; className: string } {
   if (avgCloud === null) return { label: "—", className: styles.verdictUnknown };
   if (avgCloud < 25) return { label: "Clear — go look up", className: styles.verdictGood };
@@ -106,6 +117,7 @@ export default function DarkSkyFinder() {
   const [locateError, setLocateError] = useState<string | null>(null);
   const [forecast, setForecast] = useState<TonightForecast | null>(null);
   const [forecastLoading, setForecastLoading] = useState(false);
+  const [bortle, setBortle] = useState<BortleEstimate | null>(null);
 
   const activePoint = selected ?? userLocation;
 
@@ -158,6 +170,21 @@ export default function DarkSkyFinder() {
     };
   }, [activePoint]);
 
+  // Bortle estimate refreshed whenever the point moves.
+  useEffect(() => {
+    if (!activePoint) return;
+    let cancelled = false;
+
+    setBortle(null);
+    estimateBortle(activePoint.lat, activePoint.lng).then((estimate) => {
+      if (!cancelled) setBortle(estimate);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [activePoint]);
+
   const avgCloud = forecast?.avgCloudPct === null || forecast?.avgCloudPct === undefined
     ? null
     : Math.round(forecast.avgCloudPct);
@@ -180,6 +207,14 @@ export default function DarkSkyFinder() {
       avgWindMph: forecast?.avgWindMph ?? null,
     });
   }, [avgCloud, moon, forecast]);
+
+  // Computed after mount: the page is statically prerendered at build time, so
+  // anything derived from "now" (days-until, moon %) would bake stale values
+  // into the HTML and mismatch on hydration.
+  const [events, setEvents] = useState<AstroEvent[]>([]);
+  useEffect(() => {
+    setEvents(upcomingEvents(new Date()));
+  }, []);
 
   const nearestPlaces = useMemo(() => {
     if (!activePoint) return [] as (DarkSkyPlace & { miles: number })[];
@@ -231,6 +266,29 @@ export default function DarkSkyFinder() {
                   </p>
                 )}
                 <dl className={styles.statGrid}>
+                  <div className={`${styles.stat} ${styles.statWide}`}>
+                    <dt className={styles.statLabel}>Sky darkness (est.)</dt>
+                    <dd className={styles.statValue}>
+                      {bortle ? (
+                        <>
+                          <span
+                            className={
+                              bortle.bortle <= 3
+                                ? styles.bortleGood
+                                : bortle.bortle <= 5
+                                  ? styles.bortleMid
+                                  : styles.bortleBad
+                            }
+                          >
+                            ~{bortle.label}
+                          </span>
+                          <span className={styles.statSub}>{bortle.description}</span>
+                        </>
+                      ) : (
+                        <span className={styles.statSub}>Sampling satellite imagery&hellip;</span>
+                      )}
+                    </dd>
+                  </div>
                   <div className={styles.stat}>
                     <dt className={styles.statLabel}>Moon</dt>
                     <dd className={styles.statValue}>
@@ -272,9 +330,31 @@ export default function DarkSkyFinder() {
                     </dd>
                   </div>
                 </dl>
-                <p className={styles.statFootnote}>Averages for 8pm&ndash;4am at the picked spot.</p>
+                <p className={styles.statFootnote}>
+                  Averages for 8pm&ndash;4am at the picked spot. Sky darkness is estimated from
+                  satellite night-lights imagery.
+                </p>
               </>
             )}
+          </section>
+
+          <section className={styles.panel}>
+            <h3 className={styles.panelTitle}>Sky calendar</h3>
+            {events.length === 0 && <p className={styles.muted}>Reading the almanac&hellip;</p>}
+            <ul className={styles.eventList}>
+              {events.map((e) => (
+                <li key={`${e.name}-${e.date.toISOString()}`} className={styles.eventItem}>
+                  <span className={styles.eventEmoji} aria-hidden="true">
+                    {EVENT_EMOJI[e.kind]}
+                  </span>
+                  <span className={styles.eventBody}>
+                    <span className={styles.eventName}>{e.name}</span>
+                    <span className={styles.eventMeta}>{formatEventDate(e.date, new Date())}</span>
+                    <span className={styles.eventMeta}>{e.detail}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
           </section>
 
           <section className={styles.panel}>
