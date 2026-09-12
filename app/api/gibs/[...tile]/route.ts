@@ -12,10 +12,9 @@ export async function GET(
   const date =
     request.nextUrl.searchParams.get("date") ??
     new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
-  // NASA's "Black Marble" nightly night-lights product (gap-filled, moonlight-
-  // corrected). The previous VIIRS_SNPP_DayNightBand_ENCC product stopped
-  // producing data in July 2023 and 404s for every current date.
-  const product = "VIIRS_NOAA20_GapFilled_BRDF_Corrected_DayNightBand_Radiance";
+  // NASA's VIIRS night-light product is more visible on a dark basemap when
+  // using the sensor-radiance product than the heavily gap-filled variant.
+  const product = "VIIRS_NOAA20_DayNightBand_At_Sensor_Radiance";
 
   const [z, x, yWithExt] = tile;
   if (!z || !x || !yWithExt) {

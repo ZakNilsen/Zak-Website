@@ -1,0 +1,93 @@
+.panel {
+  background: rgba(20, 16, 40, 0.7);
+  border: 1px solid rgba(124, 77, 255, 0.25);
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem;
+  margin-top: 1.25rem;
+}
+
+.title {
+  margin: 0 0 0.7rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #b388ff;
+}
+
+.muted {
+  color: #9d97c2;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.bestWindow {
+  color: #e8e4ff;
+  font-size: 0.92rem;
+  margin: 0 0 0.9rem;
+}
+
+.strip {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.4rem;
+  scrollbar-width: thin;
+}
+
+.hourCard {
+  flex: 0 0 auto;
+  width: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.6rem 0.4rem;
+  border-radius: 10px;
+  border: 1px solid rgba(124, 77, 255, 0.15);
+}
+
+.hourCard.night {
+  background: rgba(94, 200, 255, 0.06);
+}
+
+.hourCard.day {
+  background: rgba(255, 255, 255, 0.02);
+  opacity: 0.55;
+}
+
+.hourLabel {
+  font-size: 0.75rem;
+  color: #c9c3ea;
+}
+
+.icon {
+  font-size: 1.1rem;
+  color: #e8e4ff;
+}
+
+.cloudPct {
+  font-size: 0.75rem;
+  color: #9d97c2;
+}
+
+.scoreTag {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+}
+
+.scoreGreat {
+  background: rgba(125, 255, 176, 0.15);
+  color: #7dffb0;
+}
+
+.scoreOkay {
+  background: rgba(255, 224, 138, 0.15);
+  color: #ffe08a;
+}
+
+.scorePoor {
+  background: rgba(255, 140, 207, 0.15);
+  color: #ff8ccf;
+}

@@ -6,6 +6,7 @@ import { darkSkyPlaces, type DarkSkyPlace } from "./darkSkyPlaces";
 import { astroDarkness, moonInfo, stargazingScore } from "./astro";
 import { estimateBortle, type BortleEstimate } from "./bortle";
 import { upcomingEvents, EVENT_EMOJI, type AstroEvent } from "./astroEvents";
+import HourlyStargazingForecast from "./hourlyStarGazingForecast";
 import Starfield from "./starField";
 import styles from "./dark-sky-finder.module.css";
 
@@ -243,8 +244,11 @@ export default function DarkSkyFinder() {
       </div>
 
       <div className={styles.layout}>
-        <div className={styles.mapPane}>
-          <DarkSkyMap userLocation={userLocation} selected={selected} onMapClickAction={handleMapClickAction} />
+        <div className={styles.mapColumn}>
+          <div className={styles.mapPane}>
+            <DarkSkyMap userLocation={userLocation} selected={selected} onMapClickAction={handleMapClickAction} />
+          </div>
+          <HourlyStargazingForecast point={activePoint} />
         </div>
 
         <aside className={styles.sidebar}>
