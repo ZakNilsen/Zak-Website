@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function DarkSkyFinderPage() {
   return (
-    <main style={{ padding: "2rem 1.5rem", maxWidth: 1100, margin: "0 auto" }}>
+    <main style={{ padding: "7.5rem 1.5rem 2rem", maxWidth: 1100, margin: "0 auto" }}>
       <h1 style={{ marginBottom: "0.5rem" }}>Dark Sky Finder</h1>
       <DarkSkyFinder />
     </main>

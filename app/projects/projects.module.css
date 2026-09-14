@@ -87,7 +87,7 @@
   overflow: hidden;
   background: radial-gradient(circle at 30% 30%, #f0e68c, #d4af37);
   box-shadow: 0 0 30px rgba(255, 255, 200, 0.4);
-  z-index: 2;
+  z-index: 6;
 }
 
 .moon:hover {
@@ -248,10 +248,16 @@
 
 /* Projects Grid */
 .projectsGrid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
   margin-bottom: 4rem;
+}
+
+.projectCard {
+  flex: 0 1 340px;
+  max-width: 380px;
 }
 
 .projectCard {
@@ -427,18 +433,6 @@
   }
 }
 
-@media (min-width: 768px) {
-  .projectsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .projectsGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 /* When boosted, remap each firefly's color vars to its own assigned
    palette color instead of the default gold */
 .fireflyColorShift .firefly {
@@ -452,4 +446,72 @@
   animation: none !important;
   opacity: 0 !important;
   transition: opacity 1.2s ease;
+}
+
+a.projectCard {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.featuredProjectCard {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  border-radius: 1.25rem;
+  padding: 2.5rem;
+  max-width: 46rem;
+  width: 100%;
+  margin: 0 auto;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.featuredProjectCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(96, 165, 250, 0.6);
+  box-shadow:
+    0 8px 25px rgba(96, 165, 250, 0.2),
+    0 0 20px rgba(96, 165, 250, 0.1);
+}
+
+.featuredProjectIcon {
+  flex-shrink: 0;
+  width: 5rem;
+  height: 5rem;
+  color: #60a5fa;
+}
+
+.featuredProjectIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.featuredProjectBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.viewProjectLink {
+  display: inline-block;
+  margin-top: 1.25rem;
+  color: #60a5fa;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .featuredProjectCard {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .featuredProjectIcon {
+    margin: 0 auto;
+  }
 }

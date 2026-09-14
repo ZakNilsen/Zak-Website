@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ConstellationOverlay, {
   CONSTELLATION_LIFESPAN,
@@ -311,29 +312,16 @@ export default function Projects() {
   };
 
   // Placeholder project data
-  const placeholderProjects = [
-    {
-      id: 1,
-      title: "Project Coming Soon",
-      description:
-        "Exciting projects in development. Check back soon to see what I've been building!",
-      tags: ["React", "TypeScript", "Node.js"],
-    },
-    {
-      id: 2,
-      title: "More on the Way",
-      description:
-        "Currently working on innovative solutions that blend creativity with technical excellence.",
-      tags: ["AWS", "Next.js", "PostgreSQL"],
-    },
-    {
-      id: 3,
-      title: "Future Development",
-      description:
-        "Exploring new technologies and pushing boundaries in web development.",
-      tags: ["Three.js", "WebGL", "Animation"],
-    },
-  ];
+  const projects = [
+  {
+    id: 1,
+    title: "Dark Sky Finder",
+    description:
+      "Find the darkest, least light-polluted skies near you — a tool for planning your next stargazing trip.",
+    tags: ["Next.js", "Geolocation", "Maps"],
+    href: "/dark-sky-finder",
+  },
+];
 
   return (
     <div className={styles.projectsContainer}>
@@ -392,42 +380,36 @@ export default function Projects() {
         </section>
 
         <div className={styles.projectsGrid}>
-          {placeholderProjects.map((project) => (
-            <div
+          {projects.map((project) => (
+            <Link
               key={project.id}
-              className={styles.projectCard}
+              href={project.href}
+              className={styles.featuredProjectCard}
             >
-              <div className={styles.projectIconPlaceholder}>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                  <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+              <div className={styles.featuredProjectIcon}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                  <path
+                    d="M12 6.5l1.1 2.2 2.4.35-1.75 1.7.4 2.4L12 12l-2.15 1.15.4-2.4-1.75-1.7 2.4-.35L12 6.5z"
+                    fill="currentColor"
+                    stroke="none"
+                  />
                 </svg>
               </div>
 
-              <h3 className={styles.projectTitle}>
-                {project.title}
-              </h3>
-
-              <p className={styles.projectDescription}>
-                {project.description}
-              </p>
-
-              <div className={styles.projectTags}>
-                {project.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className={styles.tag}
-                  >
-                    {tag}
-                  </span>
-                ))}
+              <div className={styles.featuredProjectBody}>
+                <h3 className={styles.projectTitle}>{project.title}</h3>
+                <p className={styles.projectDescription}>{project.description}</p>
+                <div className={styles.projectTags}>
+                  {project.tags.map((tag, index) => (
+                    <span key={index} className={styles.tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <span className={styles.viewProjectLink}>Explore the project →</span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

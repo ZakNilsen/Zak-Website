@@ -143,6 +143,10 @@
   height: 120%;
   transform: rotate(-45deg);
   pointer-events: none;
+
+  .star {
+    --fall-distance: calc(1.2 * hypot(100vw, 100vh));
+  }
 }
 
 .mobileStars {
@@ -160,6 +164,7 @@
   --star-width: calc(var(--star-tail-length) / 6);
   --fall-duration: 9s;
   --tail-fade-duration: var(--fall-duration);
+  --fall-distance: 120vw;
 
   position: absolute;
   top: var(--top-offset);
@@ -170,8 +175,8 @@
   background: linear-gradient(45deg, currentColor, transparent);
   border-radius: 50%;
   filter: drop-shadow(0 0 6px currentColor);
-  /* Start off-screen to the right using viewport units so travel covers very wide screens */
-  transform: translate3d(120vw, 0, 0);
+  transform: translate3d(var(--fall-distance), 0, 0);
+  transition: color 1.2s ease, filter 1.2s ease; /* smooths the rainbow-effect exit */
   animation: fall var(--fall-duration) var(--fall-delay) linear infinite,
              tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
 
@@ -254,9 +259,8 @@
 }
 
 @keyframes fall {
-  /* Move all the way past the left edge using viewport units; keeps motion correct on ultra-wide screens */
   to {
-    transform: translate3d(-120vw, 0, 0);
+    transform: translate3d(calc(var(--fall-distance) * -1), 0, 0);
   }
 }
 
