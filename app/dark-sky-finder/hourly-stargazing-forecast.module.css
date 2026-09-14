@@ -37,7 +37,8 @@
   scrollbar-width: thin;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  touch-action: pan-y;
+  /* allow native horizontal swipes on touch devices (don't restrict touch-action) */
+  overscroll-behavior-x: contain;
   box-sizing: border-box;
   width: 100%;
 }
