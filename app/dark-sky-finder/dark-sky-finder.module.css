@@ -4,6 +4,7 @@
   flex-direction: column;
   gap: 1.25rem;
   color: #e8e4ff;
+  overflow-x: hidden;
 }
 
 /* Ambient starfield behind the page content (see Starfield.tsx). */
@@ -171,6 +172,12 @@
   gap: 1.25rem;
 }
 
+.layout,
+.mapColumn,
+.sidebar {
+  min-width: 0;
+}
+
 .mapColumn {
   display: flex;
   flex-direction: column;
@@ -181,6 +188,9 @@
   .layout {
     grid-template-columns: 1fr;
   }
+  .mapPane {
+    height: 360px;
+  }
 }
 
 .mapPane {
@@ -190,6 +200,8 @@
   overflow: hidden;
   border: 1px solid rgba(196, 107, 255, 0.25);
   box-shadow: 0 0 30px rgba(94, 200, 255, 0.08);
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .map {
@@ -220,6 +232,7 @@
   border-radius: 14px;
   padding: 1rem 1.1rem;
   backdrop-filter: blur(6px);
+  min-width: 0;
 }
 
 .panelTitle {
@@ -354,6 +367,7 @@
 .eventBody {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .eventName {
@@ -421,6 +435,7 @@
   flex-direction: column;
   border-bottom: 1px solid rgba(124, 77, 255, 0.15);
   padding-bottom: 0.5rem;
+  min-width: 0;
 }
 
 .placeItem:last-child {
@@ -431,6 +446,8 @@
 .placeName {
   font-weight: 600;
   color: #e8e4ff;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .placeMeta {

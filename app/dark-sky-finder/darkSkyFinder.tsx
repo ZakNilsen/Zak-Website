@@ -254,8 +254,8 @@ export default function DarkSkyFinder() {
         <aside className={styles.sidebar}>
           <section className={styles.panel}>
             <h3 className={styles.panelTitle}>Tonight&rsquo;s sky</h3>
-            {!activePoint && <p className={styles.muted}>Pick a location to check the forecast.</p>}
-            {activePoint && forecastLoading && <p className={styles.muted}>Checking the clouds&hellip;</p>}
+            {!activePoint && <p className={styles.muted}>Tap the map to pick a dark‑sky spot.</p>}
+            {activePoint && forecastLoading && <p className={styles.muted}>Checking conditions&hellip;</p>}
             {activePoint && !forecastLoading && (
               <>
                 <p className={verdict.className}>{verdict.label}</p>

@@ -134,7 +134,7 @@ export default function HourlyStargazingForecast({ point, hoursAhead = 30 }: Pro
     return (
       <div className={styles.panel}>
         <h3 className={styles.title}>Hourly viewing forecast</h3>
-        <p className={styles.muted}>Pick a spot on the map to see the hour-by-hour outlook.</p>
+        <p className={styles.muted}>Tap the map to pick a dark‑sky spot and see the hour-by-hour outlook.</p>
       </div>
     );
   }
@@ -143,7 +143,7 @@ export default function HourlyStargazingForecast({ point, hoursAhead = 30 }: Pro
     <div className={styles.panel}>
       <h3 className={styles.title}>Hourly viewing forecast</h3>
 
-      {loading && <p className={styles.muted}>Checking the sky\u2026</p>}
+      {loading && <p className={styles.muted}>Checking conditions…</p>}
       {error && <p className={styles.muted}>{error}</p>}
 
       {bestWindow && bestWindowLabel && (
