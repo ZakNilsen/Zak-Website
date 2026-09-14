@@ -1,0 +1,81 @@
+.notFoundContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+  color: #e5e7eb;
+}
+
+.twinkleField {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.twinkle {
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  width: var(--size);
+  height: var(--size);
+  background: white;
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: twinkle var(--duration) ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50%      { opacity: 1; transform: scale(1.4); }
+}
+
+.shootingStar {
+  position: absolute;
+  top: 15%;
+  left: 100%;
+  width: 5em;
+  height: 2px;
+  background: linear-gradient(45deg, white, transparent);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 6px white);
+  transform: rotate(-30deg);
+  animation: shoot 7s ease-in infinite;
+  animation-delay: 2s;
+  pointer-events: none;
+}
+
+@keyframes shoot {
+  0%   { transform: translate(0, 0) rotate(-30deg); opacity: 0; }
+  5%   { opacity: 1; }
+  30%  { opacity: 1; }
+  40%  { transform: translate(-140vw, 80vh) rotate(-30deg); opacity: 0; }
+  100% { transform: translate(-140vw, 80vh) rotate(-30deg); opacity: 0; }
+}
+
+.title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin: 0;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.message {
+  margin-top: 0.5rem;
+  color: #d1d5db;
+  position: relative;
+  z-index: 1;
+}
+
+.homeLink {
+  margin-top: 1.5rem;
+  color: #60a5fa;
+  text-decoration: underline;
+  position: relative;
+  z-index: 1;
+}
