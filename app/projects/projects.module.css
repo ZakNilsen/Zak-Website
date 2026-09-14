@@ -131,10 +131,12 @@
   width: 120%;
   height: 120%;
   border-radius: 50%;
-  background: #05070d;
-  mix-blend-mode: multiply;
-  /* softens the terminator edge so it reads as a natural gradient instead
-     of a hard, aliased circle boundary */
+  /* Use a radial translucent gradient instead of a flat color or blend
+    mode to avoid rendering artifacts on some mobile browsers. Keep a
+    soft terminator via blur so the sliding shadow reads naturally. */
+  background: radial-gradient(circle at 50% 50%, rgba(5,7,13,1) 0%, rgba(5,7,13,1) 60%, rgba(5,7,13,0.7) 74%, rgba(5,7,13,0) 92%);
+  /* Avoid mix-blend-mode — some mobile WebKit builds render the clipped
+    animated shape as a black rectangle when blending is used. */
   filter: blur(3px);
   animation: moonPhaseCycle 45s linear infinite;
   /* keeps this on its own GPU layer for the whole animation instead of
@@ -214,6 +216,27 @@
 
   .mountainFront {
     height: 300px;
+  }
+}
+
+/* On small screens the moon should scroll with the page (not fixed)
+   so it moves up and out of view when the user scrolls down and does
+   not overlap the mobile navigation. */
+@media (max-width: 768px) {
+  .moon {
+    position: absolute;
+    top: 2rem; /* nudged slightly lower */
+    right: 1rem;
+    width: 56px;
+    height: 56px;
+    /* keep it below the mobile menu which intentionally uses a very
+       high z-index */
+    z-index: 6;
+  }
+
+  .moon:hover {
+    transform: none;
+    box-shadow: 0 0 20px rgba(255, 255, 200, 0.3);
   }
 }
 
@@ -428,7 +451,7 @@
   .moon {
     width: 60px;
     height: 60px;
-    top: 5%;
+    top: 6%;
     right: 5%;
   }
 }
@@ -513,5 +536,15 @@ a.projectCard {
 
   .featuredProjectIcon {
     margin: 0 auto;
+
+  /* Increase shadow size on small screens so it fully covers the moon
+     when centered (prevents a small dark dot). */
+  .moonShadow {
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
+    filter: blur(4px);
+  }
   }
 }
