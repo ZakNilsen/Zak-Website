@@ -3,8 +3,31 @@ import "./globals.css";
 import AppShell from "./AppShell";
 
 export const metadata: Metadata = {
-  title: "Zak's Website",
-  description: "Zak Nilsen's personal website",
+  metadataBase: new URL("https://zaknilsen.com"),
+  title: {
+    default: "Zak Nilsen",
+    template: "%s | Zak Nilsen",
+  },
+  description: "Personal website for Zak Nilsen, featuring projects, creative work, and digital experiments.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Zak Nilsen",
+    description: "Personal website for Zak Nilsen, featuring projects, creative work, and digital experiments.",
+    url: "https://zaknilsen.com",
+    siteName: "Zak Nilsen",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/images/forest-silhouette.png",
+        width: 1200,
+        height: 630,
+        alt: "Zak Nilsen",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {

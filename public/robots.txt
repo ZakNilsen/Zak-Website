@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# If you have a sitemap, uncomment and update the URL below:
-# Sitemap: https://example.com/sitemap.xml
+Sitemap: https://zaknilsen.com/sitemap.xml

@@ -1,7 +1,6 @@
 "use client";
 
 import styles from "./navigation.module.css";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -27,14 +26,20 @@ function LogoName({ size = "normal", className = "" }) {
   );
 }
 
-const HamburgerMenu = dynamic(() => import("../mobile/mobileMenu"), { ssr: false });
-
 export default function Navigation() {
   const { isMobile } = useMobile();
   const pathname = usePathname();
   const { canAccessSecret } = useVisitedPages();
   const [isScrolled, setIsScrolled] = useState(false);
   const isSecretPage = pathname === "/secret";
+
+  const [HamburgerMenu, setHamburgerMenu] = useState<React.ComponentType | null>(null);
+
+  useEffect(() => {
+    if (isMobile && !HamburgerMenu) {
+      import("../mobile/mobileMenu").then((mod) => setHamburgerMenu(() => mod.default));
+    }
+  }, [isMobile, HamburgerMenu]);
 
   useEffect(() => {
     // Only set up the listener if we are on a mobile device
@@ -61,26 +66,26 @@ export default function Navigation() {
   }
 
   return (
-      <div className={styles.navigationContainer}>
-        {!isMobile && (
-          <div className={styles.topBar}>
-            <div className={styles.logoName}>
-              <LogoName />
-            </div>
-            <nav className={styles.topNav}>
-              <Link href="/" className={styles.navLink}>Home</Link>
-              <Link href="/about" className={styles.navLink}>About</Link>
-              <Link href="/projects" className={styles.navLink}>Projects</Link>
-              {canAccessSecret && <Link href="/secret" className={styles.navLink}>Starfall</Link>}
-            </nav>
+    <div className={styles.navigationContainer}>
+      {!isMobile && (
+        <div className={styles.topBar}>
+          <div className={styles.logoName}>
+            <LogoName />
           </div>
-        )}
-        {isMobile && (
-        <div className={styles.mobileNavHeader}>
-          <LogoName size="small" className={isScrolled ? styles.hiddenLogo : ''} />
-          <HamburgerMenu />
+          <nav className={styles.topNav}>
+            <Link href="/" className={styles.navLink}>Home</Link>
+            <Link href="/about" className={styles.navLink}>About</Link>
+            <Link href="/projects" className={styles.navLink}>Projects</Link>
+            {canAccessSecret && <Link href="/secret" className={styles.navLink}>Starfall</Link>}
+          </nav>
         </div>
       )}
-      </div>
-    );
+      {isMobile && (
+        <div className={styles.mobileNavHeader}>
+          <LogoName size="small" className={isScrolled ? styles.hiddenLogo : ''} />
+          {HamburgerMenu && <HamburgerMenu />}
+        </div>
+      )}
+    </div>
+  );
 }
