@@ -4,7 +4,7 @@ import "./globals.css";
 import AppShell from "./AppShell";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zaknilsen.com"),
+  metadataBase: new URL("https://www.zaknilsen.com"),
   title: {
     default: "Zak Nilsen",
     template: "%s | Zak Nilsen",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Zak Nilsen",
     description: "Personal website for Zak Nilsen, featuring projects, creative work, and digital experiments.",
-    url: "https://zaknilsen.com",
+    url: "https://www.zaknilsen.com",
     siteName: "Zak Nilsen",
     locale: "en_US",
     type: "website",
