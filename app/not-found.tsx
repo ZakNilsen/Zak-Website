@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Link from 'next/link'
 import React from 'react'
 import styles from './not-found.module.css'
+
+export const metadata: Metadata = {
+  title: "404 — Not Found",
+  robots: { index: false, follow: true },
+};
 
 const TWINKLE_STARS = [
   { top: '10%', left: '15%', size: '3px', duration: '3.2s', delay: '0s' },
