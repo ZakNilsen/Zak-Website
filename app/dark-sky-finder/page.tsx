@@ -4,6 +4,13 @@ import DarkSkyFinder from "./darkSkyFinder";
 export const metadata: Metadata = {
   title: "Dark Sky Finder",
   description: "Find dark sky spots near you using NASA night-lights imagery and a live cloud-cover forecast.",
+  alternates: {
+    canonical: "/dark-sky-finder",
+  },
+  openGraph: {
+    title: "Dark Sky Finder | Zak Nilsen",
+    url: "https://www.zaknilsen.com/dark-sky-finder",
+  },
 };
 
 export default function DarkSkyFinderPage() {
