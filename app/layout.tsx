@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/forest-silhouette.png",
+        url: "/images/zn-preview.png",
         width: 1200,
         height: 630,
         alt: "Zak Nilsen",
